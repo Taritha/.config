@@ -1,0 +1,502 @@
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 2353: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 651: /home/taritha/.config/bashtop/error.log: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 2040: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 651: /home/taritha/.config/bashtop/error.log: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 2238: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 651: /home/taritha/.config/bashtop/error.log: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 2353: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 651: /home/taritha/.config/bashtop/error.log: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 2040: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 651: /home/taritha/.config/bashtop/error.log: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 2353: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 651: /home/taritha/.config/bashtop/error.log: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 2040: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 651: /home/taritha/.config/bashtop/error.log: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 2353: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 651: /home/taritha/.config/bashtop/error.log: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 2040: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 651: /home/taritha/.config/bashtop/error.log: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 2353: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 651: /home/taritha/.config/bashtop/error.log: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 2040: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 651: /home/taritha/.config/bashtop/error.log: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 2238: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 651: /home/taritha/.config/bashtop/error.log: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 2353: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 651: /home/taritha/.config/bashtop/error.log: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 2040: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 651: /home/taritha/.config/bashtop/error.log: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 2353: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 651: /home/taritha/.config/bashtop/error.log: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 2040: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 651: /home/taritha/.config/bashtop/error.log: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 2353: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 651: /home/taritha/.config/bashtop/error.log: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 2040: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 651: /home/taritha/.config/bashtop/error.log: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 651: /home/taritha/.config/bashtop/error.log: Too many open files
+09:47:33 PM ERROR: On line 659 
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 651: /home/taritha/.config/bashtop/error.log: Too many open files
+09:47:33 PM ERROR: On line 659 (MUTED!)
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 2353: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 651: /home/taritha/.config/bashtop/error.log: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 2040: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 651: /home/taritha/.config/bashtop/error.log: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 2238: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 651: /home/taritha/.config/bashtop/error.log: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 2353: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 651: /home/taritha/.config/bashtop/error.log: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 2040: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 651: /home/taritha/.config/bashtop/error.log: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 651: /home/taritha/.config/bashtop/error.log: Too many open files
+09:47:37 PM ERROR: On line 659 
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 651: /home/taritha/.config/bashtop/error.log: Too many open files
+09:47:38 PM ERROR: On line 659 (MUTED!)
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+/usr/bin/bashtop: redirection error: cannot duplicate fd: Too many open files
+/usr/bin/bashtop: line 659: /dev/fd/119: Too many open files
+ 
+New instance of bashtop version: 0.9.25 Pid: 3543108
+ 
+New instance of bashtop version: 0.9.25 Pid: 748145
+ 
+New instance of bashtop version: 0.9.25 Pid: 38856
+ 
+New instance of bashtop version: 0.9.25 Pid: 1380419
+ 
+New instance of bashtop version: 0.9.25 Pid: 5866
+ 
+New instance of bashtop version: 0.9.25 Pid: 26478
+ 
+New instance of bashtop version: 0.9.25 Pid: 37371
+ 
+New instance of bashtop version: 0.9.25 Pid: 3811750
+ 
+New instance of bashtop version: 0.9.25 Pid: 3870467
+ 
+New instance of bashtop version: 0.9.25 Pid: 4074329
+ 
+New instance of bashtop version: 0.9.25 Pid: 4076625
+ 
+New instance of bashtop version: 0.9.25 Pid: 4080459
+ 
+New instance of bashtop version: 0.9.25 Pid: 4085741
+ 
+New instance of bashtop version: 0.9.25 Pid: 70350
+ 
+New instance of bashtop version: 0.9.25 Pid: 497943
+ 
+New instance of bashtop version: 0.9.25 Pid: 65919
+ 
+New instance of bashtop version: 0.9.25 Pid: 129961
+ 
+New instance of bashtop version: 0.9.25 Pid: 91093
+ 
+New instance of bashtop version: 0.9.25 Pid: 62854
+ 
+New instance of bashtop version: 0.9.25 Pid: 2200126

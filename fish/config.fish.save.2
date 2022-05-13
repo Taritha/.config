@@ -1,0 +1,15 @@
+if status is-interactive
+    # Commands to run in interactive sessions can go here
+end
+cat ~/.config/wpg/sequences &
+#~/.cache/wal/colors-tty.sh &
+
+# Startup applications
+if status is-login
+	thunar --daemon &
+	discord --start-minimized &
+	lxsession &
+	xbindkeys &
+	sudo python $HOME/AUR_installs/Sensors-Asus-EC/sensors-asus-ec.py -d
+	export PATH="$PATH:$HOME/.local/bin/"
+end

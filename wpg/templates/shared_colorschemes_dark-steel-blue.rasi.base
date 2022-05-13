@@ -1,0 +1,15 @@
+* {{
+  accent:           {color14};
+  background:       {color0}cc;
+  background-light: {color10};
+  background-light-alpha: {color13}22;
+  background-focus: {color10};
+  foreground:       {color15};
+  foreground-list:  {color7};
+  foreground-alpha: {color15}11;
+  on:               {color15};
+  off:              {color7};
+  background-opaque: {color0};
+  background-muted: {color8};
+  accent2:          {color9};
+}}

@@ -1,0 +1,15 @@
+* {
+  accent:           #50baff;
+  background:       #100f0ecc;
+  background-light: #7fb3e5;
+  background-light-alpha: #c78ea922;
+  background-focus: #7fb3e5;
+  foreground:       #fbfeff;
+  foreground-list:  #c3c5c8;
+  foreground-alpha: #fbfeff11;
+  on:               #fbfeff;
+  off:              #c3c5c8;
+  background-opaque: #100f0e;
+  background-muted: #2a2825;
+  accent2:          #e9b57d;
+}

@@ -1,0 +1,29 @@
+# default options
+display_on=0
+span_image=false
+lock_timeout=300
+fx_list=(dim blur dimblur pixel dimpixel color)
+dim_level=40
+blur_level=0.5
+pixel_scale=10,1000
+#solid_color=333333
+wallpaper_cmd="feh --bg-fill"
+quiet=false
+
+# default theme
+locktext="Type Password to Unlock"
+font="JetBrainsMono Nerd Font"
+insidecolor={background.strip}00
+ringcolor={foreground.strip}ff
+keyhlcolor={color6.strip}ff
+bshlcolor={color6.strip}ff
+separatorcolor={background.strip}00
+insidevercolor={background.strip}00
+insidewrongcolor={color6.strip}00
+ringvercolor={foreground.strip}00
+ringwrongcolor={foreground.strip}00
+verifcolor={foreground.strip}00
+timecolor={foreground.strip}00
+datecolor={foreground.strip}00
+loginbox={background.strip}66
+loginshadow={background.strip}88
