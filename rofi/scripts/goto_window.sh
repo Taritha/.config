@@ -24,7 +24,7 @@ if [ "$1" != "" ]; then
 
     # Show the user only the windows of the command line program
     elif [[ ${#id_index[@]} -gt 1 ]]; then
-        id_index="$(echo -e "$options" | grep "$1" | $rofi_command -dmenu -p "Select window to go to" -selected-row 0 | cut -d- -f1)"
+        id_index="$(echo -e "$options" | grep "$1" | $rofi_command -dmenu -p "Go to" -selected-row 0 | cut -d- -f1)"
 
     else
         # If there are no instances of said program, open a new instance
@@ -66,7 +66,7 @@ if [ "$1" != "" ]; then
     fi
 else
     # Focuses on user-selected window
-    id_index="$(echo -e "$options" | $rofi_command -dmenu -p "Select window to go to" -selected-row 0 | cut -d- -f1)"
+    id_index="$(echo -e "$options" | $rofi_command -dmenu -p "Go to" -selected-row 0 | cut -d- -f1)"
 fi
 
 bspc node "${ids[$((id_index - 1))]}" -f

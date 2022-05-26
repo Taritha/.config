@@ -63,6 +63,7 @@ foreground = ${{colors.foreground}}
 
 font-0 = JetBrainsMono Nerd Font:size=12;2.5
 font-1 = JetBrainsMono Nerd Font:size=21;5
+font-2 = Noto Sans CJK JP:size=15;3
 
 line-size = 3
 modules-left = rofidmenu settings filesearch gap pamac firefox email slack discord steam lutris
@@ -315,9 +316,10 @@ font-1 = JetBrainsMono Nerd Font:size=21;5
 font-2 = mononoki Nerd Font:size=7;3
 font-3 = JetBrainsMono Nerd Font:size=18;4.5
 font-4 = JetBrainsMono Nerd Font:size=14;3.5
+font-5 = Noto Sans CJK JP:size=15;3
 
 line-size = 3
-modules-left = gap t_sensor spacer gputemp spacer temperature cpu 
+modules-left = gap t_sensor spacer gputemp spacer temperature cpu
 modules-center = bspwm
 modules-right = memory spacer filesystem spacer date gap hardware
 
@@ -445,7 +447,7 @@ click-left = bash /home/taritha/.config/rofi/scripts/goto_window.sh System
 
 [bar/audio]
 monitor = ${{env:MONITOR:DisplayPort-1}}
-width = 16.5%
+width = 17.5%
 height = 34
 offset-x = 0.3%
 offset-y = 0.6%
@@ -464,6 +466,8 @@ font-1 = JetBrainsMono Nerd Font:size=21;5
 font-2 = JetBrainsMono Nerd Font:size=18;4
 font-3 = JetBrainsMono Nerd Font:size=16;3.75
 font-4 = mononoki Nerd Font:size=11;3
+; Backup font for japanese characters
+font-5 = Noto Sans CJK JP:size=15;3
 
 line-size = 3
 modules-left = spotify spotify-prev spotify-play-pause spotify-next cava pulseaudio
@@ -506,10 +510,11 @@ click-right = pavucontrol
 type = custom/script
 tail = true
 format = <label>
+format-padding = 1
 label-foreground = ${{colors.color6}}
 label-background = ${{colors.background}}
 label = "%{{T5}} %output% %{{T-}}"
-exec = $HOME/.config/polybar/scripts/cava.sh
+exec = bash ~/.config/polybar/scripts/cava.sh
 
 ;---Spotify---
 
@@ -523,8 +528,9 @@ format-padding = 0
 tail = true
 format-prefix = "%{{T3}}  %{{T-}}"
 format = <label>
+label = "%{{T1}} %output:20:20% %{{T-}}"
 
-exec-if = sleep 0.5
+exec-if = sleep 0.1
 exec = ~/.config/polybar/scripts/scroll_spotify_status.sh
 click-left = bash /home/taritha/.config/rofi/scripts/goto_window.sh Spotify &
 
@@ -575,9 +581,9 @@ format-suffix-foreground = ${{colors.color4}}
 
 [bar/networking]
 monitor = ${{env:MONITOR:DisplayPort-1}}
-width = 16.6%
+width = 17.5%
 height = 34
-offset-x = 83.1%
+offset-x = 82.2%
 offset-y = 0.6%
 bottom = true
 fixed-center = true
@@ -592,6 +598,7 @@ foreground = ${{colors.foreground}}
 font-0 = JetBrainsMono Nerd Font:size=12;2.5
 font-1 = JetBrainsMono Nerd Font:size=21;5
 font-2 = JetBrainsMono Nerd Font:size=14;3
+font-3 = Noto Sans CJK JP:size=15;3
 
 line-size = 3
 modules-left = gap bluetooth vpn netselect network2 
@@ -626,7 +633,7 @@ click-left = networkmanager_dmenu -theme themes/network.rasi
 type = internal/network
 interface = enp5s0
 interval = 1.0
-label-connected = "  %downspeed:9%   %upspeed:9% "
+label-connected = "  %downspeed:10:10%   %upspeed:10:10% "
 label-connected-foreground = ${{colors.background}}
 ;label-connected-underline = ${{colors.background}}
 ;label-connected-overline = ${{colors.background}}
@@ -646,16 +653,16 @@ animation-packetloss-framerate = 500
 type = internal/network
 interface = wlp4s0
 interval = 5.0
-label-connected = "%essid:12%"
+label-connected = "%essid:13:13:...%"
 label-connected-foreground = ${{colors.color6}}
 ;label-connected-underline = ${{colors.background}}
 ;label-connected-overline = ${{colors.background}}
 label-connected-background = ${{colors.background}}
 label-connected-padding = 0
-label-disconnected = "disconnected"
+label-disconnected = " disconnected"
 label-disconnected-foreground = ${{colors.color6}}
 label-disconnected-background = ${{colors.background}}
-label-connected-maxlen = 12
+label-connected-maxlen = 13
 
 [module/netselect]
 type = custom/script

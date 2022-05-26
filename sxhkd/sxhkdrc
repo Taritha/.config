@@ -10,13 +10,13 @@ super + Return
 
 # program launcher
 super + @space
-	bash /home/taritha/.config/rofi/scripts/appsmenu.sh
+	bash ~/.config/rofi/scripts/appsmenu.sh
 
 super + alt + @space
-	bash /home/taritha/.config/rofi/scripts/runmenu.sh
+	bash ~/.config/rofi/scripts/runmenu.sh
 
 super + p
-	bash /home/taritha/.config/rofi/scripts/powermenu.sh
+	bash ~/.config/rofi/scripts/powermenu.sh
 
 #
 # Show clipboard history
@@ -28,7 +28,7 @@ super + c
 # Show settings menu
 #
 super + o
-	bash /home/taritha/.config/rofi/scripts/menu.sh
+	bash ~/.config/rofi/scripts/menu.sh
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -182,7 +182,7 @@ alt + shift + x
 # Reload polybar when it acts dumb
 #
 super + r
-	bash ~/.config/polybar/launch.sh
+	~/.config/polybar/launch.sh
 
 #
 # Dunst thingies
@@ -200,7 +200,4 @@ super + n
 # Find currently open window, go to it, and focus on it
 #
 super + {_,shift +} z
-	bash /home/taritha/.config/rofi/scripts/goto_window.sh
-
-super + shift + y
-	bash /home/taritha/.config/rofi/scripts/powermenu.sh
+	bash ~/.config/rofi/scripts/goto_window.sh

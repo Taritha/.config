@@ -15,6 +15,7 @@ if status is-login
 	xset s off &
 	xset -dpms &
 	wpg -m &
+	/usr/lib/pentablet/pentablet.sh &
 end
 
 export PATH="$PATH:$HOME/.local/bin/"
