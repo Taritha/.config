@@ -201,3 +201,45 @@ super + n
 #
 super + {_,shift +} z
 	bash ~/.config/rofi/scripts/goto_window.sh
+
+#
+# Play-pause media key
+#
+XF86AudioPlay
+	playerctl play-pause
+
+#
+# Next media key
+#
+XF86AudioNext
+	playerctl next
+
+#
+# Previous media key
+#
+XF86AudioPrev
+	playerctl previous
+
+#
+# Stop media key
+#
+XF86AudioStop
+	playerctl -a stop
+
+#
+# Mute media key
+#
+XF86AudioMute
+	pactl set-sink-mute alsa_output.usb-Schiit_Audio_Modi_Multibit-00.analog-stereo toggle && ~/.config/dunst/scripts/get_volume.sh
+
+#
+# Vol down media key
+#
+XF86AudioLowerVolume
+	sh -c "pactl set-sink-volume alsa_output.usb-Schiit_Audio_Modi_Multibit-00.analog-stereo -1%" && ~/.config/dunst/scripts/get_volume.sh
+
+#
+# Vol up media key
+#
+XF86AudioRaiseVolume
+	sh -c "pactl set-sink-volume alsa_output.usb-Schiit_Audio_Modi_Multibit-00.analog-stereo +1%" && ~/.config/dunst/scripts/get_volume.sh
