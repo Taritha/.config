@@ -256,4 +256,4 @@ XF86AudioRaiseVolume
 # Mouse Hotkeys
 ###############################
 ~button3
-	bspc query -D -d .focused.active && echo -e "$(cat ~/.config/jgmenu/menu.txt)" | jgmenu --simple
+	! bspc query -D -n pointed.local && echo -e "$(cat ~/.config/jgmenu/menu.txt)" | jgmenu --simple

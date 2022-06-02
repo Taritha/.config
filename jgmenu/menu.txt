@@ -1,11 +1,11 @@
-Browser,firefox-developer-edition,firefox-developer-edition
+Browser,firefox,firefox
 File Manager,thunar,org.xfce.thunar
 ^sep()
-Launch Terminal,kitty
+Launch Terminal,kitty,kitty
 ^sep()
-Lock,betterlockscreen -l dim
+Lock,betterlockscreen -l dim,lock
 Exit,^checkout(exit),system-shutdown
 ^tag(exit)
-Log Out, bspc quit,system-logout
+Log Out,bspc quit,exit
 Reboot,systemctl -i reboot,system-reboot
 Shutdown,systemctl -i poweroff,system-shutdown
