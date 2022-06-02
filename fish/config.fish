@@ -10,7 +10,6 @@ if status is-login
 	thunar --daemon &
 	discord --start-minimized &
 	lxsession &
-	xbindkeys &
 	greenclip daemon &
 	xset s off &
 	xset -dpms &

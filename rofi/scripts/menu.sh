@@ -12,7 +12,6 @@ bt=" Bluetooth"
 vpn="嬨 VPN"
 network=" Networking"
 monitors=" Display(s)"
-keybinds=" Keybinds"
 theme=" GTK Appearance/Theme"
 wallpaper=" Set Wallpaper/Colorscheme/GRUB Image"
 grub=" Grub Customizer"
@@ -25,7 +24,7 @@ draw=" Drawing Tablet/Display"
 rgb=" RGB"
 corsair=" Corsair Peripherals"
 # Variable passed to rofi
-options="$adsysinfo\n$gpuinfo\n$wifi\n$bt\n$vpn\n$network\n$monitors\n$keybinds\n$theme\n$wallpaper\n$grub\n$login\n$rofi\n$audio\n$print\n$usb\n$draw\n$rgb\n$corsair"
+options="$adsysinfo\n$gpuinfo\n$wifi\n$bt\n$vpn\n$network\n$monitors\n$theme\n$wallpaper\n$grub\n$login\n$rofi\n$audio\n$print\n$usb\n$draw\n$rgb\n$corsair"
 
 chosen="$(echo -e "$options" | $rofi_command -dmenu -p "System Settings" -selected-row 0)"
 case $chosen in
@@ -49,9 +48,6 @@ case $chosen in
         ;;
     $monitors)
         arandr
-        ;;
-    $keybinds)
-        xbindkeys_config
         ;;
     $theme)
         lxappearance

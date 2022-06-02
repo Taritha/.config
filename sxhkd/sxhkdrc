@@ -160,9 +160,9 @@ alt + Print
 super + w
 	wpg -m
 
-#
-# Visibility toggle using lapav script from https://github.com/shubham-cpp/lapav (TODO: Get this working in some form)
-#
+###############################
+# Window Visibility Options
+###############################
 
 # Hide the focused window in a saved order
 super + a
@@ -184,6 +184,10 @@ alt + shift + x
 super + r
 	~/.config/polybar/launch.sh
 
+###############################
+# Notifications
+###############################
+
 #
 # Dunst thingies
 #
@@ -201,6 +205,10 @@ super + n
 #
 super + {_,shift +} z
 	bash ~/.config/rofi/scripts/goto_window.sh
+
+###############################
+# Audio Controls
+###############################
 
 #
 # Play-pause media key
@@ -243,3 +251,9 @@ XF86AudioLowerVolume
 #
 XF86AudioRaiseVolume
 	sh -c "pactl set-sink-volume alsa_output.usb-Schiit_Audio_Modi_Multibit-00.analog-stereo +1%" && ~/.config/dunst/scripts/get_volume.sh
+
+###############################
+# Mouse Hotkeys
+###############################
+~button3
+	bspc query -D -d .focused.active && echo -e "$(cat ~/.config/jgmenu/menu.txt)" | jgmenu --simple
