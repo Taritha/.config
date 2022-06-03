@@ -1,7 +1,7 @@
 #!/bin/bash
 
 TEMP=$(sensors | grep edge | cut -c16-17)
-POWER=$(sensors | grep slowPPT | cut -c14-16)
+POWER=$(sensors | grep PPT | cut -c14-16)
 
 # if [[ "${TEMP}" -lt 25 ]]
 # then

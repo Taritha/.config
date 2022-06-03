@@ -380,7 +380,7 @@ interval = 25
 
 mount-0 = /
 
-label-mounted =  %free%  %percentage_free%%
+label-mounted =  %percentage_free%%
 label-mounted-foreground = ${{colors.color12}}
 label-mounted-background = ${{colors.background}}
 label-unmounted = %mountpoint% not mounted
@@ -409,6 +409,8 @@ format-padding = 0
 ;format_underline = ${{colors.color7}}
 ;format-overline = ${{colors.color7}}
 format-prefix = %{{T5}}菉 %{{T-}}
+format = <label>
+label = "%{{T1}}%output:12:12%%{{T-}}"
 
 interval = 1
 

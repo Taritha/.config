@@ -1,7 +1,7 @@
 Browser,firefox,firefox
 File Manager,thunar,org.xfce.thunar
 ^sep()
-Launch Terminal,kitty,kitty
+Terminal,kitty,kitty
 ^sep()
 Lock,betterlockscreen -l dim,lock
 Exit,^checkout(exit),system-shutdown

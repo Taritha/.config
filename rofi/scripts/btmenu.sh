@@ -1,16 +1,23 @@
 #!/bin/bash
 
 rofi_command="rofi -theme themes/togglemenu.rasi"
+directory="/usr/share/icons/Inverse-black-dark"
 
 #### Options ###
-off=" Off"
-on=" On"
-adv=" Advanced Settings"
+off=" Switch off"
+on=" Switch on"
+adv=" Device Control/Settings"
+powstatus="$(bluetoothctl show | grep Powered | cut -d ':' -f2)"
 
-status=" Status:$(bluetoothctl show | grep Powered)"
-options="$status\n$on\n$off\n$adv"
+if [ $powstatus = "yes" ]; then
+    status=" Bluetooth | Powered On"
+    options="$off\n$adv"
+else
+    status=" Bluetooth | Powered Off"
+    options="$on\n$adv"
+fi
 
-chosen="$(echo -e "$options" | $rofi_command -dmenu -p "Bluetooth" -selected-row 0)"
+chosen="$(echo -e "$options" | $rofi_command -dmenu -p "$status" -selected-row 0)"
 case $chosen in
     $on)
         bluetoothctl power on
@@ -22,6 +29,6 @@ case $chosen in
         ;;
     $adv)
         blueberry
-        dunstify --replace 200 "Bluetooth" " Advanced settings menu"
+        dunstify --replace 200 "Bluetooth" " Bluetooth Settings Menu"
 esac
 
