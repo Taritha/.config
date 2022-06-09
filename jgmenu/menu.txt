@@ -1,5 +1,6 @@
 Browser,firefox,firefox
 File Manager,thunar,org.xfce.thunar
+RGB,killall -9 openrgb && openrgb,OpenRGB
 ^sep()
 Terminal,kitty,kitty
 ^sep()

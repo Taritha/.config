@@ -1,8 +1,5 @@
 #!usr/bin/env sh
 
-#
-# wm independent hotkeys
-#
 
 # terminal emulator
 super + Return
@@ -12,31 +9,25 @@ super + Return
 super + @space
 	bash ~/.config/rofi/scripts/appsmenu.sh
 
+# run arbitrary commands
 super + alt + @space
 	bash ~/.config/rofi/scripts/runmenu.sh
 
+# power menu
 super + p
 	bash ~/.config/rofi/scripts/powermenu.sh
 
-#
-# Show clipboard history
-#
+# show clipboard history
 super + c
 	rofi -modi "clipboard:greenclip print" -p "fooba" -show clipboard -theme themes/centermenu.rasi
 
-#
-# Show settings menu
-#
+# show settings menu
 super + o
 	bash ~/.config/rofi/scripts/menu.sh
 
-# make sxhkd reload its configuration files:
+# reload keybind donfiv (sxhkd)
 super + Escape
 	pkill -USR1 -x sxhkd
-
-#
-# bspwm hotkeys
-#
 
 # quit/restart bspwm
 super + alt + {q,r}
@@ -58,10 +49,6 @@ super + y
 super + g
 	bspc node -s biggest.window
 
-#
-# state/flags
-#
-
 # set the window state
 super + {t,shift + t,s,f}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
@@ -69,10 +56,6 @@ super + {t,shift + t,s,f}
 # set the node flags
 super + ctrl + {m,x,y,z}
 	bspc node -g {marked,locked,sticky,private}
-
-#
-# focus/swap
-#
 
 # focus the node in the given direction
 super + {_,shift + }{h,j,k,l}
@@ -104,10 +87,6 @@ super + {o,i}
 super + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}'
 
-#
-# preselect
-#
-
 # preselect the direction
 super + {Left,Down,Up,Right}
 	bspc node -p {west,south,north,east}
@@ -128,10 +107,6 @@ super + ctrl + shift + space
 super + ctrl + space
 	bspc node -n last.!automatic
 
-#
-# move/resize
-#
-
 # expand a window by moving one of its side outward
 super + alt + {h,j,k,l}
 	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
@@ -144,116 +119,77 @@ super + alt + shift + {h,j,k,l}
 super + shift + {h,j,k,l}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
-
-#
-# Screenshots
-# 
+# screenshots
 Print
 	gnome-screenshot -i
 
 alt + Print
 	gnome-screenshot -c -d 1 -a
 
-#
 # Choose a new, random wallpaper
-#
 super + w
 	wpg -m
 
-###############################
-# Window Visibility Options
-###############################
-
-# Hide the focused window in a saved order
+# hide the focused window in a saved order
 super + a
 	~/.config/bspwm/scripts/bspc-ordered-hide.sh hide
 
-# Unhide the hidden windows in order (shift lets you choose with rofi)
+# unhide the hidden windows in order (shift lets you choose with rofi)
 super + {_,shift +} d
 	{~/.config/bspwm/scripts/bspc-ordered-hide.sh unhide --focus, ~/.config/bspwm/scripts/bspc-unhide-menu.sh --all}
 
-#
-# Lock screen
-#
+# lock screen
 alt + shift + x
 	betterlockscreen -l dim
 
-#
-# Reload polybar when it acts dumb
-#
+# Rreload polybar when it acts dumb
 super + r
 	~/.config/polybar/launch.sh
 
-###############################
-# Notifications
-###############################
-
-#
-# Dunst thingies
-#
+# close last notification
 super + x
 	dunstctl close
 
+# close all notifications
 super + shift + x
 	dunstctl close-all
 
+# show last notification in history
 super + n
 	dunstctl history-pop
 
-#
-# Find currently open window, go to it, and focus on it
-#
+# find currently open window, go to it, and focus on it
 super + {_,shift +} z
 	bash ~/.config/rofi/scripts/goto_window.sh
 
-###############################
-# Audio Controls
-###############################
-
-#
-# Play-pause media key
-#
+# play-pause media key
 XF86AudioPlay
 	playerctl play-pause
 
-#
-# Next media key
-#
+# next media key
 XF86AudioNext
 	playerctl next
 
-#
-# Previous media key
-#
+# previous media key
 XF86AudioPrev
 	playerctl previous
 
-#
-# Stop media key
-#
+# stop media key
 XF86AudioStop
 	playerctl -a stop
 
-#
-# Mute media key
-#
+# mute media key
 XF86AudioMute
 	pactl set-sink-mute alsa_output.usb-Schiit_Audio_Modi_Multibit-00.analog-stereo toggle && ~/.config/dunst/scripts/get_volume.sh
 
-#
-# Vol down media key
-#
+# vol down media key
 XF86AudioLowerVolume
 	sh -c "pactl set-sink-volume alsa_output.usb-Schiit_Audio_Modi_Multibit-00.analog-stereo -1%" && ~/.config/dunst/scripts/get_volume.sh
 
-#
-# Vol up media key
-#
+# vol up media key
 XF86AudioRaiseVolume
 	sh -c "pactl set-sink-volume alsa_output.usb-Schiit_Audio_Modi_Multibit-00.analog-stereo +1%" && ~/.config/dunst/scripts/get_volume.sh
 
-###############################
-# Mouse Hotkeys
-###############################
+# show right click menu on desktop
 ~button3
 	! bspc query -D -n pointed.local && echo -e "$(cat ~/.config/jgmenu/menu.txt)" | jgmenu --simple

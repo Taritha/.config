@@ -26,14 +26,14 @@ else
     spotify
 fi
 
-# Gets current wallpaper directory from ~/.fehbg
-# paperpath=$(cat ~/.fehbg | grep wpg | cut -d " " -f 4 | cut -d "'" -f 2)
-paperpath=$(readlink -f ~/.config/wpg/.current)
+# # Gets current wallpaper directory from ~/.fehbg
+# # paperpath=$(cat ~/.fehbg | grep wpg | cut -d " " -f 4 | cut -d "'" -f 2)
+# paperpath=$(readlink -f ~/.config/wpg/.current)
 
-# Update lockscreen to use same wallpaper as desktop
-dunstify -u critical "Betterlockscreen" "Updating lock screen wallpaper effects..."
-betterlockscreen -u "${paperpath}" --fx dim,blur --display 1 && dunstify -u critical "Betterlockscreen" "Update complete"
+# # Update lockscreen to use same wallpaper as desktop
+# dunstify -u critical "Betterlockscreen" "Updating lock screen wallpaper effects..."
+# betterlockscreen -u "${paperpath}" --fx dim,blur --display 1 && dunstify -u critical "Betterlockscreen" "Update complete"
 
-# Wait 1s and then close notifications
-sleep 1
-dunstctl close-all
+# # Wait 1s and then close notifications
+# sleep 1
+# dunstctl close-all
