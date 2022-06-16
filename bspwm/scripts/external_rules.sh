@@ -45,4 +45,14 @@ case "$class" in
 	;;
 
 esac
-		
+
+# Forces zoom windows to be on the 10th desktop in floating mode
+title=$(xtitle "$wid")
+case "$title" in 
+	"Zoom Cloud Meetings"|"Qt Client Leader Window")
+		echo "bspc rule -a $2:$3 state=floating desktop=10"
+		;;
+	"Zoom Meeting")
+		echo "bspc rule -a $2:$3 desktop=10"
+	;;
+esac
