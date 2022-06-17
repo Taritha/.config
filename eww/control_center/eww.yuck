@@ -36,6 +36,7 @@
       (button :onclick "scripts/logger.zsh clear"
         :class "control-center-headers-clear"
         :halign "end"
+        :tooltip "Clear notification history"
       ""))
     
     (literal :content control-center-cards)

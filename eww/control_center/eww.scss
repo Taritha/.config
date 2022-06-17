@@ -20,24 +20,25 @@
     font-size: 28;
     font-weight: bold;
     color: $color9;
-    font-family: "JetBrainsMono";
+    font-family: "JetBrainsMono Nerd Font";
+    text-shadow: 5px 5px 5px #000000;
 }
 
 .control-center-headers-clear {
     font-weight: bold;
-    padding: 0em 0.2em 0em 0.2em;
+    padding: 0em 0.4em 0em 0.3em;
     margin-bottom: 0.2em;
     margin-right: -0.5em;
     color: $color0;
     background-color: $color9;
     border-radius: 15px;
-    font-family: "JetBrainsMono";
-    font-size: 54px;
-    box-shadow: 0px 0px 10px #121212;
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 36px;
+    box-shadow: 5px 5px 5px #000000;
 }
 
 .control-center-headers-clear:hover {
-background-color: $color8;
+background-color: shade($color9, 0.8);
 }
 
 .control-center-empty-box {
@@ -60,11 +61,10 @@ padding: 2em 1.5em 0 1.1em;
 .control-center-card-eventbox {
 background-color: $color8;
 border-radius: 15px;
-box-shadow: 0px 0px 10px #121212;
 }
 
 .control-center-card-eventbox:hover {
-background-color: $color2;
+background-color: shade($color8, 0.8);
 }
 
 .control-center-card-box {
@@ -145,7 +145,7 @@ margin-bottom: 0.3em;
 }
 
 .control-center-card-notify-close:hover {
-color: $color2;
+color: $color9;
 border-radius: 15px;
 background-color: $color0;
 }
@@ -162,7 +162,7 @@ color: $color15;
 background-color: $color8;
 margin: 20px 20px 0px 20px;
 border-radius: 20px;
-box-shadow: 10px 10px 10px #121212;
+box-shadow: 5px 5px 5px #000000;
 }
 
 .control-center-buttons {
@@ -170,6 +170,7 @@ background-color: $color0;
 margin: 10px 10px 0px 10px;
 border-radius: 20px;
 padding: 15px 0px 15px 0px;
+box-shadow: 5px 5px 5px #000000;
 }
 
 .net-status-on {
@@ -177,7 +178,7 @@ color: $color0;
 background-color: $color9;
 margin: 0px 19px 0px 19px;
 padding: 0.5em 0.3em 0.5em 0em;
-border-radius: 25px;
+border-radius: 15px;
 font-size: 24px;
 }
 
@@ -186,8 +187,12 @@ color: $color15;
 background-color: $color8;
 margin: 0px 19px 0px 19px;
 padding: 0.5em 0.3em 0.5em 0em;
-border-radius: 25px;
+border-radius: 15px;
 font-size: 24px;
+}
+
+.net-status-button:hover {
+    background-color: shade($color9, 0.8);
 }
 
 .comp-status-on {
@@ -195,7 +200,7 @@ color: $color0;
 background-color: $color11;
 margin: 0px 19px 0px 19px;
 padding: 0.5em 0.2em 0.5em 0em;
-border-radius: 25px;
+border-radius: 15px;
 font-size: 24px;
 }
 
@@ -204,8 +209,12 @@ color: $color15;
 background-color: $color8;
 margin: 0px 19px 0px 19px;
 padding: 0.5em 0.2em 0.5em 0em;
-border-radius: 25px;
+border-radius: 15px;
 font-size: 24px;
+}
+
+.comp-status-button:hover {
+    background-color: shade($color11, 0.8);
 }
 
 .bluetooth-status-on {
@@ -213,7 +222,7 @@ color: $color0;
 background-color: $color13;
 margin: 0px 19px 0px 19px;
 padding: 0.5em 0.1em 0.5em 0em;
-border-radius: 25px;
+border-radius: 15px;
 font-size: 24px;
 }
 
@@ -222,8 +231,12 @@ color: $color15;
 background-color: $color8;
 margin: 0px 19px 0px 19px;
 padding: 0.5em 0em 0.5em 0em;
-border-radius: 25px;
+border-radius: 15px;
 font-size: 24px;
+}
+
+.bluetooth-status-button:hover {
+    background-color: shade($color13, 0.8);
 }
 
 .dunst-status-on {
@@ -231,17 +244,21 @@ color: $color0;
 background-color: $color2;
 margin: 0px 19px 0px 19px;
 padding: 0.5em 0.3em 0.5em 0em;
-border-radius: 25px;
+border-radius: 15px;
 font-size: 24px;
 }
 
 .dunst-status-off {
 color: $color15;
-background-color:  $color8;
+background-color: $color8;
 margin: 0px 19px 0px 19px;
 padding: 0.5em 0.1em 0.5em 0em;
-border-radius: 25px;
+border-radius: 15px;
 font-size: 24px;
+}
+
+.dunst-status-button:hover {
+    background-color: shade($color2, 0.8);
 }
 
 .redshift-status-on {
@@ -249,17 +266,21 @@ color: $color9;
 background-color: $color8;
 margin: 0px 19px 0px 19px;
 padding: 0.4em 0.3em 0.5em 0em;
-border-radius: 25px;
+border-radius: 15px;
 font-size: 24px;
 }
 
 .redshift-status-off {
-color: $color9;
-background-color: $color8;
+color: $color0;
+background-color: $color15;
 margin: 0px 19px 0px 19px;
-padding: 0.5em 0em 0.5em 0em;
-border-radius: 25px;
+padding: 0.5em 0em 0.5em 0.05em;
+border-radius: 15px;
 font-size: 24px;
+}
+
+.redshift-status-button:hover {
+    background-color: shade($color15, 0.85);
 }
 
 .volume-slider-stuff {
@@ -276,7 +297,6 @@ color: $color0;
 border-radius: 50px;
 }
 
-
 .volume-slider trough {
 border-radius: 20px;
 background-color: $color0;
@@ -286,6 +306,10 @@ background-color: $color0;
 padding: 0.5em;
 border-radius: 20px;
 background: linear-gradient(to left, $color2, $color10);
+}
+
+.volume-slider-icon:hover {
+    background-color: shade($color9, 0.8);
 }
 
 .mic-slider-stuff {
@@ -300,6 +324,10 @@ font-size: 22px;
 background-color: $color14;
 color: $color0;
 border-radius: 50px;
+}
+
+.mic-slider-icon:hover {
+    background-color: shade($color14, 0.8);
 }
 
 .mic-slider trough {

@@ -49,8 +49,8 @@ function make_literal() {
   # local quote="$($HOME/.config/eww/Control-Center/scripts/quotes.zsh rand)"
   local quote=" All caught up!"
   [[ "$caches" == "" ]] \
-    && print '(box :class "control-center-empty-box" :height 925 :orientation "vertical" :space-evenly false (image :class "control-center-empty-banner" :valign "end" :vexpand true :path "assets/empty-notification.svg" :image-width 200 :image-height 200) (label :vexpand true :valign "start" :wrap true :class "control-center-empty-label" :text "'$quote'"))' \
-    || print "(scroll :height 925 :vscroll true (box :orientation 'vertical' :class 'control-center-scroll-box' :spacing 15 :space-evenly false $caches))"
+    && print '(box :class "control-center-empty-box" :height 945 :orientation "vertical" :space-evenly false (image :class "control-center-empty-banner" :valign "end" :vexpand true :path "assets/empty-notification.svg" :image-width 200 :image-height 200) (label :vexpand true :valign "start" :wrap true :class "control-center-empty-label" :text "'$quote'"))' \
+    || print "(scroll :height 945 :vscroll true (box :orientation 'vertical' :class 'control-center-scroll-box' :spacing 15 :space-evenly false $caches))"
 }
 
 function clear_logs() {
