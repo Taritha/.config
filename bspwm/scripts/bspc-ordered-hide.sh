@@ -77,7 +77,7 @@ hide() {
     # Hide file
     bspc node $node --flag hidden=on
     info=$(node_info $node)
-    notify-send -u low "Window hidden: \"$info\""
+    notify-send -u low "Window hidden: $info"
 }
 
 unhide() {
@@ -128,7 +128,7 @@ unhide() {
         # Send notification
         [ "$notify" -eq "1" ] && { 
             info=$(node_info $node)
-            notify-send -u low "Node unhidden on desktop $desktop:" "\"$info\""
+            notify-send -u low "Node unhidden on desktop $desktop:" "$info"
         }
     else
         # If not, the window has been unhidden in some other way. 

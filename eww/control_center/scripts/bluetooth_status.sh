@@ -20,10 +20,10 @@ icon() {
         # on
         if [ $(echo info | bluetoothctl | grep 'Device' | wc -c) -eq 0 ]
         then
-            echo ""
+            echo ""
             # connected
         else
-            echo "󰂱"
+            echo ""
         fi
     fi
 }
@@ -37,10 +37,10 @@ status() {
         # on
         if [ $(echo info | bluetoothctl | grep 'Device' | wc -c) -eq 0 ]
         then
-            echo ""
+            echo ""
             # connected
         else
-            echo "󰂯"
+            echo ""
         fi
     fi
 }

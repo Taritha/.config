@@ -94,7 +94,7 @@
       (box :class "control-center-buttons" :orientation "h"
         (button :tooltip "Toggle network [Wi-Fi]" :class "net-status-button ${net-status == "直" ? "net-status-on" : "net-status-off"}" :onclick net-toggle net-status)
         (button :tooltip "Toggle compositor" :class "comp-status-button ${comp == "" ? "comp-status-on" : "comp-status-off"}" :onclick comp-toggle comp)
-        (button :tooltip "Toggle bluetooth" :class "bluetooth-status-button ${bluetooth-status == "" ? "bluetooth-status-on" : "bluetooth-status-off"}" :onclick bluetooth-toggle bluetooth-icon)
+        (button :tooltip "Toggle bluetooth" :class "bluetooth-status-button ${bluetooth-status == "" || bluetooth-status == "" ? "bluetooth-status-on" : "bluetooth-status-off"}" :onclick bluetooth-toggle bluetooth-icon)
         (button :tooltip "Toggle do not disturb" :class "dunst-status-button ${dunst-status == "" ? "dunst-status-on" : "dunst-status-off"}" :onclick dunst-toggle dunst-status)
         (button :tooltip "Toggle night light" :class "redshift-status-button ${redshift == "ﯦ" ? "redshift-status-on" : "redshift-status-off"}" :onclick redshift-toggle redshift))
       (box :orientation "h" :class "volume-slider-stuff" :space-evenly "false"

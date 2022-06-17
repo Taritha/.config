@@ -26,14 +26,13 @@ function create_cache() {
   esac
   case "$DUNST_APP_NAME" in
     "Spotify") glyph="阮";;
-    "picom") glyph="";;
-    "sxhkd") glyph="";;
-    "brightness") glyph="";;
-    "nightmode") glyph="ﯦ";;
-    "microphone") glyph="";;
-    "volume") glyph="";;
-    "screenshot") glyph="";;
-    "firefox") glyph="";;
+    "Slack") glyph="聆";;
+    "Discord") glyph="ﭮ";;
+    "evolution-mail-notification") glyph="﯍";;
+    "evolution-alarm-notify") glyph="";;
+    "Package Manager") glyph="";;
+    "thunar-volman") glyph="淋";;
+    "firefox") glyph="";;
   esac
   # pipe stdout -> pipe cat stdin (cat conCATs multiple files and sends to stdout) -> absorb stdout from cat
   # concat: "one" + "two" + "three" -> notice how the order matters i.e. "one" will be prepended
