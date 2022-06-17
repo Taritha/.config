@@ -25,7 +25,7 @@ super + c
 super + o
 	bash ~/.config/rofi/scripts/menu.sh
 
-# reload keybind donfiv (sxhkd)
+# reload keybind config (sxhkd)
 super + Escape
 	pkill -USR1 -x sxhkd
 
@@ -103,7 +103,7 @@ ctrl + Escape
 super + ctrl + shift + space
 	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
 
-# Move current window to preselected spot
+# move current window to preselected spot
 super + ctrl + space
 	bspc node -n last.!automatic
 
@@ -126,7 +126,7 @@ Print
 alt + Print
 	gnome-screenshot -c -d 1 -a
 
-# Choose a new, random wallpaper
+# choose a new, random wallpaper
 super + w
 	wpg -m
 
@@ -142,7 +142,7 @@ super + {_,shift +} d
 alt + shift + x
 	betterlockscreen -l dim
 
-# Rreload polybar when it acts dumb
+# reload polybar when it acts dumb
 super + r
 	~/.config/polybar/launch.sh
 
@@ -180,16 +180,22 @@ XF86AudioStop
 
 # mute media key
 XF86AudioMute
-	pactl set-sink-mute alsa_output.usb-Schiit_Audio_Modi_Multibit-00.analog-stereo toggle && ~/.config/dunst/scripts/get_volume.sh
+	pamixer -t && ~/.config/eww/indicators/scripts/volume.sh
+	#pactl set-sink-mute alsa_output.usb-Schiit_Audio_Modi_Multibit-00.analog-stereo toggle && ~/.config/dunst/scripts/get_volume.sh
 
 # vol down media key
 XF86AudioLowerVolume
-	sh -c "pactl set-sink-volume alsa_output.usb-Schiit_Audio_Modi_Multibit-00.analog-stereo -1%" && ~/.config/dunst/scripts/get_volume.sh
+	pamixer -d 2 && ~/.config/eww/indicators/scripts/volume.sh
+	#sh -c "pactl set-sink-volume alsa_output.usb-Schiit_Audio_Modi_Multibit-00.analog-stereo -1%" && ~/.config/dunst/scripts/get_volume.sh
 
 # vol up media key
 XF86AudioRaiseVolume
-	sh -c "pactl set-sink-volume alsa_output.usb-Schiit_Audio_Modi_Multibit-00.analog-stereo +1%" && ~/.config/dunst/scripts/get_volume.sh
+	pamixer -i 2 && ~/.config/eww/indicators/scripts/volume.sh
+	# sh -c "pactl set-sink-volume alsa_output.usb-Schiit_Audio_Modi_Multibit-00.analog-stereo +1%" && ~/.config/dunst/scripts/get_volume.sh
 
 # show right click menu on desktop
 ~button3
 	! bspc query -D -n pointed.local && echo -e "$(cat ~/.config/jgmenu/menu.txt)" | jgmenu --simple
+
+super + e
+	bash ~/.config/rofi/scripts/sxhkd-keys.sh

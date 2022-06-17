@@ -1,0 +1,64 @@
+// Import pywal colors
+@import "../colors.scss";
+
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    all: unset;
+}
+
+.volume-window {
+    background-color: unset;
+}
+
+.volume-spacer,
+.menu-spacer {
+    transition: all 400ms cubic-bezier(0.1, -0, 0, 1.49)
+}
+
+.volume-widget {
+    background-color: $color0;
+    border-radius: 15px;
+    //border: 2px solid $color9;
+    padding: 10px 10px 10px 10px;
+    min-height: 24px;
+}
+
+.volume-icon {
+    font-size: 45px;
+    color: $color15;
+    margin: 0px 0px 0px 10px;
+}
+
+.volume-icon-muted {
+    color: $color8;
+}
+
+.volume-slider {
+    background-color: $color8;
+    border-radius: 10px;
+    margin: 16px 16px 16px 10px;
+    contents {
+        trough {
+            border-radius: 10px;
+            slider {
+                background: transparent;
+            }
+            highlight {
+                background: $color9;
+                padding:11px;
+                border-radius: 10px;
+            }
+        }
+    }
+}
+
+.volume-slider-muted {
+    background-color: $color8;
+    contents {
+        trough {
+            highlight {
+                background: $color8;
+            }
+        }
+    }
+}

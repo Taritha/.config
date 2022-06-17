@@ -1,0 +1,314 @@
+@import "../colors.scss";
+
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    all: unset;
+}
+
+.control-center {
+    background-color: $color0;
+    font-family: "JetBrainsMono Nerd Font", "Material Design Icons Desktop";
+    border-radius: 15px;
+}
+
+.control-center-headers {
+    padding: 1.5em 3em 1em 2em;
+    color: $color9;
+}
+
+.control-center-headers-label {
+    font-size: 28;
+    font-weight: bold;
+    color: $color9;
+    font-family: "JetBrainsMono";
+}
+
+.control-center-headers-clear {
+    font-weight: bold;
+    padding: 0em 0.2em 0em 0.2em;
+    margin-bottom: 0.2em;
+    margin-right: -0.5em;
+    color: $color0;
+    background-color: $color9;
+    border-radius: 15px;
+    font-family: "JetBrainsMono";
+    font-size: 54px;
+    box-shadow: 0px 0px 10px #121212;
+}
+
+.control-center-headers-clear:hover {
+background-color: $color8;
+}
+
+.control-center-empty-box {
+padding-left: 1em;
+padding-right: 1em;
+}
+
+.control-center-empty-label {
+padding-top: 2em;
+color: $color12;
+font-size: 22;
+padding-left: 2em;
+padding-right: 2em;
+}
+
+.control-center-scroll-box {
+padding: 2em 1.5em 0 1.1em;
+}
+
+.control-center-card-eventbox {
+background-color: $color8;
+border-radius: 15px;
+box-shadow: 0px 0px 10px #121212;
+}
+
+.control-center-card-eventbox:hover {
+background-color: $color2;
+}
+
+.control-center-card-box {
+padding: 1.7em;
+}
+
+.control-center-separator {
+padding: 0;
+color: $color1;
+}
+
+.control-center-LOW {
+background-color: $color8;
+color: $color5;
+padding: 0 1em 0 0.7em;
+font-size: 30;
+border-radius: 12px;
+}
+
+.control-center-NORMAL {
+background-color: $color8;
+color: $color9;
+padding: 0 1em 0 0.7em;
+font-size: 30;
+border-radius: 12px;
+}
+
+.control-center-CRITICAL {
+background-color: $color15;
+color: $color0;
+padding: 0 1em 0 0.7em;
+font-size: 30;
+border-radius: 12px;
+}
+
+.control-center-OTHER {
+background-color: $color8;
+color: $color11;
+padding: 0 1em 0 0.7em;
+font-size: 30;
+border-radius: 13px;
+}
+
+.control-center-spotify {
+background-color: $color8;
+color: $color11;
+padding: 0 1em 0 0.7em;
+font-size: 30;
+}
+
+.control-center-sxhkd {
+background-color: $color8;
+color: $color9;
+padding: 0 1em 0 0.7em;
+font-size: 30;
+}
+
+.control-center-brightness {
+background-color: $color8;
+color: $color5;
+padding: 0 1em 0 0.7em;
+font-size: 30;
+}
+
+.control-center-summary {
+font-weight: bold;
+font-size: 17;
+color: $color15;
+}
+
+.control-center-card-notify-close {
+color: $color8;
+background-color: $color6;
+border-radius: 30px;
+font-size: 24;
+padding: 0em 0.4em 0em 0.374em;
+margin-bottom: 0.3em;
+}
+
+.control-center-card-notify-close:hover {
+color: $color2;
+border-radius: 15px;
+background-color: $color0;
+}
+
+.control-center-body {
+color: $color15;
+}
+
+.control-center-bodytext {
+    color: $color6;
+}
+
+.control-center-tray {
+background-color: $color8;
+margin: 20px 20px 0px 20px;
+border-radius: 20px;
+box-shadow: 10px 10px 10px #121212;
+}
+
+.control-center-buttons {
+background-color: $color0;
+margin: 10px 10px 0px 10px;
+border-radius: 20px;
+padding: 15px 0px 15px 0px;
+}
+
+.net-status-on {
+color: $color0;
+background-color: $color9;
+margin: 0px 19px 0px 19px;
+padding: 0.5em 0.3em 0.5em 0em;
+border-radius: 25px;
+font-size: 24px;
+}
+
+.net-status-off {
+color: $color15;
+background-color: $color8;
+margin: 0px 19px 0px 19px;
+padding: 0.5em 0.3em 0.5em 0em;
+border-radius: 25px;
+font-size: 24px;
+}
+
+.volume-status-on {
+color: $color0;
+background-color: $color11;
+margin: 0px 19px 0px 19px;
+padding: 0.5em 0.2em 0.5em 0em;
+border-radius: 25px;
+font-size: 24px;
+}
+
+.volume-status-off {
+color: $color15;
+background-color: $color8;
+margin: 0px 19px 0px 19px;
+padding: 0.5em 0.2em 0.5em 0em;
+border-radius: 25px;
+font-size: 24px;
+}
+
+.bluetooth-status-on {
+color: $color0;
+background-color: $color13;
+margin: 0px 19px 0px 19px;
+padding: 0.5em 0.1em 0.5em 0em;
+border-radius: 25px;
+font-size: 24px;
+}
+
+.bluetooth-status-off {
+color: $color15;
+background-color: $color8;
+margin: 0px 19px 0px 19px;
+padding: 0.5em 0em 0.5em 0em;
+border-radius: 25px;
+font-size: 24px;
+}
+
+.dunst-status-on {
+color: $color0;
+background-color: $color2;
+margin: 0px 19px 0px 19px;
+padding: 0.5em 0.3em 0.5em 0em;
+border-radius: 25px;
+font-size: 24px;
+}
+
+.dunst-status-off {
+color: $color15;
+background-color:  $color8;
+margin: 0px 19px 0px 19px;
+padding: 0.5em 0.1em 0.5em 0em;
+border-radius: 25px;
+font-size: 24px;
+}
+
+.redshift-status-on {
+color: $color9;
+background-color: $color8;
+margin: 0px 19px 0px 19px;
+padding: 0.4em 0.3em 0.5em 0em;
+border-radius: 25px;
+font-size: 24px;
+}
+
+.redshift-status-off {
+color: $color9;
+background-color: $color8;
+margin: 0px 19px 0px 19px;
+padding: 0.5em 0em 0.5em 0em;
+border-radius: 25px;
+font-size: 24px;
+}
+
+.volume-slider-stuff {
+margin: 20px 20px 10px 20px;
+}
+
+.volume-slider-icon {
+color: $color5;
+padding: 10px 16px 10px 10px;
+margin-right: 10px;
+font-size: 22px;
+background-color: $color9;
+color: $color0;
+border-radius: 50px;
+}
+
+
+.volume-slider trough {
+border-radius: 20px;
+background-color: $color0;
+}
+
+.volume-slider highlight {
+padding: 0.5em;
+border-radius: 20px;
+background: linear-gradient(to left, $color2, $color10);
+}
+
+.mic-slider-stuff {
+margin: 10px 20px 10px 20px;
+}
+
+.mic-slider-icon {
+color: $color13;
+padding: 10px 13px 10px 12px;
+margin-right: 10px;
+font-size: 22px;
+background-color: $color14;
+color: $color0;
+border-radius: 50px;
+}
+
+.mic-slider trough {
+border-radius: 20px;
+background-color: $color0;
+}
+
+.mic-slider highlight {
+padding: 0.5em;
+border-radius: 20px;
+background: linear-gradient(to left, $color9, $color14);
+}

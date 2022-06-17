@@ -59,7 +59,7 @@
     frame_width = 0
 
     # Defines color of the frame around the notification window.
-    frame_color = "#5e91d7"
+    frame_color = "#ff86a9"
 
     # Define a color for the separator.
     # possible values are:
@@ -288,27 +288,31 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#0d1010"
+    background = "#0f0303"
     #background = "#1a1b26"
-    foreground = "#fffffd"
+    foreground = "#ffeae8"
     timeout = 10
     # Icon for notifications with low urgency, uncomment to enable
     #icon = /path/to/icon
 
 [urgency_normal]
-    background = "#0d1010"
-    foreground = "#67bdff"
+    background = "#0f0303"
+    foreground = "#ff7d0c"
     timeout = 15
     # Icon for notifications with normal urgency, uncomment to enable
     #icon = /path/to/icon
 
 [urgency_critical]
-    background = "#fffffd"
-    foreground = "#0d1010"
-    frame_color = "#d18d2c"
+    background = "#ffeae8"
+    foreground = "#0f0303"
+    frame_color = "#ff6201"
     timeout = 0
     # Icon for notifications with critical urgency, uncomment to enable
     #icon = /path/to/icon
+
+[logger]
+    summary = "*"
+    script = "~/.config/eww/control_center/scripts/logger.zsh"
 
 # Every section that isn't one of the above is interpreted as a rules to
 # override settings for certain messages.

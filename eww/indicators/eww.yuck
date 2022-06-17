@@ -1,0 +1,37 @@
+(defvar volume-level 50)
+(defvar volume-muted false)
+(defvar volume-hidden false)
+
+(defwindow volume-indicator
+    :geometry (geometry :y "-4%" :x "12px" :width "400px" :height "75px" :anchor "bottom left")
+    :windowtype "dock"
+    :wm-ignore true
+    :stacking "fg"
+    
+    (box :class "volume-window"
+        :orientation "v"
+        :space-evenly "false"
+        (box :class "volume-widget"
+            :orientation "h"
+            :space-evenly "false"
+            :spacing 10
+            (label :text {volume-muted ? "ﱝ" :
+                volume-level == 0 ? "ﱝ" :
+                volume-level < 33 ? "" :
+                volume-level < 66 ? "" :
+                volume-level < 100 ? "" :
+                ""
+                }
+            
+            :class 'volume-icon ${volume-muted ? "volume-icon-muted": ""}')
+            
+            (scale :class 'volume-slider ${volume-muted ? "volume-slider-muted" : ""}'
+                :hexpand "true"
+                :min 0
+                :max 101
+                :height 8
+                :value volume-level
+            :onchange "~/.config/eww/indicators/scripts/change_vol.sh {}")
+        )
+    )
+)
