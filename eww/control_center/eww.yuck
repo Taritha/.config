@@ -4,7 +4,7 @@
 
 ;; for controls and tray
 (defvar net-toggle "scripts/wifi.sh --toggle" )
-(defpoll net-status :interval "1s" "scripts/wifi.sh --status")
+(defpoll net-status :interval "3s" "scripts/wifi.sh --status")
 (defvar comp-toggle "scripts/composition.sh")
 (defpoll comp :interval "1s" "[ $(pidof picom) ] && echo '' || echo ''")
 (defvar bluetooth-toggle "scripts/bluetooth_status.sh --toggle")
@@ -13,7 +13,8 @@
 (defvar dunst-toggle "scripts/dunst.sh --toggle")
 (defpoll dunst-status :interval "1s" "scripts/dunst.sh --status")
 (defvar redshift-toggle "/home/taritha/.config/eww/control_center/scripts/nightmode.sh")
-(defpoll redshift :interval "1s" "[ $(pidof redshift) ] && echo 'ﯦ' || echo ''")
+(defpoll redshift :interval "3s" "[ $(pidof redshift) ] && echo 'ﯦ' || echo ''")
+(defvar card_rev false)
 
 ;; for sliders
 (defpoll volume :interval "1s" "~/.config/eww/control_center/scripts/get_vol.sh")
@@ -21,6 +22,12 @@
 (defpoll mic :interval "1s" "~/.config/eww/control_center/scripts/micvol.sh")
 (defpoll mic-slider-indicator :interval "0.05s" "scripts/get_mic.sh")
 
+;; misc
+(defvar eww "eww --config ~/.config/eww/control_center/")
+(deflisten art "~/.config/eww/control_center/scripts/get_spotify_cover.sh")
+(defpoll spot_song :interval "1s" "~/.config/eww/control_center/scripts/get_spotify_status.sh --title")
+(defpoll spot_artist :interval "1s" "~/.config/eww/control_center/scripts/get_spotify_status.sh --artist")
+(defpoll spot_album :interval "1s" "~/.config/eww/control_center/scripts/get_spotify_status.sh --album")
 
 (defwidget control-center[]
   (box :orientation "vertical"
@@ -40,13 +47,15 @@
       ""))
     
     (literal :content control-center-cards)
-    (tray))
+    (music_tray)
+    (tray)
+  )
 )
 
 
 (defwidget card [?class summary body glyph ?glyph_class ?SL ?M ?L ?R ?d_body]
-  (eventbox :onmiddleclick M
-    :onclick L
+  (eventbox :onmiddleclick "${eww} update card_rev=false"
+    :onclick "${eww} update card_rev=true"
     :onrightclick R
     :class "control-center-card-eventbox"
     (box :space-evenly false
@@ -73,11 +82,14 @@
         (label :text "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
           :class "control-center-separator"
         :halign "center")
-        (label :class "control-center-bodytext ${d_body}"
-          :text d_body
-          :wrap true
-          :halign "end"
-        )
+        (revealer :transition "slideup"
+          :reveal card_rev
+          :duration "350ms"
+          (label :class "control-center-bodytext ${d_body}"
+            :text d_body
+            :wrap true
+            :halign "end"
+          ))
         (label :limit-width 40
           :halign "start"
           :wrap true
@@ -118,15 +130,43 @@
                 :min 0
                 :onchange "~/.config/eww/control_center/scripts/change_mic.sh {}"
                 )
-              )
             )
-          )
         )
+    )
+)
 
+
+(defwidget music_tray []
+  (box :class "control-center-tray" :height 260
+      (box
+        :orientation "h"
+        :space-evenly "true"
+        (transform
+          :translate-x 2
+          (image
+            :path "${art}"
+            :image-width 200
+            :image-height 200
+        ))
+      (box 
+        :orientation "v" 
+        :space-evenly "false"
+        (label 
+          :class "spotify-text"
+          :text spot_song
+          :limit-width 15
+        )
+        (label
+          :class "spotify-text"
+          :text spot_album
+          :limit-width 15
+        )))))
+      
 
 (defwindow control-center :stacking "fg"
   :windowtype "normal"
   :wm-ignore true
   :monitor 0
-  :geometry (geometry :width 515 :height "92%" :y "4%" :x 12)
-  (control-center))
+  :geometry (geometry :width 515 :height "90%" :y "5%" :x 0 :anchor "top right")
+  (control-center)
+)

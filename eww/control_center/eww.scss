@@ -305,7 +305,7 @@ background-color: $color0;
 .volume-slider highlight {
 padding: 0.5em;
 border-radius: 20px;
-background: linear-gradient(to left, $color2, $color10);
+background: linear-gradient(to left, $color9, $color14);
 }
 
 .volume-slider-icon:hover {
@@ -339,4 +339,11 @@ background-color: $color0;
 padding: 0.5em;
 border-radius: 20px;
 background: linear-gradient(to left, $color9, $color14);
+}
+
+.spotify-text {
+    color: $color15;
+    padding: 1em 0em 0em 0em;
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 20;
 }
