@@ -1,19 +1,36 @@
 #!/bin/bash
 
-STATUS="$(playerctl --player='spotify' status 2>/dev/null)"
+# Set the source audio player here.
+# Players supporting the MPRIS spec are supported.
+# Examples: spotify, vlc, chrome, mpv and others.
+# Use `playerctld` to always detect the latest player.
+# See more here: https://github.com/altdesktop/playerctl/#selecting-players-to-control
+PLAYER="spotify"
+
+# Format of the information displayed
+# Eg. {{ artist }} - {{ album }} - {{ title }}
+# See more attributes here: https://github.com/altdesktop/playerctl/#printing-properties-and-metadata
+FORMAT="{{ artist }}"
+
+PLAYERCTL_STATUS=$(playerctl --player=$PLAYER status 2>/dev/null)
 EXIT_CODE=$?
 
 if [ $EXIT_CODE -eq 0 ]; then
-    if [[ "$1" == "--artist" ]]; then
-        thingy="$(playerctl --player='spotify' metadata --format '{{artist}}')"
-        echo "$thingy"
-    elif [[ "$1" == "--album" ]]; then
-        thingy="$(playerctl --player='spotify' metadata --format '{{album}}')"
-        echo "$thingy"
-    elif [[ "$1" == "--title" ]]; then
-        thingy="$(playerctl --player='spotify' metadata --format '{{title}}')"
-        echo "$thingy"
-    fi
+    STATUS=$PLAYERCTL_STATUS
 else
-    echo "ﱙ No player is running"
+    STATUS="N/A"
+fi
+
+if [ "$1" == "--status" ]; then
+    echo "$STATUS"
+else
+    if [ "$STATUS" = "Stopped" ]; then
+        echo "N/A"
+    elif [ "$STATUS" = "Paused"  ]; then
+        playerctl --player=$PLAYER metadata --format "$FORMAT"
+    elif [ "$STATUS" = "N/A"  ]; then
+        echo "$STATUS"
+    else
+        playerctl --player=$PLAYER metadata --format "$FORMAT"
+    fi
 fi

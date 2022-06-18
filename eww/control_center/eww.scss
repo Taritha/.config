@@ -170,7 +170,7 @@ background-color: $color0;
 margin: 10px 10px 0px 10px;
 border-radius: 20px;
 padding: 15px 0px 15px 0px;
-box-shadow: 5px 5px 5px #000000;
+box-shadow: 5px 5px 5px #121212;
 }
 
 .net-status-on {
@@ -295,6 +295,7 @@ font-size: 22px;
 background-color: $color9;
 color: $color0;
 border-radius: 50px;
+box-shadow: 5px 5px 5px #121212;
 }
 
 .volume-slider trough {
@@ -324,6 +325,7 @@ font-size: 22px;
 background-color: $color14;
 color: $color0;
 border-radius: 50px;
+box-shadow: 5px 5px 5px #121212;
 }
 
 .mic-slider-icon:hover {
@@ -343,7 +345,72 @@ background: linear-gradient(to left, $color9, $color14);
 
 .spotify-text {
     color: $color15;
-    padding: 1em 0em 0em 0em;
+    padding: 0em 0em 0em 0em;
+    margin: 3px 0px 0px 0px;
     font-family: "JetBrainsMono Nerd Font";
+    font-size: 16;
+}
+
+.spotify-scroll {
+    color: $color14;
+    padding: 0em;
+    margin: 20px 0px 5px 0px;
+    font-family: "JetBrainsMono Nerd Font";
+    font-weight: bold;
     font-size: 20;
+}
+
+.spotify-move-button {
+    color: $color7;
+    padding: 0px 0px 0px 0px;
+    margin: 10px 15px 10px 12px;
+    border-radius: 15px;
+    background-color: shade($color8, 0.9);
+    font-size: 30;
+    box-shadow: 5px 5px 5px #121212;
+}
+
+.spotify-toggle-button {
+    color: $color0;
+    padding: 0px 0px 0px 1px;
+    margin: 4px 4px 2px 2px;
+    border-radius: 15px;
+    background-color: $color14;
+    font-size: 45;
+    box-shadow: 5px 5px 5px #121212;
+}
+
+.spotify-move-button:hover {
+    background-color: shade($color8, 0.8);
+}
+
+.spotify-toggle-button:hover {
+    background-color: shade($color14, 0.8);
+}
+
+.visualizer {
+    color: $color9;
+    margin: 5px 0px 5px 0px;
+    font-family: "mononokiNerdFont";
+    font-size: 20;
+}
+
+.prog-display {
+    margin: 0px 0px 0px 0px;
+    padding: 10px 0px 0px 0px;
+    font-size: 14;
+}
+
+.song-progress trough {
+    background-color: $color0;
+    color: $color14;
+    border-radius: 20px;
+    min-width: 200px;
+    min-height: 12px;
+    margin: 12px 0px 0px 15px;
+}
+
+.song-progress trough highlight {
+    border-radius: 20px;
+    background: linear-gradient(to left, $color9, $color14);
 }

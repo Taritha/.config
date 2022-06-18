@@ -27,8 +27,9 @@ else
 fi
 
 # Reload eww configs
-eww --config ~/.config/eww/indicators reload &
-eww --config ~/.config/eww/control_center reload &
+killall cava && killall zscroll
+eww --config ~/.config/eww/indicators reload
+eww --config ~/.config/eww/control_center reload
 
 # Gets current wallpaper directory from ~/.fehbg
 # paperpath=$(cat ~/.fehbg | grep wpg | cut -d " " -f 4 | cut -d "'" -f 2)

@@ -25,17 +25,24 @@
 ;; misc
 (defvar eww "eww --config ~/.config/eww/control_center/")
 (deflisten art "~/.config/eww/control_center/scripts/get_spotify_cover.sh")
-(defpoll spot_song :interval "1s" "~/.config/eww/control_center/scripts/get_spotify_status.sh --title")
-(defpoll spot_artist :interval "1s" "~/.config/eww/control_center/scripts/get_spotify_status.sh --artist")
-(defpoll spot_album :interval "1s" "~/.config/eww/control_center/scripts/get_spotify_status.sh --album")
+(deflisten spot_artist "~/.config/eww/control_center/scripts/scroll_spotify_statusartist.sh")
+(deflisten spot_info "~/.config/eww/control_center/scripts/scroll_spotify_status.sh")
+(defvar spot_prev "~/.config/eww/control_center/scripts/spotcontrols.sh --prev")
+(defvar spot_play-pause "~/.config/eww/control_center/scripts/spotcontrols.sh --toggle")
+(defvar spot_next "~/.config/eww/control_center/scripts/spotcontrols.sh --next")
+(deflisten spot_playhook "~/.config/eww/control_center/scripts/get_spotify_pausestate.sh")
+(deflisten cava "~/.config/eww/control_center/scripts/cava.sh")
+(defpoll song_prog :interval "1s" "python /home/taritha/.config/eww/control_center/scripts/get_song_progress.py -p")
+(defpoll song_perc :interval "1s" "python /home/taritha/.config/eww/control_center/scripts/get_song_progress.py -c")
+(defpoll song_len :interval "1s" "python /home/taritha/.config/eww/control_center/scripts/get_song_progress.py -l")
 
-(defwidget control-center[]
+
+(defwidget control-center []
   (box :orientation "vertical"
     :space-evenly false
     (box :space-evenly false
       :class "control-center-headers"
       :hexpand true
-      
       (label :text "Notifications"
         :class "control-center-headers-label"
         :halign "start"
@@ -48,10 +55,10 @@
     
     (literal :content control-center-cards)
     (music_tray)
+    (cava)
     (tray)
   )
 )
-
 
 (defwidget card [?class summary body glyph ?glyph_class ?SL ?M ?L ?R ?d_body]
   (eventbox :onmiddleclick "${eww} update card_rev=false"
@@ -94,11 +101,11 @@
           :halign "start"
           :wrap true
           :text body
-        :class "control-center-body"))
+          :class "control-center-body")
+          )
         )
     )
 )
-
 
 (defwidget tray []
   (box :class "control-center-tray" :height 270
@@ -135,14 +142,14 @@
     )
 )
 
-
 (defwidget music_tray []
   (box :class "control-center-tray" :height 260
       (box
         :orientation "h"
-        :space-evenly "true"
+        :space-evenly true
+        :class "spotify-coverbox"
         (transform
-          :translate-x 2
+          :translate-x 0
           (image
             :path "${art}"
             :image-width 200
@@ -150,23 +157,84 @@
         ))
       (box 
         :orientation "v" 
-        :space-evenly "false"
+        :space-evenly false
+        :halign "start"
+        (label
+          :class "spotify-scroll"
+          :text spot_info
+          :limit-width 20
+          :height 20
+          :width 233
+        )
         (label 
           :class "spotify-text"
-          :text spot_song
-          :limit-width 15
+          :text spot_artist
+          :limit-width 20
+          :height 20
+          :width 233
         )
-        (label
-          :class "spotify-text"
-          :text spot_album
-          :limit-width 15
-        )))))
-      
+        (label 
+          :text "━━━━━━━━━━━━━━━━━━━━━━━"
+          :class "control-center-separator"
+          :halign "center"
+          :height 35
+        )
+        (box
+          :orientation "v"
+          :space-evenly false
+          (box
+            :orientation "h"
+            :spacing 10
+            (button :class "spotify-move-button" :onclick "~/.config/eww/control_center/scripts/spotcontrols.sh --prev" "玲")
+            (button :class "spotify-toggle-button" :onclick "~/.config/eww/control_center/scripts/spotcontrols.sh --toggle" spot_playhook)
+            (button :class "spotify-move-button" :onclick "~/.config/eww/control_center/scripts/spotcontrols.sh --next" "怜"))
+          )
+        (box
+          :orientation "v"
+          :space-evenly false
+          :spacing 0
+          (box 
+            :orientation "h"
+            :spacing 90
+            (label
+              :class "prog-display"
+              :text song_prog
+              :halign "center")
+            (label
+              :class "prog-display"
+              :text song_len
+              :halign "center")
+            )
+          (scale 
+            :class "song-progress" 
+            :halign "start"
+            :min 0
+            :max 101
+            :value song_perc
+            :active false
+            )
+        )
+      )
+    )
+  )
+)
+
+(defwidget cava []
+  (box 
+    :orientation "h"
+    :space-evenly true
+    :class "control-center-tray"
+    :height 60
+      (label 
+      :class "visualizer"
+      :text cava
+      :valign "end")))
+
 
 (defwindow control-center :stacking "fg"
   :windowtype "normal"
   :wm-ignore true
   :monitor 0
-  :geometry (geometry :width 515 :height "90%" :y "5%" :x 0 :anchor "top right")
+  :geometry (geometry :width 515 :height "90%" :y "5%" :x -12 :anchor "top right")
   (control-center)
 )
