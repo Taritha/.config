@@ -4,7 +4,7 @@
 
     ### New Settings ###
 
-    width = (115, 512)
+    width = (115, 525)
     #height = 100
     origin = top-right
     offset = 10x55

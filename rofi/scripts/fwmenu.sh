@@ -1,6 +1,6 @@
 #!/bin/bash
 
-rofi_command="rofi -theme /home/taritha/.config/rofi/themes/network.rasi -config /home/taritha/.config/rofi/config.rasi"
+rofi_command="rofi -theme ~/.config/rofi/themes/network.rasi -config ~/.config/rofi/config.rasi"
 
 #### Options ###
 # Variable passed to rofi
@@ -9,7 +9,7 @@ active_server="$(nmcli c | grep vpn | grep enp | cut -d " " -f1)"
 chosenserver="$(echo -e "$status" | $rofi_command -dmenu -p "VPN" -selected-row 0)"
 
 # User-selected VPN server
-server=$( echo $chosenserver | cut -d " " -f1 )
+server="$(echo $chosenserver | cut -d " " -f1)"
 if [ "$server" != "" ]; then
     on=" Connect"
     off=" Disconnect"
@@ -24,7 +24,7 @@ if [ "$server" != "" ]; then
     fi
 
     # Toggle menu for selected VPN server
-    chosen="$(echo -e "$options" | rofi -theme /home/taritha/.config/rofi/themes/togglemenu.rasi -config /home/taritha/.config/rofi/config.rasi -dmenu -p "VPN Connection" -selected-row 0)"
+    chosen="$(echo -e "$options" | rofi -theme ~/.config/rofi/themes/togglemenu.rasi -config ~/.config/rofi/config.rasi -dmenu -p "VPN Connection" -selected-row 0)"
 
     # Turn vpn connection on or off depending on user choice
     if [ "$chosen" = "$on" ]; then

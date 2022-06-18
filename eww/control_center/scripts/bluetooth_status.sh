@@ -45,10 +45,16 @@ status() {
     fi
 }
 
+dmenu() {
+    bash ~/.config/rofi/scripts/btmenu.sh
+}
+
 if [[ $1 == "--toggle" ]]; then
     toggle
-    elif [[ $1 == "--status" ]]; then
+elif [[ $1 == "--status" ]]; then
     status
-    elif [[ $1 == "--icon" ]]; then
+elif [[ $1 == "--icon" ]]; then
     icon
+elif [[ $1 == "--dmenu" ]]; then
+    dmenu
 fi

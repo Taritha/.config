@@ -8,7 +8,7 @@ if status is-login
 	autorandr default &
 	sleep 1
 	thunar --daemon &
-	discord --start-minimized &
+	#discord --start-minimized &
 	lxsession &
 	greenclip daemon &
 	xset s off &

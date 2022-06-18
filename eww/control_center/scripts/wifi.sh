@@ -18,8 +18,15 @@ status() {
     fi
 }
 
+# For some reason, rofi doesn't like being called by eww directly
+dmenu() {
+    bash ~/.config/rofi/scripts/rofi-wifi-menu.sh
+}
+
 if [[ $1 == "--toggle" ]]; then
     toggle
-    elif [[ $1 == "--status" ]]; then
+elif [[ $1 == "--status" ]]; then
     status
+elif [[ $1 == "--dmenu" ]]; then
+    dmenu
 fi

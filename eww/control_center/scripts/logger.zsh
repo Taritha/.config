@@ -73,7 +73,7 @@ function critical_count() {
 function subscribe() {
   make_literal
   local lines=$(cat $DUNST_LOG | wc -l)
-  while sleep 0.1; do
+  while sleep 0.5; do
     local new=$(cat $DUNST_LOG | wc -l)
     [[ $lines -ne $new ]] && lines=$new && print
   done | while read -r _ do; make_literal done
