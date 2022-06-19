@@ -27,8 +27,8 @@ window {
     border:                         0px;
     border-color:                   @accent2;
     location:                       southeast;
-	width:							750px;
-    height:                         400px;
+	width:							500px;
+    height:                         600px;
     x-offset:                       -545px;
     y-offset:                       -70px;
 }

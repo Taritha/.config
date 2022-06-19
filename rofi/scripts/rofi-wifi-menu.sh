@@ -64,7 +64,7 @@ else
 	dunstify -u normal -t 5000 "Wifi" "Currently connected to network $CONNECTED"
 fi
 
-CHENTRY=$(echo -e "$TOGGLE\nManual\n$LIST" | uniq -u | rofi -theme $HOME/.config/rofi/themes/network.rasi -dmenu -p "Enter Wi-Fi SSID" -lines "$LINENUM" -a "$HIGHLINE" -location "$POSITION" -yoffset "$YOFF" -xoffset "$XOFF" -font "$FONT" -width -"$RWIDTH")
+CHENTRY=$(echo -e "$TOGGLE\nManual\n$LIST" | uniq -u | rofi -theme $HOME/.config/rofi/themes/networkshort.rasi -dmenu -p "Enter Wi-Fi SSID" -lines "$LINENUM" -a "$HIGHLINE" -location "$POSITION" -yoffset "$YOFF" -xoffset "$XOFF" -font "$FONT" -width -"$RWIDTH")
 #echo "$CHENTRY"
 CHSSID=$(echo "$CHENTRY" | sed  's/\s\{2,\}/\|/g' | awk -F "|" '{print $1}')
 #echo "$CHSSID"
@@ -72,7 +72,7 @@ CHSSID=$(echo "$CHENTRY" | sed  's/\s\{2,\}/\|/g' | awk -F "|" '{print $1}')
 # If the user inputs "manual" as their SSID in the start window, it will bring them to this screen
 if [ "$CHENTRY" = "Manual" ] ; then
 	# Manual entry of the SSID and password (if applicable)
-	MSSID=$(echo "Enter the SSID of the network (SSID,password)" | rofi -theme $HOME/.config/rofi/themes/network.rasi -dmenu -p "Manual Entry" -font "$FONT" -lines 1)
+	MSSID=$(echo "Enter the SSID of the network (SSID,password)" | rofi -theme $HOME/.config/rofi/themes/networkshort.rasi -dmenu -p "Manual Entry" -font "$FONT" -lines 1)
 	# Separating the password from the entered string
 	MPASS=$(echo "$MSSID" | awk -F "," '{print $2}')
 
@@ -107,7 +107,7 @@ else
 		nmcli con up "$CHSSID" && dunstctl close && dunstify -u normal "Wifi" "Connected to network $CHSSID"
 	else
 		if [[ "$CHENTRY" =~ "WPA2" ]] || [[ "$CHENTRY" =~ "WEP" ]]; then
-			WIFIPASS=$(echo "If connection is stored, hit enter" | rofi -theme $HOME/.config/rofi/themes/network.rasi -dmenu -p "Enter password" -lines 1 -font "$FONT" )
+			WIFIPASS=$(echo "If connection is stored, hit enter" | rofi -theme $HOME/.config/rofi/themes/networkshort.rasi -dmenu -p "Enter password" -lines 1 -font "$FONT" )
 		fi
 		if [ "$CHSSID" != "" ]; then
 			dunstify -u critical "Wifi" "Connecting to $CHSSID ..."
