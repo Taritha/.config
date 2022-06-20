@@ -15,6 +15,8 @@ if status is-login
 	xset -dpms &
 	wpg -m &
 	/usr/lib/pentablet/pentablet.sh &
+	eww --config ~/.config/eww/indicators/ daemon &
+	eww --config ~/.config/eww/control_center/ daemon &
 end
 
 export PATH="$PATH:$HOME/.local/bin/"

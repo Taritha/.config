@@ -111,7 +111,7 @@
 )
 
 (defwidget tray []
-  (box :class "control-center-tray" :height 270
+  (box :class "control-center-tray" :height 280
     (box :orientation "v" :space-evenly "false"
       (box :class "control-center-buttons" :orientation "h"
         (box :orientation "v"

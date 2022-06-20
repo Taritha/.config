@@ -135,14 +135,14 @@ bar_spacing = 1
 ; gradient_color_8 = '#cc3333'
 gradient = 1
 gradient_count = 8
-gradient_color_1 = '#5478a0'
-gradient_color_2 = '#5478a0'
-gradient_color_3 = '#5478a0'
-gradient_color_4 = '#5478a0'
-gradient_color_5 = '#5478a0'
-gradient_color_6 = '#5478a0'
-gradient_color_7 = '#5478a0'
-gradient_color_8 = '#5478a0'
+gradient_color_1 = '#c0ffff'
+gradient_color_2 = '#c0ffff'
+gradient_color_3 = '#c0ffff'
+gradient_color_4 = '#c0ffff'
+gradient_color_5 = '#c0ffff'
+gradient_color_6 = '#c0ffff'
+gradient_color_7 = '#c0ffff'
+gradient_color_8 = '#c0ffff'
 
 [smoothing]
 

@@ -30,7 +30,7 @@ window {
 	width:							750px;
     height:                         400px;
     x-offset:                       -545px;
-    y-offset:                       -70px;
+    y-offset:                       -72px;
 }
 
 prompt {
