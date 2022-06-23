@@ -3,7 +3,7 @@ import time
 import argparse
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description = "Simple script to display the current song's progress in spotify")
+    parser = argparse.ArgumentParser(description="Simple script to display the current song's progress in spotify")
     parser.add_argument('-p', "--position", action='store_true')
     parser.add_argument('-c', "--percentage", action='store_true')
     parser.add_argument('-l', "--length", action='store_true')
@@ -21,9 +21,6 @@ if __name__ == "__main__":
         # Gets song length
         stream = os.popen('playerctl --player="spotify" metadata | grep "length" | cut -d " " -f16')
         output = stream.read()
-
-
-
         length = int(output.rstrip())
 
         # Gets current position in song
@@ -37,6 +34,8 @@ if __name__ == "__main__":
             print(time.strftime('%M:%S', time.gmtime(int(pos * 1e-6))))
         elif args.length:
             print(time.strftime('%M:%S', time.gmtime(int(length * 1e-6))))
+        else:
+            raise ValueError('No valid cmdline arguments found!')
             
 
     

@@ -30,6 +30,7 @@
                 :min 0
                 :max 101
                 :height 8
+                :timeout "3s"
                 :value volume-level
             :onchange "~/.config/eww/indicators/scripts/change_vol.sh {}")
         )

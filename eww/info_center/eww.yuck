@@ -1,0 +1,338 @@
+; CPU stats
+(defpoll cpu_use :interval "2s" "scripts/cpu.sh --cpu")
+(defpoll cpu_freqs :interval "2s" "scripts/cpu.sh --freqs")
+(deflisten cpu_threadcount :initial "[0, 0]" "scripts/cpu.sh --cpus")
+(deflisten cpu_thread_use :initial "[0, 0]" "scripts/cpu.sh --cores")
+(defpoll cpu_temp :interval "2s" "scripts/avg_temp.sh")
+
+; GPU stats
+(defpoll gpu_use :interval "2s" "scripts/gpustats.sh 0 --use")
+(defpoll gpu_memuse :interval "2s" "scripts/gpustats.sh 0 --mem_percent")
+(defpoll gpu_mem_mb :interval "2s" "scripts/gpustats.sh 0 --mem_mb")
+(deflisten gpu_mem_total "scripts/gpustats.sh 0 --mem_total")
+(defpoll gpu_power :interval "2s" "scripts/gpustats.sh 0 --power")
+(deflisten gpu_pcap "scripts/gpustats.sh 0 --pcap")
+(defpoll gpu_coretemp :interval "2s" "scripts/gpustats.sh 0 --coretemp")
+(deflisten gpu_crittemp "scripts/gpustats.sh 0 --crittemp")
+(defpoll gpu_hottemp :interval "2s" "scripts/gpustats.sh 0 --hottemp")
+(deflisten gpu_crithtemp "scripts/gpustats.sh 0 --crithtemp")
+(defpoll gpu_freq :interval "2s" "scripts/gpustats.sh 0 --corefreq")
+(defpoll gpu_memfreq :interval "2s" "scripts/gpustats.sh 0 --memfreq")
+(deflisten gpu_name "scripts/gpustats.sh 0 --name")
+
+; Miscellaneous
+(defvar plot_time_range "300s")
+(defpoll time :interval "1s" "scripts/time.sh --time")
+(defpoll date :interval "1s" "scripts/time.sh --date")
+(defpoll current_weather :interval "10m" "python scripts/weather.py -z '80205' -u 'Metric'")
+(defpoll uptime :interval "1m" "uptime -p | sed -e 's/up //;s/ hours,/h/;s/ minutes/m/'")
+(defpoll packages :interval "5m" "pacman -Q | wc -l")
+(defpoll shell :interval "10m" "echo $SHELL | awk -F'/' '{print $NF}")
+(defvar profile_img "~/taritha.face.icon")
+
+; Circle to display usage of stat
+(defwidget usage_circle [name usage]
+    (box 
+        :orientation "v"
+        :space-evenly false
+        :class "circle-box"
+        (circular-progress
+            :class "stat-circle"
+            :value usage
+            :start-at 75
+            :thickness 10
+            (label :class "circle-label" :text name)
+        )
+        (label :class "stat-circle-label" :text "${usage}%")
+    )
+)
+
+; Widget containing circle progress bar + some labels
+(defwidget component-overview [name usage]
+    (box
+        :orientation "h"
+        :space-evenly true
+        (usage_circle :name name :usage usage)
+    )
+)
+
+; Plots for things like gpu/cpu temp, usage, etc.
+(defwidget sys-plot [plotheight plotlabel unit statistic rangelim dynamic]
+    (box
+        :class "plot-stat-box"
+        :orientation "v"
+        :height plotheight
+        :space-evenly false
+        :spacing 10
+        (label :class "plot-label-text" :text "${plotlabel} (${unit})" :halign "start")
+        (box :class "plot-border-separator" :height 3)
+        (box
+            :orientation "h"
+            :space-evenly false
+            :spacing 10
+            :vexpand true
+            (centerbox
+                :class "plot-scale-box-text"
+                :orientation "v"
+                :width 45
+                (label :class "plot-scale-text" :text "${rangelim}" :halign "end" :valign "start")
+                (label :class "plot-scale-text" :text "${round(rangelim / 2, 0)}" :halign "end" :valign "center")
+                (label :class "plot-scale-text" :text "0" :halign "end" :valign "end")
+            )
+            (graph
+                :class "stat-graph"
+                :value "${(statistic / rangelim) * 100}" ; Normalizes value to 0-100
+                :thickness 2
+                :time-range plot_time_range
+                :hexpand true
+                :vexpand true
+                :max 100
+                :dynamic "${dynamic}"
+            )
+            (label :class "plot-display-text" :text "${statistic} ${unit}" :angle 270)
+        )
+    )
+)
+
+; CPU frequency plots
+(defwidget freq-plot [unit statistic rangelim]
+    (box 
+        :orientation "h"
+        :space-evenly false
+        :spacing 0
+        :vexpand true
+        :height 40
+        :width 310
+        (box      
+            :class "plot-scale-box-text"
+            :orientation "v"
+            :width 45
+            (label :class "plot-scale-text-freq" :text "${rangelim}" :halign "end" :valign "start")
+            (label :class "plot-scale-text-freq" :text "${round((rangelim * 2 / 3), 0)}" :halign "end" :valign "center")
+            (label :class "plot-scale-text-freq" :text "${round((rangelim / 3), 0)}" :halign "end" :valign "end")
+        )
+        (graph
+            :class "stat-graph"
+            :value "${(statistic / rangelim) * 100}" ; Normalizes value to 0-100
+            :thickness 1
+            :time-range plot_time_range
+            :hexpand true
+            :vexpand true
+            :min 33
+            :max 100
+            :dynamic false
+        )
+        (label :class "plot-display-text-freq" :text "${statistic} ${unit}" :angle 270)
+    )
+)
+
+; Suite of gpu status plots
+(defwidget gpu-graphs []
+    (box :orientation "v"
+        (scroll
+            :class "graph-box-backdrop"
+            :height 600
+            :vscroll true
+            :vexpand true
+            (box 
+                :class "plot-scroll-box"
+                :orientation "v"
+                :spacing 15
+                :space-evenly false
+                (label :class "plot-header-text" :text "GPU Stats")
+                (input :class "plot-tr-inputbox" :value "Time range (s)" :onaccept "${EWW_CMD} update plot_time_range={}s")
+                (sys-plot :plotheight 200 :plotlabel "Usage" :unit "%" :statistic gpu_use :rangelim 100 :dynamic false)
+                (sys-plot :plotheight 200 :plotlabel "Temperature" :unit "°C" :statistic gpu_coretemp :rangelim gpu_crittemp :dynamic false)
+                (sys-plot :plotheight 200 :plotlabel "Junction Temperature" :unit "°C" :statistic gpu_hottemp :rangelim gpu_crithtemp :dynamic false)
+                (sys-plot :plotheight 200 :plotlabel "Power" :unit "W" :statistic gpu_power :rangelim gpu_pcap :dynamic false)
+                (sys-plot :plotheight 200 :plotlabel "Memory Usage" :unit "%" :statistic gpu_memuse :rangelim 100 :dynamic false)
+                (sys-plot :plotheight 200 :plotlabel "Memory Usage" :unit "MB" :statistic gpu_mem_mb :rangelim gpu_mem_total :dynamic false)
+                (sys-plot :plotheight 200 :plotlabel "Core Frequency" :unit "MHz" :statistic gpu_freq :rangelim 3000 :dynamic true)
+                (sys-plot :plotheight 200 :plotlabel "Memory Frequency" :unit "MHz" :statistic gpu_memfreq :rangelim 1500 :dynamic true)
+            )
+        )
+    )
+)
+
+; Lists cpu cores
+(defwidget cpu_corelist [gap]
+    (box :orientation "v" :space-evenly false :spacing gap
+        (for core in cpu_threadcount
+            (label :class "cpu-thread-label" :text "CPU ${core}" :halign "start")
+        )
+    )
+)
+
+; Plots to display CPU usage/statistics
+(defwidget cpu-graphs []
+    (box :orientation "v"
+        (scroll 
+            :class "graph-box-backdrop"
+            :vscroll true
+            :vexpand true
+            (box
+                :class "plot-scroll-box"
+                :orientation "v"
+                :spacing 15
+                :space-evenly false
+                (label :class "plot-header-text" :text "CPU Stats")
+                (input :class "plot-tr-inputbox" :value "Time range (s)" :onaccept "${EWW_CMD} update plot_time_range={}s")
+                (sys-plot :plotheight 200 :plotlabel "Overall Usage" :unit "%" :statistic cpu_use :rangelim 100 :dynamic false)
+                (sys-plot :plotheight 200 :plotlabel "Temperature" :unit "°C" :statistic cpu_temp :rangelim 100 :dynamic false)
+                (label :class "cpu-thread-overview" :text "CPU Thread Usage")
+                (box :orientation "h" :space-evenly false
+                    (cpu_corelist :gap 0)
+                    (box :orientation "v" :space-evenly false
+                        (for thread in cpu_thread_use
+                            (box
+                                :orientation "h"
+                                :space-evenly false
+                                (scale :class "cpu-thread-scale" :active false :value thread :width 270 :halign "center")
+                                (label :class "cpu-thread-label" :text "${thread}%" :halign "end")
+                            )
+                        )
+                    )
+                )
+                (label :class "cpu-thread-overview" :text "CPU Clock Speeds")
+                (box :orientation "h" :space-evenly false
+                    (cpu_corelist :gap 31)
+                    (box :orientation "v" :space-evenly false :spacing 5
+                        (for i in cpu_threadcount
+                            (freq-plot :unit "MHz" :statistic "${cpu_freqs[i]}" :rangelim 6000)
+                        )
+                    )
+                )
+            )
+        )
+    )
+)
+
+; Information center at large
+(defwidget information-center []
+    (scroll
+        (box
+            :class "info-center-mainbox"
+            :orientation "v"
+            :space-evenly false
+            :spacing 15
+            (box 
+                :orientation "h"
+                (label :class "info-center-header-text" :text "System Overview" :halign "start")
+            )
+            (box
+                :class "overview-box"
+                :orientation "h"
+                :space-evenly true
+                :vexpand true
+                (image 
+                    :path profile_img
+                    :image-width 200
+                    :image-height 200
+                )
+            )
+            (box
+                :orientation "h"
+                :space-evenly true
+                :spacing 15
+                (eventbox
+                    :tooltip "Open calendar"
+                    (box
+                        :class "temporal-box"
+                        :orientation "v"
+                        :space-evenly false
+                        (label :class "time-label-text" :text time :halign "start")
+                        (label :class "date-label-text" :text date :halign "start" :wrap true)
+                    )
+                )
+                (box
+                    :class "overview-box"
+                    :orientation "h"
+                    (label :class "current-weather-text" :text current_weather :valign "center" :wrap true)
+                )
+            )
+            (box
+                :class "overview-box"
+                :orientation "v"
+                (box
+                    :orientation "h"
+                    :space-evenly false
+                    (component-overview :name "菉" :usage gpu_use)
+                    (component-overview :name "" :usage cpu_use)
+                    (component-overview :name "﬙" :usage {round(EWW_RAM["used_mem_perc"], 0)})
+                )
+                (box
+                    :orientation "h"
+                    :space-evenly false
+                    (component-overview :name "" :usage {round(EWW_DISK["/"]["used_perc"], 0)})
+                    (component-overview :name "" :usage cpu_use)
+                    (component-overview :name "﬙" :usage {round(EWW_RAM["used_mem_perc"], 0)})
+                )
+            )
+            (box 
+                :class "overview-box" 
+                :orientation "h"
+                :space-evenly false
+                (label :class "network-symbol-text" :text "")
+                (label :class "network-label-text" :text ' ${round(EWW_NET["enp5s0"]["NET_DOWN"] / 1000000, 1)} MB/s  ${round(EWW_NET["enp5s0"]["NET_UP"] / 1000000, 1)} MB/s')
+            )
+            (sys-plot
+                :plotheight 200
+                :plotlabel "Thermal Sensor"
+                :unit "°C"
+                :statistic {EWW_TEMPS["T_SENSOR"]}
+                :rangelim 70
+                :dynamic false
+            )
+        )
+    )
+)
+
+
+; GPU plot submenu
+(defwindow gpu-plots
+    :class "graph-window"
+    :monitor 1
+    :stacking "fg"
+    :windowtype "dialog"
+    :geometry (geometry 
+        :width 400 
+        :height 650
+        :y 40 
+        :x -552 
+        :anchor "top right"
+    )
+    (gpu-graphs)
+)
+
+; CPU plot submenu
+(defwindow cpu-plots
+    :class "graph-window"
+    :monitor 1
+    :stacking "fg"
+    :windowtype "dialog"
+    :geometry (geometry 
+        :width 400 
+        :height 650
+        :y -75
+        :x -552
+        :anchor "bottom right"
+    )
+    (cpu-graphs)
+)
+
+; Information center window
+(defwindow info-center
+    :class "info-center"
+    :stacking "fg"
+    :monitor 1
+    :reserve (struts :distance "20px" :side "left")
+    :geometry (geometry 
+        :width 520 
+        :height 970 
+        :y 40
+        :x -12 
+        :anchor 
+        "top right"
+    )
+    (information-center)
+)

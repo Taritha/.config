@@ -135,7 +135,7 @@ scroll-down = ~/.config/polybar/scripts/calendar.sh prev
 type = internal/date
 interval = 60
 
-date = %m/%d/%Y
+date = %Y/%m/%d
 
 ;format-background = ${{colors.color10}}
 ;format_underline = ${{colors.color10}}

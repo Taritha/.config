@@ -43,3 +43,6 @@ picom -b --experimental-backend --config ~/.config/picom/picom.conf &
 ## POLYBAR STARTUP/COLOR CONTROL ##
 bash /home/taritha/.config/bspwm/bspwm_colors.sh & # Loads colors for bspwm from wpgtk/pywal (borders and preselection mostly
 bash /home/taritha/.config/polybar/launch.sh & # (re-)launches polybar(s)
+eww --config ~/.config/eww/control_center/ daemon &
+eww --config ~/.config/eww/indicators/ daemon &
+eww --config ~/.config/eww/infocenter/ open --toggle info-center &
