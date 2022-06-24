@@ -1,3 +1,8 @@
+;;
+;;  EWW Config
+;;  Author: @taritha_
+;;
+
 ; CPU stats
 (defpoll cpu_use :interval "2s" "scripts/cpu.sh --cpu")
 (defpoll cpu_freqs :interval "2s" "scripts/cpu.sh --freqs")
@@ -20,41 +25,25 @@
 (defpoll gpu_memfreq :interval "2s" "scripts/gpustats.sh 0 --memfreq")
 (deflisten gpu_name "scripts/gpustats.sh 0 --name")
 
-; Miscellaneous
-(defvar plot_time_range "300s")
+; Time/weather
 (defpoll time :interval "1s" "scripts/time.sh --time")
 (defpoll date :interval "1s" "scripts/time.sh --date")
 (defpoll current_weather :interval "10m" "python scripts/weather.py -z '80205' -u 'Metric'")
+
+; Network
+(defpoll e_netstatus :interval "2s" "scripts/netstatus.sh enp5s0")
+(defpoll w_netstatus :interval "2s" "scripts/netstatus.sh wlp4s0")
+(defpoll e_conn :interval "2s" "scripts/netstatus.sh enp5s0 -c")
+(defpoll w_conn :interval "2s" "scripts/netstatus.sh wlp4s0 -c")
+
+; Miscellaneous
+(defvar plot_time_range "300s")
 (defpoll uptime :interval "1m" "uptime -p | sed -e 's/up //;s/ hours,/h/;s/ minutes/m/'")
 (defpoll packages :interval "5m" "pacman -Q | wc -l")
-(defpoll shell :interval "10m" "echo $SHELL | awk -F'/' '{print $NF}")
-(defvar profile_img "~/taritha.face.icon")
+(defvar profile_img "images/BigLogo.png")
+(defpoll username :interval "10h" `whoami`)
+(defpoll hostname :interval "10h" `hostnamectl | grep Static | awk '{print $3}'`)
 
-; Circle to display usage of stat
-(defwidget usage_circle [name usage]
-    (box 
-        :orientation "v"
-        :space-evenly false
-        :class "circle-box"
-        (circular-progress
-            :class "stat-circle"
-            :value usage
-            :start-at 75
-            :thickness 10
-            (label :class "circle-label" :text name)
-        )
-        (label :class "stat-circle-label" :text "${usage}%")
-    )
-)
-
-; Widget containing circle progress bar + some labels
-(defwidget component-overview [name usage]
-    (box
-        :orientation "h"
-        :space-evenly true
-        (usage_circle :name name :usage usage)
-    )
-)
 
 ; Plots for things like gpu/cpu temp, usage, etc.
 (defwidget sys-plot [plotheight plotlabel unit statistic rangelim dynamic]
@@ -207,6 +196,132 @@
     )
 )
 
+; Profile image and system information
+(defwidget userview []
+    (box
+        :class "overview-box"
+        :orientation "h"
+        :space-evenly false
+        (image
+            :class "profile-img"
+            :path "${profile_img}"
+            :image-width 150
+            :image-height 150
+        )
+        (box
+            :orientation "v"
+            :space-evenly false
+            :valign "center"
+            (label :class "host-label" :text "${username}@${hostname}" :halign "start")
+            (box :orientation "h" :space-evenly false
+                (label :class "sys-symbol-text" :text "" :valign "center")
+                (label :class "sys-label-text" :text "Up ${uptime}" :halign "start" :valign "baseline")
+            )
+            (box :orientation "h" :space-evenly false
+                (label :class "sys-symbol-text" :text "" :valign "center")
+                (label :class "sys-label-text" :text "${packages} packages" :halign "start")
+            )
+        )
+    )
+)
+
+; Display of current time/date and weather
+(defwidget time-weather-box []
+    (box
+        :orientation "h"
+        :space-evenly false
+        :spacing 15
+        :height 100
+        (box
+            :class "temporal-box"
+            :valign "center"
+            (box
+                :orientation "v"
+                :space-evenly false
+                (label :class "time-label-text" :text time :halign "start")
+                (label :class "date-label-text" :text date :halign "start" :wrap true)
+            )
+        )
+        (label :class "divider-text" :text "") ; Adds dotted line to widget
+        (box
+            :class "temporal-box"
+            :orientation "h"
+            :valign "center"
+            (label :class "current-weather-text" :text current_weather :valign "center" :halign "start" :wrap true)
+        )
+    )
+)
+
+; Circle to display usage of stat
+(defwidget usage_circle [symbol usage clickcommand ?name]
+    (box :orientation "v" :space-evenly true
+        (circular-progress
+            :class "stat-circle"
+            :value usage
+            :start-at 75
+            :thickness 10
+            (button :tooltip name :class "circle-label-button" :onclick clickcommand "${symbol}")
+        )
+    )
+)
+
+; Circular progress meters
+(defwidget system-meters []
+    (box :class "overview-box"
+        (overlay
+            (box 
+                :orientation "h"
+                :height 200
+                :space-evenly true
+                (label :class "circle-box-label" :text "${cpu_use}%" :valign "end")
+                (label :class "circle-box-label" :text '${round(EWW_RAM["used_mem_perc"], 0)}%' :valign "end")
+                (label :class "circle-box-label" :text "${gpu_use}%" :valign "end")
+
+            )
+            (box :orientation "v" :space-evenly true :height 200
+                (box
+                    :class "circle-box"
+                    :orientation "h"
+                    :spacing 30
+                    (usage_circle :symbol "" :usage cpu_use :clickcommand "${EWW_CMD} open --toggle cpu-plots" :name "CPU Status")
+                    (usage_circle :symbol "﬙" :usage {round(EWW_RAM["used_mem_perc"], 0)} :clickcommand "" :name "RAM Status")
+                    (usage_circle :symbol "菉" :usage gpu_use :clickcommand "${EWW_CMD} open --toggle gpu-plots" :name "GPU Status")
+                )
+            )
+        )
+    )
+)
+
+
+; Network information/display
+(defwidget netbox []
+    (box 
+        :class "overview-box" 
+        :orientation "h"
+        :space-evenly true
+        (box :orientation "v" :space-evenly false
+            (box :orientation "h" :space-evenly false
+                (label :class "network-symbol-text" :text e_netstatus :halign "start")
+                (label :class "network-conn-text" :text e_conn :halign "start" :valign "end" :limit-width 20)
+            )
+            (box :orientation "h" :space-evenly false
+                (label :class "network-label-text" :text ' ${round(EWW_NET["enp5s0"]["NET_DOWN"]/ 1000000, 0)} MB/s')
+                (label :class "network-label-text" :text ' ${round(EWW_NET["enp5s0"]["NET_UP"] / 1000000, 0)} MB/s')
+            )
+        )
+        (box :orientation "v" :space-evenly false
+            (box :orientation "h" :space-evenly false
+                (label :class "network-symbol-text" :text w_netstatus :halign "start")
+                (label :class "network-conn-text" :text w_conn :halign "start" :valign "end" :limit-width 14)
+            )
+            (box :orientation "h" :space-evenly false
+                (label :class "network-label-text" :halign "start" :text ' ${round(EWW_NET["wlp4s0"]["NET_DOWN"] / 1000000, 0)} MB/s')
+                (label :class "network-label-text" :text ' ${round(EWW_NET["wlp4s0"]["NET_UP"] / 1000000, 0)} MB/s')
+            )
+        )
+    )
+)
+
 ; Information center at large
 (defwidget information-center []
     (scroll
@@ -219,62 +334,10 @@
                 :orientation "h"
                 (label :class "info-center-header-text" :text "System Overview" :halign "start")
             )
-            (box
-                :class "overview-box"
-                :orientation "h"
-                :space-evenly true
-                :vexpand true
-                (image 
-                    :path profile_img
-                    :image-width 200
-                    :image-height 200
-                )
-            )
-            (box
-                :orientation "h"
-                :space-evenly true
-                :spacing 15
-                (eventbox
-                    :tooltip "Open calendar"
-                    (box
-                        :class "temporal-box"
-                        :orientation "v"
-                        :space-evenly false
-                        (label :class "time-label-text" :text time :halign "start")
-                        (label :class "date-label-text" :text date :halign "start" :wrap true)
-                    )
-                )
-                (box
-                    :class "overview-box"
-                    :orientation "h"
-                    (label :class "current-weather-text" :text current_weather :valign "center" :wrap true)
-                )
-            )
-            (box
-                :class "overview-box"
-                :orientation "v"
-                (box
-                    :orientation "h"
-                    :space-evenly false
-                    (component-overview :name "菉" :usage gpu_use)
-                    (component-overview :name "" :usage cpu_use)
-                    (component-overview :name "﬙" :usage {round(EWW_RAM["used_mem_perc"], 0)})
-                )
-                (box
-                    :orientation "h"
-                    :space-evenly false
-                    (component-overview :name "" :usage {round(EWW_DISK["/"]["used_perc"], 0)})
-                    (component-overview :name "" :usage cpu_use)
-                    (component-overview :name "﬙" :usage {round(EWW_RAM["used_mem_perc"], 0)})
-                )
-            )
-            (box 
-                :class "overview-box" 
-                :orientation "h"
-                :space-evenly false
-                (label :class "network-symbol-text" :text "")
-                (label :class "network-label-text" :text ' ${round(EWW_NET["enp5s0"]["NET_DOWN"] / 1000000, 1)} MB/s  ${round(EWW_NET["enp5s0"]["NET_UP"] / 1000000, 1)} MB/s')
-            )
+            (userview)
+            (time-weather-box)
+            (system-meters)
+            (netbox)
             (sys-plot
                 :plotheight 200
                 :plotlabel "Thermal Sensor"
@@ -286,6 +349,7 @@
         )
     )
 )
+
 
 
 ; GPU plot submenu
@@ -325,12 +389,13 @@
     :class "info-center"
     :stacking "fg"
     :monitor 1
+    :windowtype "dock"
     :reserve (struts :distance "20px" :side "left")
     :geometry (geometry 
-        :width 520 
-        :height 970 
+        :width 500 
+        :height 970
         :y 40
-        :x -12 
+        :x -12
         :anchor 
         "top right"
     )

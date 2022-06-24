@@ -1,5 +1,6 @@
 @import "../colors.scss";
 
+// General stuff
 * {
     font-family: "JetBrainsMono Nerd Font";
     all: unset;
@@ -32,71 +33,109 @@
     text-shadow: 5px 5px 5px #000000;
 }
 
+.profile-img {
+    margin: 10px;
+}
+
+.sys-label-text {
+    color: $color7;
+    font-size: 18;
+    margin: 0px 0px 0px 10px;
+}
+
+// Circular Progress 
 .circle-box {
-    background-color: $color8;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-    padding: 10px 0px 10px 0px;
+    margin: 0px 20px 20px 20px;
+}
+
+.circle-box-label {
+    color: $color14;
+    margin: 0px 0px 20px 0px;
+    font-size: 16;
 }
 
 .stat-circle {
     background-color: $color0;
-    color: $color14;
 }
 
-.circle-label {
-    color: $color7;
-    font-size: 48;
-    padding-right: 7px;
+.circle-label-button {
+    background-color: $color1;
+    color: $color0;
+    font-size: 56;
+    padding: 0px 7px 0px 0px;
 }
 
-.stat-circle-label {
-    color: $color11;
-    margin: 10px 0px 0px 0px;
-    font-size: 16;
+.circle-label-button:hover {
+    color: shade($color7, 0.8);
 }
 
-.temporal-box, 
+// Time/weather/date stuff
 .overview-box {
     background-color: $color8;
     border-radius: 10px;
     box-shadow: 5px 5px 5px #000000;
 }
 
-.temporal-box:hover {
-    color: shade($color8, 0.8);
+.temporal-box {
+    background-color: $color0;
+    border-radius: 10px;
+}
+
+.divider-text {
+    color: $color0;
+    border-right: 2px dotted $color12;
+}
+
+.host-label {
+    color: $color14;
+    font-size: 18;
+    font-style: italic;
+    margin: 10px 0px 10px 10px;
+}
+
+.sys-symbol-text {
+    color: $color9;
+    font-size: 28;
+    margin: 0px 10px 0px 10px;
 }
 
 .time-label-text {
     color: $color14;
     font-size: 28;
     font-weight: bold;
-    margin: 5px 0px 0px 5px;
+    margin: 10px 0px 0px 10px;
 }
 
 .date-label-text {
     color: $color6;
     font-size: 18;
-    margin-left: 5px;
+    margin: 0px 15px 10px 10px;
 }
 
 .current-weather-text {
     color: $color4;
-    font-size: 28;
+    font-size: 24;
     font-weight: bold;
 }
 
+// Networking information
 .network-symbol-text {
-    color: $color7;
-    font-size: 30;
-    margin: 5px;
+    color: $color9;
+    font-size: 28;
+    margin: 10px 10px 10px 20px;
 }
 
 .network-label-text {
     color: $color13;
-    font-size: 16;
+    font-size: 14;
+    margin: 5px 10px 10px 20px;
 }
 
+.network-conn-text {
+    color: $color7;
+    font-size: 16;
+    margin: 0px 0px 12px 10px;
+}
 
 // Plotting stuff
 .plot-header-text {
