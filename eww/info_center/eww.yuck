@@ -197,9 +197,29 @@
 )
 
 ; Memory graphs
-; (defwidget mem-graphs []
-;     (box )
-; )
+(defwidget mem-graphs []
+    (box 
+        :orientation "v"
+        (scroll
+            :class "graph-box-backdrop"
+            :vscroll true
+            :vexpand true
+            (box
+                :class "plot-scroll-box"
+                :orientation "v"
+                :spacing 15
+                :space-evenly false
+                (label :class "plot-header-text" :text "Memory Stats")
+                (input :class "plot-tr-inputbox" :value "Time range (s)" :onaccept "${EWW_CMD} update plot_time_range={}s")
+                (sys-plot :plotheight 200 :plotlabel "Overall Usage" :unit "%" :statistic {round(EWW_RAM["used_mem_perc"], 0)} :rangelim 100 :dynamic false)
+                (sys-plot :plotheight 200 :plotlabel "Overall Usage" :unit "MB" :statistic {round(EWW_RAM["used_mem"] / 1024, 0)} :rangelim {round(EWW_RAM["total_mem"] / 1024, 0)} :dynamic false)
+                (sys-plot :plotheight 200 :plotlabel "Free Memory" :unit "MB" :statistic {round(EWW_RAM["free_mem"] / 1024, 0)} :rangelim {round(EWW_RAM["total_mem"] / 1024, 0)} :dynamic false)
+                (sys-plot :plotheight 200 :plotlabel "Available Memory" :unit "MB" :statistic {round(EWW_RAM["available_mem"] / 1024, 0)} :rangelim {round(EWW_RAM["total_mem"] / 1024, 0)} :dynamic false)
+                (sys-plot :plotheight 200 :plotlabel "Swap Usage" :unit "MB" :statistic {round(EWW_RAM["total_swap"] / 1024, 0) - round(EWW_RAM["free_swap"] / 1024, 0)} :rangelim {round(EWW_RAM["total_swap"] / 1024, 0)} :dynamic false)
+            )
+        )
+    )
+)
 
 ; Profile image and system information
 (defwidget userview []
@@ -289,7 +309,7 @@
                     :orientation "h"
                     :spacing 30
                     (usage_circle :symbol "" :usage cpu_use :clickcommand "${EWW_CMD} open --toggle cpu-plots" :name "CPU Status")
-                    (usage_circle :symbol "﬙" :usage {round(EWW_RAM["used_mem_perc"], 0)} :clickcommand "" :name "RAM Status")
+                    (usage_circle :symbol "﬙" :usage {round(EWW_RAM["used_mem_perc"], 0)} :clickcommand "${EWW_CMD} open --toggle mem-plots" :name "RAM Status")
                     (usage_circle :symbol "菉" :usage gpu_use :clickcommand "${EWW_CMD} open --toggle gpu-plots" :name "GPU Status")
                 )
             )
@@ -310,8 +330,8 @@
                 (label :class "network-conn-text" :text e_conn :halign "start" :valign "end" :limit-width 20)
             )
             (box :orientation "h" :space-evenly false
-                (label :class "network-label-text" :text ' ${round(EWW_NET["enp5s0"]["NET_DOWN"] / 1048576, 0)} MB/s')
-                (label :class "network-label-text" :text ' ${round(EWW_NET["enp5s0"]["NET_UP"] / 1048576, 0)} MB/s')
+                (label :class "network-label-text" :text ' ${round(EWW_NET["enp5s0"]["NET_DOWN"] / 2097152, 0)} MB/s')
+                (label :class "network-label-text" :text ' ${round(EWW_NET["enp5s0"]["NET_UP"] / 2097152, 0)} MB/s')
             )
         )
         (box :orientation "v" :space-evenly false
@@ -320,8 +340,8 @@
                 (label :class "network-conn-text" :text w_conn :halign "start" :valign "end" :limit-width 14)
             )
             (box :orientation "h" :space-evenly false
-                (label :class "network-label-text" :halign "start" :text ' ${round(EWW_NET["wlp4s0"]["NET_DOWN"] / 1048576, 0)} MB/s')
-                (label :class "network-label-text" :text ' ${round(EWW_NET["wlp4s0"]["NET_UP"] / 1048576, 0)} MB/s')
+                (label :class "network-label-text" :halign "start" :text ' ${round(EWW_NET["wlp4s0"]["NET_DOWN"] / 2097152, 0)} MB/s')
+                (label :class "network-label-text" :text ' ${round(EWW_NET["wlp4s0"]["NET_UP"] / 2097152, 0)} MB/s')
             )
         )
     )
@@ -390,21 +410,21 @@
 )
 
 
-; ; RAM plot submenu
-; (defwindow mem-plots
-;     :class "graph-window"
-;     :monitor 1
-;     :stacking "fg"
-;     :windowtype "dialog"
-;     :geometry (geometry
-;         :width 400
-;         :height 650
-;         :y 40
-;         :x -552
-;         :anchor "top right"
-;     )
-;     ()
-; )
+; RAM plot submenu
+(defwindow mem-plots
+    :class "graph-window"
+    :monitor 1
+    :stacking "fg"
+    :windowtype "dialog"
+    :geometry (geometry
+        :width 400
+        :height 650
+        :y 40
+        :x -552
+        :anchor "top right"
+    )
+    (mem-graphs)
+)
 
 ; Information center window
 (defwindow info-center
