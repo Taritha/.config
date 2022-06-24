@@ -11865,7 +11865,7 @@ button {{
   background-repeat: no-repeat;
   background-position: center;
   background-size: 1000% 1000%;
-  color: @theme_fg_color;
+  color: @theme_bg_color;
 }}
 
 actionbar

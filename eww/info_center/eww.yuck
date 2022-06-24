@@ -196,6 +196,11 @@
     )
 )
 
+; Memory graphs
+; (defwidget mem-graphs []
+;     (box )
+; )
+
 ; Profile image and system information
 (defwidget userview []
     (box
@@ -305,8 +310,8 @@
                 (label :class "network-conn-text" :text e_conn :halign "start" :valign "end" :limit-width 20)
             )
             (box :orientation "h" :space-evenly false
-                (label :class "network-label-text" :text ' ${round(EWW_NET["enp5s0"]["NET_DOWN"]/ 1000000, 0)} MB/s')
-                (label :class "network-label-text" :text ' ${round(EWW_NET["enp5s0"]["NET_UP"] / 1000000, 0)} MB/s')
+                (label :class "network-label-text" :text ' ${round(EWW_NET["enp5s0"]["NET_DOWN"] / 1048576, 0)} MB/s')
+                (label :class "network-label-text" :text ' ${round(EWW_NET["enp5s0"]["NET_UP"] / 1048576, 0)} MB/s')
             )
         )
         (box :orientation "v" :space-evenly false
@@ -315,8 +320,8 @@
                 (label :class "network-conn-text" :text w_conn :halign "start" :valign "end" :limit-width 14)
             )
             (box :orientation "h" :space-evenly false
-                (label :class "network-label-text" :halign "start" :text ' ${round(EWW_NET["wlp4s0"]["NET_DOWN"] / 1000000, 0)} MB/s')
-                (label :class "network-label-text" :text ' ${round(EWW_NET["wlp4s0"]["NET_UP"] / 1000000, 0)} MB/s')
+                (label :class "network-label-text" :halign "start" :text ' ${round(EWW_NET["wlp4s0"]["NET_DOWN"] / 1048576, 0)} MB/s')
+                (label :class "network-label-text" :text ' ${round(EWW_NET["wlp4s0"]["NET_UP"] / 1048576, 0)} MB/s')
             )
         )
     )
@@ -384,6 +389,23 @@
     (cpu-graphs)
 )
 
+
+; ; RAM plot submenu
+; (defwindow mem-plots
+;     :class "graph-window"
+;     :monitor 1
+;     :stacking "fg"
+;     :windowtype "dialog"
+;     :geometry (geometry
+;         :width 400
+;         :height 650
+;         :y 40
+;         :x -552
+;         :anchor "top right"
+;     )
+;     ()
+; )
+
 ; Information center window
 (defwindow info-center
     :class "info-center"
@@ -396,8 +418,7 @@
         :height 970
         :y 40
         :x -12
-        :anchor 
-        "top right"
+        :anchor "top right"
     )
     (information-center)
 )
