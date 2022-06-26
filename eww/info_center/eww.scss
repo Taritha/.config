@@ -8,7 +8,7 @@
 
 .info-center {
     background-color: $color0;
-    border: 2px solid $color9;
+    // border: 2px solid $color9;
     border-radius: 17px;
     font-family: "JetBrainsMono Nerd Font", "Material Design Icons Desktop";
 }
@@ -49,8 +49,11 @@
 }
 
 .circle-box-label {
-    color: $color14;
-    margin: 0px 0px 20px 0px;
+    color: $color9;
+    background-color: $color0;
+    margin: 0px 50px 13px 50px;
+    padding: 5px 10px 5px 5px;
+    border-radius: 10px;
     font-size: 16;
 }
 
@@ -83,7 +86,7 @@
 
 .divider-text {
     color: $color0;
-    border-right: 2px dotted $color12;
+    border-right: 2px dotted $color6;
 }
 
 .host-label {
@@ -108,7 +111,7 @@
 
 .date-label-text {
     color: $color6;
-    font-size: 18;
+    font-size: 16;
     margin: 0px 15px 10px 10px;
 }
 
@@ -116,6 +119,108 @@
     color: $color4;
     font-size: 24;
     font-weight: bold;
+}
+
+.time-weather-button {
+    color: $color6;
+    font-size: 36;
+    border-radius: 10px;
+    padding: 0px 10px 0px 0px
+}
+
+.time-weather-button:hover {
+    color: $color7;
+    background-color: shade($color8, 0.5);
+}
+
+// Calendar/weather widget
+.cal-weather-box {
+    border-radius: 0px;
+    padding: 15px;
+}
+
+.cal-box {
+    margin: 0px 20px 0px 20px;
+}
+
+.overview-calendar {
+    color: $color2;
+    border-top: 2px dotted $color6;
+    .overview-calendar {
+        &.highlight {
+            color: $color9;
+        }
+    }
+}
+
+calendar:selected {
+    color: $color15;
+}
+
+calendar.highlight {
+    color: $color13;
+    font-weight: bold;
+}
+
+calendar:indeterminate {
+    color: $color8;
+}
+
+// Detailed weather widget
+.weather-box {
+    border-top: 2px dotted $color6;
+    border-bottom: 2px dotted $color6;
+    margin: 0px 20px 0px 20px;
+}
+
+.current-weather-icon-big {
+    color: $color9;
+    font-size: 63;
+    margin: 0px 40px 0px 0px;
+}
+
+.current-main-weather-text {
+    color: $color7;
+    font-size: 28;
+    font-weight: bold;
+    margin: 0px 0px 0px 10px;
+}
+
+.current-vibes-weather-text {
+    color: $color2;
+    font-size: 20;
+    font-style: italic;
+}
+
+.current-sub-weather-text {
+    color: $color2;
+    margin: 2px 0px 0px 10px;
+    font-size: 15;
+}
+
+.hourly-scale-box {
+    margin: 20px 0px 20px 0px;
+}
+
+.hourly-temp-meter trough {
+    color: $color9;
+    background-color: $color8;
+    min-width: 200px;
+    min-height: 15px;
+}
+
+.hourly-temp-meter scrollbar {
+    color: $color7;
+}
+
+.hourly-temp-meter trough highlight {
+    background: linear-gradient(to right, $color8, $color9);
+}
+
+.hourly-time-text {
+    color: $color2;
+    font-size: 12;
+    margin: 0px 10px 0px 10px;
 }
 
 // Networking information

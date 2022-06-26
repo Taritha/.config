@@ -25,7 +25,6 @@
 (defpoll mic-slider-indicator :interval "0.05s" "scripts/get_mic.sh")
 
 ;; misc
-(defvar eww "eww --config ~/.config/eww/control_center/")
 (deflisten art "~/.config/eww/control_center/scripts/get_spotify_cover.sh")
 (deflisten spot_artist "~/.config/eww/control_center/scripts/scroll_spotify_statusartist.sh")
 (deflisten spot_info "~/.config/eww/control_center/scripts/scroll_spotify_status.sh")
@@ -63,12 +62,12 @@
 )
 
 (defwidget card [?class summary body glyph ?glyph_class ?SL ?M ?L ?R ?d_body]
-  (eventbox :onmiddleclick "${eww} update card_rev=false"
-    :onclick "${eww} update card_rev=true"
+  (eventbox :onmiddleclick M
+    :onclick "${card_rev == false ? "${EWW_CMD} update card_rev=true" : "${EWW_CMD} update card_rev=false"}"
     :onrightclick R
     :class "control-center-card-eventbox"
     (box :space-evenly false
-      (label :class "control-center-glyph ${glyph_class}"
+      (label :class "control-center-glyph ${glyph_class}" :style "font-size: 30;"
       :text glyph)
       
       (box :orientation "vertical"
@@ -92,7 +91,7 @@
         (label :text "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
           :class "control-center-separator"
         :halign "center")
-        (revealer :transition "slideup"
+        (revealer :transition "slidedown"
           :reveal card_rev
           :duration "350ms"
           (label :class "control-center-bodytext ${d_body}"
@@ -155,8 +154,9 @@
     )
 )
 
+; Displays spotify status and basic controls
 (defwidget music_tray []
-  (box :class "control-center-tray" :height 260
+  (box :class "spotify-center-tray" :height 260
       (box
         :orientation "h"
         :space-evenly true
@@ -187,10 +187,11 @@
           :width 233
         )
         (label 
-          :text "━━━━━━━━━━━━━━━━━━━━━━━"
-          :class "control-center-separator"
+          :text ""
+          :class "dotted-separator"
           :halign "center"
-          :height 45
+          :height 5
+          :width 233
         )
         (box
           :orientation "v"
@@ -229,6 +230,7 @@
   )
 )
 
+; Displays audio visualizer
 (defwidget cava []
   (box 
     :orientation "h"
@@ -243,11 +245,12 @@
   )
 
 
+
 (defwindow control-center 
   :stacking "fg"
   :windowtype "normal"
   :wm-ignore true
   :monitor 0
-  :geometry (geometry :width 520 :height "90%" :y "5%" :x -12 :anchor "top right")
+  :geometry (geometry :width 520 :height "90%" :y "5%" :x 12 :anchor "top left")
   (control-center)
 )
