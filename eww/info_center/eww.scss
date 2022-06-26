@@ -136,11 +136,11 @@
 // Calendar/weather widget
 .cal-weather-box {
     border-radius: 0px;
-    padding: 15px;
+    padding: 0px;
 }
 
 .cal-box {
-    margin: 0px 20px 0px 20px;
+    margin: 0px 0px 0px 0px;
 }
 
 .overview-calendar {
@@ -170,7 +170,6 @@ calendar:indeterminate {
 .weather-box {
     border-top: 2px dotted $color6;
     border-bottom: 2px dotted $color6;
-    margin: 0px 20px 0px 20px;
 }
 
 .current-weather-icon-big {
@@ -198,6 +197,10 @@ calendar:indeterminate {
     font-size: 15;
 }
 
+.forecast-header-text {
+    color: $color1;
+}
+
 .hourly-scale-box {
     margin: 20px 0px 20px 0px;
 }
@@ -205,8 +208,8 @@ calendar:indeterminate {
 .hourly-temp-meter trough {
     color: $color9;
     background-color: $color8;
-    min-width: 200px;
-    min-height: 15px;
+    min-width: 12px;
+    min-height: 12px;
 }
 
 .hourly-temp-meter scrollbar {
@@ -214,13 +217,36 @@ calendar:indeterminate {
 }
 
 .hourly-temp-meter trough highlight {
-    background: linear-gradient(to right, $color8, $color9);
+    background: linear-gradient(to right, $color8, $color1);
 }
 
 .hourly-time-text {
     color: $color2;
     font-size: 12;
     margin: 0px 10px 0px 10px;
+}
+
+.daily-name-text {
+    color: $color2;
+    font-size: 16;
+}
+
+.daily-temperature-icon {
+    color: $color12;
+    font-size: 20;
+    margin: 0px;
+    padding: 0px 12px 0px 0px;
+}
+
+.daily-description-text {
+    color: $color2;
+    font-size: 10;
+}
+
+.daily-temperature-text {
+    color: $color2;
+    font-size: 14;
+    margin: 0px 0px 5px 0px;
 }
 
 // Networking information

@@ -136,13 +136,13 @@ if __name__ == "__main__":
             d_icon = map_icon(daily_cast['weather'][0]['icon'])
             d_desc = daily_cast['weather'][0]['description']
             output_jarrs['daily_avgs'] += f'{d_temp}, '
-            output_jarrs['daily_icons'] += f'{d_icon}, '
-            output_jarrs['daily_descs'] += f'{d_desc}, '
+            output_jarrs['daily_icons'] += f'"{d_icon}", '
+            output_jarrs['daily_descs'] += f'"{d_desc}", '
 
             matched_day = int(current_day) + n + 1
             if matched_day >= 7:
                 matched_day -= 7 * math.floor(matched_day / 7)
-            output_jarrs['daily_names'] += f"{map_day_num(matched_day)}, "
+            output_jarrs['daily_names'] += f'"{map_day_num(matched_day)}", '
 
         output_jarrs['curr_temp'] = onecall_data['current']['temp']
         output_jarrs['curr_vibes'] = int(round(onecall_data['current']['feels_like'], 0))
