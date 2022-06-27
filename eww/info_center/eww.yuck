@@ -321,23 +321,24 @@
                 (label :class "current-sub-weather-text" :text "Wind: ${round(current_windspeed, 2)} m/s (${current_winddir})" :halign "start")
             )
         )
-        (box :class "hourly-scale-box" :orientation "v"
-            (scroll :vscroll true :height 125
-                (box :orientation "v" :spacing 2
+        (box :class "hourly-scale-box" :orientation "h"
+            (scroll :vscroll false :hscroll true :height 145 :space-evenly false
+                (box :orientation "h" :space-evenly false :spacing 0
                     (for i in hourly_idxs
-                        (box :orientation "h" :space-evenly false
-                            (label :class "hourly-time-text" :text '${hourly_times[i] >= 10 ? "${hourly_times[i]}" : "0${hourly_times[i]}"}:00')
-                            (scale
-                                :flipped false
-                                :class "hourly-temp-meter"
-                                :value "${hourly_temps[i]}"
-                                :active false
-                                :hexpand true
-                                :min -50
-                                :max 50
-                                :orientation "h"
-                            )
-                            (label :class "hourly-time-text" :text "${hourly_temps[i]}°C")
+                        (box :orientation "v" :space-evenly false :spacing 3
+                          (label :class "hourly-time-text" :text "${hourly_temps[i]}°C")
+                          (scale
+                              :flipped true
+                              :class "hourly-temp-meter"
+                              :value "${hourly_temps[i]}"
+                              :active false
+                              :hexpand true
+                              :vexpand true
+                              :min -20
+                              :max 50
+                              :orientation "v"
+                          )
+                          (label :class "hourly-time-text" :text '${hourly_times[i] >= 10 ? "${hourly_times[i]}" : "0${hourly_times[i]}"}:00' :angle 325)
                         )
                     )
                 )
@@ -361,8 +362,7 @@
     (button
       :class "time-weather-button"
       :tooltip "Show calendar/weather"
-      :onclick "${cal_reveal == false ? "${EWW_CMD} update cal_reveal=true" : "${EWW_CMD} update cal_reveal=false"}"
-      "${cal_reveal == false ? "" : ""}"
+      :onclick "${cal_reveal == false ? "${EWW_CMD} update cal_reveal=true" : "${EWW_CMD} update cal_reveal=false"}" "${cal_reveal == false ? "" : ""}"
     )
     (revealer
       :transition "slideup"
@@ -495,8 +495,8 @@
     :width 400
     :height 650
     :y 40
-    :x 540
-    :anchor "top left"
+    :x -1380
+    :anchor "top right"
   )
   (cpu-graphs)
 )
@@ -511,8 +511,8 @@
     :width 400
     :height 650
     :y 40
-    :x 960
-    :anchor "top left"
+    :x -960
+    :anchor "top right"
   )
   (mem-graphs)
 )
@@ -527,32 +527,10 @@
     :width 400
     :height 650
     :y 40
-    :x 1380
-    :anchor "top left"
+    :x -540
+    :anchor "top right"
   )
   (gpu-graphs)
-)
-
-
-(defvar poops '["poop", "nuggets"]')
-(defvar diarrhes "[0, 1]")
-(defwindow farts
-  :class "graph-window"
-  :monitor 1
-  :stacking "fg"
-  :windowtype "dialog"
-  :geometry (geometry
-    :width 400
-    :height 650
-    :y 40
-    :x 10
-    :anchor "top left"
-  )
-  (box :orientation "v" :space-evenly false :class "overview-box"
-    (for i in diarrhes
-      (label :text "${poops[i]}")
-    )
-  )
 )
 
 ; Information center window
@@ -562,13 +540,13 @@
   :stacking "bg"
   :wm-ignore false
   :windowtype "desktop"
-  :reserve (struts :distance "520px" :side "left")
+  :reserve (struts :distance "520px" :side "right")
   :geometry (geometry
     :width 500
     :height 970
     :y 40
-    :x 12
-    :anchor "top left"
+    :x -12
+    :anchor "top right"
   )
   (information-center)
 )

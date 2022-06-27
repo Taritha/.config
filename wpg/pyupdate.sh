@@ -1,5 +1,13 @@
 #! /bin/sh
 
+# Reload eww configs
+killall cava && killall zscroll &
+eww --config ~/.config/eww/indicators/ reload &
+eww --config ~/.config/eww/control_center/ reload &
+eww --config ~/.config/eww/info_center/ reload &
+
+sleep 0.5
+
 pywalfox update &
 pywal-discord &
 spicetify update &
@@ -25,12 +33,6 @@ else
     bspc rule -a "*" -o desktop="^$desktop";
     spotify
 fi
-
-# Reload eww configs
-killall cava && killall zscroll &
-eww --config ~/.config/eww/indicators/ reload &
-eww --config ~/.config/eww/control_center/ reload &
-eww --config ~/.config/eww/info_center/ reload &
 
 # Gets current wallpaper directory from ~/.fehbg
 # paperpath=$(cat ~/.fehbg | grep wpg | cut -d " " -f 4 | cut -d "'" -f 2)

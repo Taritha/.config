@@ -66,6 +66,9 @@
     color: $color0;
     font-size: 56;
     padding: 0px 7px 0px 0px;
+    transition-duration: 300ms;
+    transition-timing-function: linear;
+    transition-delay: 10ms;
 }
 
 .circle-label-button:hover {
@@ -125,12 +128,15 @@
     color: $color6;
     font-size: 36;
     border-radius: 10px;
-    padding: 0px 10px 0px 0px
+    padding: 0px 10px 0px 0px;
+    transition-duration: 300ms;
+    transition-timing-function: linear;
+    transition-delay: 10ms;
 }
 
 .time-weather-button:hover {
     color: $color7;
-    background-color: shade($color8, 0.5);
+    background-color: shade($color8, 0.7);
 }
 
 // Calendar/weather widget
@@ -202,28 +208,23 @@ calendar:indeterminate {
 }
 
 .hourly-scale-box {
-    margin: 20px 0px 20px 0px;
+    margin: 10px 0px 10px 0px;
 }
 
 .hourly-temp-meter trough {
     color: $color9;
     background-color: $color8;
-    min-width: 12px;
+    min-width: 30px;
     min-height: 12px;
 }
 
-.hourly-temp-meter scrollbar {
-    color: $color7;
-}
-
 .hourly-temp-meter trough highlight {
-    background: linear-gradient(to right, $color8, $color1);
+    background: linear-gradient(to top, $color0, $color1);
 }
 
 .hourly-time-text {
     color: $color2;
     font-size: 12;
-    margin: 0px 10px 0px 10px;
 }
 
 .daily-name-text {

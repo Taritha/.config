@@ -20,9 +20,9 @@
 
 ;; for sliders
 (defpoll volume :interval "1s" "~/.config/eww/control_center/scripts/get_vol.sh")
-(defpoll volume-slider-indicator :interval "0.05s" "scripts/volume_slider.sh")
+(defpoll volume-slider-indicator :interval "0.1s" "scripts/volume_slider.sh")
 (defpoll mic :interval "1s" "~/.config/eww/control_center/scripts/micvol.sh")
-(defpoll mic-slider-indicator :interval "0.05s" "scripts/get_mic.sh")
+(defpoll mic-slider-indicator :interval "0.1s" "scripts/get_mic.sh")
 
 ;; misc
 (deflisten art "~/.config/eww/control_center/scripts/get_spotify_cover.sh")
@@ -251,6 +251,6 @@
   :windowtype "normal"
   :wm-ignore true
   :monitor 0
-  :geometry (geometry :width 520 :height "90%" :y "5%" :x 12 :anchor "top left")
+  :geometry (geometry :width 520 :height "90%" :y "5%" :x -12 :anchor "top right")
   (control-center)
 )

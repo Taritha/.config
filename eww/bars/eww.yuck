@@ -1,0 +1,290 @@
+;;
+;;  EWW Config
+;;  Author: @taritha_
+;;
+
+;
+; Variables
+;
+
+; Date/time
+(defpoll time :interval "1s" "scripts/time.sh --time")
+(defpoll date :interval "10s" "scripts/time.sh --date")
+(defpoll cur_day :interval "10m" "date '+%d'")
+(defpoll cur_year :interval "30m" "date '+%Y'")
+
+; Audio related stuff
+(deflisten art "scripts/get_spotify_cover.sh")
+(deflisten spot_artist "playerctl --player='spotify' --follow metadata --format {{artist}}")
+(deflisten spot_song "playerctl --player='spotify' --follow metadata --format {{title}}")
+(defvar spot_prev "scripts/spotcontrols.sh --prev")
+(defvar spot_play-pause "scripts/spotcontrols.sh --toggle")
+(defvar spot_next "scripts/spotcontrols.sh --next")
+(deflisten spot_playhook "scripts/get_spotify_pausestate.sh")
+(defpoll volume_slider_indicator :interval "0.2s" "scripts/volume_slider.sh")
+(defvar volume "0")
+
+; Misc
+(defvar topbar_app_reveal false)
+(defvar ctrl_rev false)
+(defvar vol_rev false)
+(deflisten xtitle "python scripts/watch_active_window.py")
+
+
+;
+; Widgets
+;
+
+; Top bar widgets
+; Buttons for the app launcher program (rofi in this case)
+(defwidget rofi-run-menus []
+    (box :orientation "h" :space-evenly true
+        (button 
+            :class "rofi-run-button-left"
+            :tooltip "App launcher"
+            :onclick "bash ~/.config/rofi/scripts/appsmenu.sh"
+            :onrightclick "bash ~/.config/rofi/scripts/runmenu.sh"
+            ""
+        )
+        (button 
+            :class "rofi-run-button-right"
+            :tooltip "System settings"
+            :onclick "bash ~/.config/rofi/scripts/menu.sh"
+            "漣"
+        )
+    )
+)
+
+; Buttons for opening common apps
+(defwidget topbar-app-menu []
+    (box :orientation "h" :space-evenly false
+        (button 
+            :class "misc-bar-button-revealer" 
+            :tooltip "Show hidden icons" 
+            :onclick "${topbar_app_reveal == false ? "${EWW_CMD} update topbar_app_reveal=true" : "${EWW_CMD} update topbar_app_reveal=false"}" "${topbar_app_reveal == false ? "" : ""}"
+        )
+        (revealer :transition "slideright" :duration "500ms" :reveal topbar_app_reveal
+            (box :orientation "h" :space-evenly true
+                (button :class "bar-button-thunar" :tooltip "Launch file manager" :onclick "bash /home/taritha/.config/rofi/scripts/goto_window.sh thunar" "ﱮ")
+                (button :class "bar-button-pamac" :tooltip "Launch app store" :onclick "bash /home/taritha/.config/rofi/scripts/goto_window.sh Add" "")
+                (button :class "bar-button-firefox" :tooltip "Launch firefox" :onclick "bash /home/taritha/.config/rofi/scripts/goto_window.sh Firefox" "")
+                (button :class "bar-button-email" :tooltip "Launch evolution" :onclick "bash /home/taritha/.config/rofi/scripts/goto_window.sh Evolution" "")
+                (button :class "bar-button-slack" :tooltip "Launch slack" :onclick "bash /home/taritha/.config/rofi/scripts/goto_window.sh Slack" "聆")
+                (button :class "bar-button-discord" :tooltip "Launch discord" :onclick "bash /home/taritha/.config/rofi/scripts/goto_window.sh Discord" "ﭮ")
+                (button :class "bar-button-steam" :tooltip "Launch steam" :onclick "bash /home/taritha/.config/rofi/scripts/goto_window.sh Steam" "")
+                (button :class "bar-button-lutris" :tooltip "Launch lutris" :onclick "bash /home/taritha/.config/rofi/scripts/goto_window.sh Lutris" "")    
+            )
+        )
+    )
+)
+
+; Power button
+(defwidget power-button []
+    (box :orientation "h"
+        (button 
+            :class "misc-bar-button-power" 
+            :tooltip "Power" 
+            :onclick "bash /home/taritha/.config/rofi/scripts/powermenu.sh" ""
+        )
+    )
+)
+
+; 
+(defwidget calendar-widget []
+    (box :class "bar-box"
+        (calendar :class "overview-calendar" :day cur_day :year cur_year :active false :vexpand true :hexpand true)
+    )
+)
+
+; Date and time
+(defwidget date-time []
+    (eventbox
+        :class "event-bar-box"
+        :width 180
+        :onhover "${EWW_CMD} open calendar-window" 
+        :onhoverlost "${EWW_CMD} close calendar-window"
+        (box :class "topbar-datetime-box" :orientation "h" :space-evenly false :spacing 10 
+            (label :class "misc-bar-text-datetime" :text time)
+            (label :class "misc-bar-text-datetime" :text date)
+        )
+    )
+)
+
+; Displays name of currently focused window
+(defwidget x-window-name []
+    (label :class "misc-bar-xwindow-text" :text xtitle :limit-width 50)
+)
+
+; Widgets on top monitor bar
+(defwidget topbar-widgets []
+    (box :class "bar-box" :orientation "h"
+        ; Left side elements
+        (box :class "bar-box" :orientation "h" :space-evenly false :halign "start"
+            (rofi-run-menus)
+            (topbar-app-menu)
+        )
+        ; Center elements
+        (box :class "bar-box" :orientation "h" :space-evenly true :halign "center"
+            (label :text "placeholder EUGGGUHGUHG")
+        )
+        ; Right side elements
+        (box :orientation "h" :space-evenly false :halign "end"
+            (x-window-name)
+            (label :class "divider" :text " ")
+            (button 
+                :class "ctrl-rev-button" 
+                :tooltip "Toggle control center"
+                :onclick "${ctrl_rev == false ? "${EWW_CMD} update ctrl_rev=true" : "${EWW_CMD} update ctrl_rev=false"} && eww --config ~/.config/eww/control_center/ open --toggle control-center" "${ctrl_rev == false ? "" : ""}"
+            )
+            (date-time)
+            (power-button)
+        )
+    )
+)
+
+; Spotify open/close button
+(defwidget spot-controls []
+    (box :orientation "h" :space-evenly false
+        (eventbox
+            :class "event-bar-box"
+            :orientation "h"
+            :tooltip "Open spotify/spotify controls"
+            :onclick "bash /home/taritha/.config/rofi/scripts/goto_window.sh Spotify &"
+            :onmiddleclick "${EWW_CMD} open --toggle spotify-window"
+            (box :orientation "h" :space-evenly false
+                (label :class "misc-bar-spotify-logo" :text "阮")
+                (label :class "misc-bar-text-datetime" :text spot_song :limit-width 20)
+            )
+        )
+    )
+)
+
+; Stuff that shows from spotify control box
+(defwidget spotify-controlmenu []
+    (box :class "bar-box" :orientation "h" :space-evenly false
+        (image
+            :class "spotify-cover-img"
+            :path "${art}"
+            :image-width 200
+            :image-height 200
+        )
+        (box :class "spotify-controls-box" :orientation "v" :space-evenly false :valign "center"
+            (label :class "misc-bar-beeg-text" :text spot_song :limit-width 30 :wrap true :halign "center")
+            (label :class "misc-bar-artist-text" :text spot_artist :limit-width 20 :wrap true)
+            (box :orientation "h" :space-evenly false
+                (button :class "spotify-prev-play-button" :onclick "playerctl --player='spotify' previous" "玲")
+                (button :class "spotify-toggle-button" :onclick "playerctl --player='spotify' play-pause" spot_playhook)
+                (button :class "spotify-prev-play-button" :onclick "playerctl --player='spotify' next" "怜")
+            )
+        )
+    )
+)
+
+; Volume control widget
+(defwidget vol-controls []
+    (box :orientation "h" :space-evenly false
+        (eventbox 
+            :class "event-bar-box"
+            :onclick "${vol_rev == false ? "${EWW_CMD} update vol_rev=true" : "${EWW_CMD} update vol_rev=false"} && ${EWW_CMD} update volume=$(pamixer --get-volume)" 
+            (label :class "volume-indicator" :text volume_slider_indicator)
+        )
+        (revealer :transition "slideright" :duration "350ms" :reveal vol_rev
+            (box :orientation "h" :space-evenly false
+                (scale
+                    :class "volume-slider-mini"
+                    :value volume
+                    :min: 0
+                    :max 101
+                    :width 150
+                    :onchange "~/.config/eww/indicators/scripts/change_vol.sh {} && ${EWW_CMD} update volume={}"
+                    :orientation "h"
+                )
+                (label :class "misc-bar-text-datetime" :text "${round(volume, 0)}" :width 40)
+            )   
+        )
+    )
+)
+
+; audio bar widgets
+(defwidget audiobar-widgets []
+    (box :class "bar-box" :orientation "h" :space-evenly true 
+        ; Center elements (there are only center elements)
+        (box :orientation "h" :space-evenly false :halign "center"
+            (spot-controls)
+            (vol-controls)
+        )
+    )
+)
+
+
+;
+;   Windows
+;
+
+; Window that shows a calendar
+(defwindow calendar-window 
+    :class "eww-bar-window"
+    :monitor 0
+    :stacking "fg"
+    :windowtype "toolbar"
+    :wm-ignore true
+    :geometry (geometry
+        :width "200px"
+        :height "200px"
+        :y 52
+        :x -17
+        :anchor "top right"
+    )
+    (calendar-widget)
+)
+
+; Bar for audio controls and the like
+(defwindow audio
+    :class "eww-bar"
+    :monitor 0
+    :stacking "bg"
+    :windowtype "dock"
+    :reserve (struts :distance "54px" :side "bottom")
+    :geometry (geometry 
+        :width "17%"
+        :height 34
+        :y -8
+        :x 17
+        :anchor "bottom left"
+    )
+    (audiobar-widgets)
+)
+
+; Small window for spotify controls
+(defwindow spotify-window 
+    :class "eww-bar-window"
+    :monitor 0
+    :stacking "bg"
+    :windowtype "dock"
+    :wm-ignore true
+    :geometry (geometry
+        :width 500
+        :height 200
+        :y -54
+        :x 17
+        :anchor "bottom left"
+    )
+    (spotify-controlmenu)
+)
+
+; Top bar on monitor 0
+(defwindow topbar 
+    :class "eww-bar"
+    :monitor 0
+    :stacking "bg"
+    :windowtype "dock"
+    :reserve (struts :distance "54px" :side "top")
+    :geometry (geometry 
+        :width "99%"
+        :height 34
+        :y 8
+        :x 17
+        :anchor "top left"
+    )
+    (topbar-widgets)
+)

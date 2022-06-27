@@ -36,9 +36,13 @@
     font-family: "JetBrainsMono Nerd Font";
     font-size: 36px;
     box-shadow: 5px 5px 5px #000000;
+    transition-duration: 300ms;
+    transition-timing-function: linear;
+    transition-delay: 10ms;
 }
 
 .control-center-headers-clear:hover {
+    color: $color15;
     background-color: shade($color9, 0.8);
 }
 
@@ -62,9 +66,13 @@
 .control-center-card-eventbox {
     background-color: $color8;
     border-radius: 15px;
+    transition-duration: 300ms;
+    transition-timing-function: linear;
+    transition-delay: 10ms;
 }
 
 .control-center-card-eventbox:hover {
+    color: $color15;
     background-color: shade($color8, 0.8);
 }
 
@@ -143,6 +151,9 @@
     font-size: 24;
     padding: 0em 0.4em 0em 0.374em;
     margin-bottom: 0.3em;
+    transition-duration: 300ms;
+    transition-timing-function: linear;
+    transition-delay: 10ms;
 }
 
 .control-center-card-notify-close:hover {
@@ -182,6 +193,9 @@ color: $color15;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     font-size: 20px;
+    transition-duration: 300ms;
+    transition-timing-function: linear;
+    transition-delay: 10ms;
 }
 
 .net-status-off {
@@ -192,9 +206,13 @@ color: $color15;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     font-size: 20px;
+    transition-duration: 300ms;
+    transition-timing-function: linear;
+    transition-delay: 10ms;
 }
 
 .net-status-button:hover {
+    color: $color15;
     background-color: shade($color9, 0.8);
 }
 
@@ -206,9 +224,16 @@ color: $color15;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
     font-size: 24px;
+    transition-duration: 300ms;
+    transition-timing-function: linear;
+    transition-delay: 10ms;
+    transition-duration: 300ms;
+    transition-timing-function: linear;
+    transition-delay: 10ms;
 }
 
 .net-set-button:hover {
+    color: $color15;
     background-color: shade($color9, 0.8);
 }
 
@@ -219,6 +244,9 @@ color: $color15;
     padding: 0.5em 0.2em 0.5em 0em;
     border-radius: 15px;
     font-size: 24px;
+    transition-duration: 300ms;
+    transition-timing-function: linear;
+    transition-delay: 10ms;
 }
 
 .comp-status-off {
@@ -228,9 +256,13 @@ color: $color15;
     padding: 0.5em 0.2em 0.5em 0em;
     border-radius: 15px;
     font-size: 24px;
+    transition-duration: 300ms;
+    transition-timing-function: linear;
+    transition-delay: 10ms;
 }
 
 .comp-status-button:hover {
+    color: $color15;
     background-color: shade($color11, 0.8);
 }
 
@@ -241,9 +273,13 @@ color: $color15;
     border-top-right-radius: 15px;
     margin: 0px 19px 0px 19px;
     font-size: 20px;
+    transition-duration: 300ms;
+    transition-timing-function: linear;
+    transition-delay: 10ms;
 }
 
 .vpn-status-button:hover {
+    color: $color15;
     background-color: shade($color5, 0.8);
 }
 
@@ -254,9 +290,13 @@ color: $color15;
     border-bottom-right-radius: 15px;
     margin: 0px 19px 0px 19px;
     font-size: 24px;
+    transition-duration: 300ms;
+    transition-timing-function: linear;
+    transition-delay: 10ms;
 }
 
 .vpn-set-button:hover {
+    color: $color15;
     background-color: shade($color5, 0.8);
 }
 
@@ -268,6 +308,9 @@ color: $color15;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     font-size: 24px;
+    transition-duration: 300ms;
+    transition-timing-function: linear;
+    transition-delay: 10ms;
 }
 
 .bluetooth-status-off {
@@ -278,9 +321,13 @@ color: $color15;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     font-size: 24px;
+    transition-duration: 300ms;
+    transition-timing-function: linear;
+    transition-delay: 10ms;
 }
 
 .bluetooth-status-button:hover {
+    color: $color15;
     background-color: shade($color13, 0.8);
 }
 
@@ -291,9 +338,13 @@ color: $color15;
     border-bottom-right-radius: 15px;
     margin: 0px 19px 0px 19px;
     font-size: 24px;
+    transition-duration: 300ms;
+    transition-timing-function: linear;
+    transition-delay: 10ms;
 }
 
 .bluetooth-set-button:hover {
+    color: $color15;
     background-color: shade($color13, 0.8);
 }
 
@@ -304,6 +355,9 @@ color: $color15;
     padding: 0.5em 0.3em 0.5em 0em;
     border-radius: 15px;
     font-size: 24px;
+    transition-duration: 300ms;
+    transition-timing-function: linear;
+    transition-delay: 10ms;
 }
 
 .dunst-status-off {
@@ -313,9 +367,13 @@ color: $color15;
     padding: 0.5em 0.1em 0.5em 0em;
     border-radius: 15px;
     font-size: 24px;
+    transition-duration: 300ms;
+    transition-timing-function: linear;
+    transition-delay: 10ms;
 }
 
 .dunst-status-button:hover {
+    color: $color15;
     background-color: shade($color2, 0.8);
 }
 
@@ -326,6 +384,9 @@ color: $color15;
     padding: 0.4em 0.3em 0.5em 0em;
     border-radius: 15px;
     font-size: 24px;
+    transition-duration: 300ms;
+    transition-timing-function: linear;
+    transition-delay: 10ms;
 }
 
 .redshift-status-off {
@@ -335,9 +396,13 @@ color: $color15;
     padding: 0.5em 0em 0.5em 0.01em;
     border-radius: 15px;
     font-size: 24px;
+    transition-duration: 300ms;
+    transition-timing-function: linear;
+    transition-delay: 10ms;
 }
 
 .redshift-status-button:hover {
+    color: $color15;
     background-color: shade($color15, 0.85);
 }
 
@@ -354,6 +419,9 @@ color: $color15;
     color: $color0;
     border-radius: 50px;
     box-shadow: 5px 5px 5px #121212;
+    transition-duration: 300ms;
+    transition-timing-function: linear;
+    transition-delay: 10ms;
 }
 
 .volume-slider trough {
@@ -368,6 +436,7 @@ color: $color15;
 }
 
 .volume-slider-icon:hover {
+    color: $color15;
     background-color: shade($color9, 0.8);
 }
 
@@ -383,9 +452,13 @@ color: $color15;
     font-size: 22px;
     border-radius: 50px;
     box-shadow: 5px 5px 5px #121212;
+    transition-duration: 300ms;
+    transition-timing-function: linear;
+    transition-delay: 10ms;
 }
 
 .mic-slider-icon:hover {
+    color: $color15;
     background-color: shade($color14, 0.8);
 }
 
@@ -433,6 +506,9 @@ color: $color15;
     border-radius: 15px;
     background-color: $color0;
     font-size: 30;
+    transition-duration: 300ms;
+    transition-timing-function: linear;
+    transition-delay: 10ms;
 }
 
 .spotify-toggle-button {
@@ -442,13 +518,18 @@ color: $color15;
     border-radius: 15px;
     background-color: $color9;
     font-size: 45;
+    transition-duration: 300ms;
+    transition-timing-function: linear;
+    transition-delay: 10ms;
 }
 
 .spotify-move-button:hover {
+    color: $color15;
     background-color: shade($color8, 0.8);
 }
 
 .spotify-toggle-button:hover {
+    color: $color15;
     background-color: shade($color9, 0.8);
 }
 
