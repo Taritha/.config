@@ -73,13 +73,13 @@ keys = [
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
 
     # App launcher commands
-    Key([mod], 'space', 'bash ~/.config/rofi/scripts/appsmenu.sh', desc='Open application launcher (rofi)'),
-    Key([mod, 'alt'], 'space', 'bash ~/.config/rofi/scripts/runmenu.sh', desc='Open arbitrary run menu (rofi)'),
-    Key([mod], 'o', 'bash ~/.config/rofi/scripts/menu.sh', desc='Open settings menu (rofi)'),
-    Key([mod], 'c', 'rofi -modi "clipboard:greenclip print" -p "fooba" -show clipboard -theme themes/centermenu.rasi', desc='Open clipboard history (greenclip + rofi)'),
-    Key([mod], 'z', 'bash ~/.config/rofi/scripts/goto_window.sh', desc='Open window switcher menu (rofi)'),
-    Key([mod], 'e', 'bash ~/.config/rofi/scripts/sxhkd-keys.sh', desc='Open keybind menu'),
-    Key([mod], 'p', 'bash ~/.config/rofi/scripts/powermenu.sh', desc='Open power menu'),
+    # Key([mod], 'space', 'bash ~/.config/rofi/scripts/appsmenu.sh', desc='Open application launcher (rofi)'),
+    # Key([mod, 'alt'], 'space', 'bash ~/.config/rofi/scripts/runmenu.sh', desc='Open arbitrary run menu (rofi)'),
+    # Key([mod], 'o', 'bash ~/.config/rofi/scripts/menu.sh', desc='Open settings menu (rofi)'),
+    # Key([mod], 'c', 'rofi -modi "clipboard:greenclip print" -p "fooba" -show clipboard -theme themes/centermenu.rasi', desc='Open clipboard history (greenclip + rofi)'),
+    # Key([mod], 'z', 'bash ~/.config/rofi/scripts/goto_window.sh', desc='Open window switcher menu (rofi)'),
+    # Key([mod], 'e', 'bash ~/.config/rofi/scripts/sxhkd-keys.sh', desc='Open keybind menu'),
+    # Key([mod], 'p', 'bash ~/.config/rofi/scripts/powermenu.sh', desc='Open power menu'),
 ]
 
 groups = [Group(i) for i in "123456789"]

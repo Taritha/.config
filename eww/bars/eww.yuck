@@ -37,6 +37,8 @@
 (defvar ctrl_rev false)
 (defvar vol_rev false)
 (deflisten xtitle "python scripts/watch_active_window.py")
+(defvar top_workspaces "[1, 2, 3, 4, 5, 6, 7]")
+(defvar bot_workspaces "[8, 9, 10]")
 
 
 ;
@@ -133,7 +135,11 @@
         )
         ; Center elements
         (box :class "bar-box" :orientation "h" :space-evenly true :halign "center"
-            (label :text "placeholder EUGGGUHGUHG")
+            (box :orientation "h"
+                (for ws in top_workspaces
+                    (button :class "ws-button-label-top" :onclick "dunstify 'E.V.I.L.' 'All Evil Is Lemons'" "ﰊ")
+                )
+            )
         )
         ; Right side elements
         (box :orientation "h" :space-evenly false :halign "end"
@@ -159,7 +165,7 @@
             :tooltip "Open spotify/spotify controls"
             :onclick "bash /home/taritha/.config/rofi/scripts/goto_window.sh Spotify &"
             :onmiddleclick "${EWW_CMD} open --toggle spotify-window"
-            (box :orientation "h" :space-evenly false
+            (box :orientation "h" :space-evenly false :width 325
                 (label :class "misc-bar-spotify-logo" :text "阮")
                 (label :class "misc-bar-text-datetime" :text spot_song :limit-width 25)
             )
@@ -217,7 +223,7 @@
 (defwidget audiobar-widgets []
     (box :class "bar-box" :orientation "h" :space-evenly true 
         ; Center elements (there are only center elements)
-        (box :orientation "h" :space-evenly false :halign "center"
+        (box :orientation "h" :space-evenly false :halign "start"
             (spot-controls)
             (label :class "divider" :text " ")
             (vol-controls)
@@ -228,23 +234,24 @@
 ; networking bar widgets
 (defwidget netbar-widgets []
     (box :class "bar-box" :orientation "h" :space-evenly true 
-        (box :orientation "h" :space-evenly false :halign "center"
+        (box :orientation "h" :space-evenly false :halign "start"
+            (eventbox 
+                :class "event-bar-box"
+                :orientation "h"
+                :tooltip "Toggle wifi"
+                :onclick "../control_center/scripts/wifi.sh --toggle"
+                (box :orientation "h" :space-evenly false
+                    (label :class "wifi-status-icon" :text "${wifi_status}")
+                    (label :class "misc-bar-text-datetime" :text conn_name :limit-width 30)
+                )
+            )
+        )
+        (box :orientation "h" :space-evenly false :halign "end"
             (box :orientation "h" :space-evenly false
                 (button :class "bluetooth-status-icon" :tooltip "Toggle bluetooth" :onclick "scripts/bluetooth_status.sh --toggle" "${bt_status}")
                 (button :class "vpn-status-icon" :tooltip "VPN status" :onclick "../control_center/scripts/vpn_status.sh --display" "${vpn_status}")
                 (button :class "mic-status-icon" :tooltip "Toggle microphone" :onclick "../control_center/scripts/mic.sh --toggle" "${mic_status}")
-                (label :class "divider" :text "")
-                (eventbox 
-                    :class "event-bar-box"
-                    :orientation "h"
-                    :tooltip "Toggle wifi"
-                    :onclick "../control_center/scripts/wifi.sh --toggle"
-                    (box :orientation "h" :space-evenly false
-                        (label :class "wifi-status-icon" :text "${wifi_status}")
-                        (label :class "misc-bar-text-datetime" :text conn_name :limit-width 30)
-                    )
-                )
-                (label :class "divider" :text "")
+                (label :class "divider" :text " ")
                 (button :class "notif-clear-button" :tooltip "Clear notifications" :onclick "dunstctl close-all" "")
             )
         )
@@ -257,8 +264,12 @@
         ;  Center elements
         (box :class "bar-box" :orientation "h" :space-evenly false :halign "start"
             (button :class "misc-ws-button" :tooltip "Layouts" :onclick "dunstify 'lol ya gotta change this dawg'" "")
-            (button :class "bluetooth-status-icon" :tooltip "Aseprite/Krita" :onclick "" "")
-            (label :text "ws placeholder EUGH")
+            (button :class "misc-bar-button-paint" :tooltip "Aseprite/Krita" :onclick "" :onmiddleclick "" "")
+            (box :orientation "h"
+                (for ws in bot_workspaces
+                    (button :class "ws-button-label-bottom" :onclick "dunstify 'E.V.I.L.' 'All Evil Is Lemons'" "ﰊ")
+                )
+            )
         )
     )
 )
@@ -278,7 +289,7 @@
     :geometry (geometry
         :width "200px"
         :height "200px"
-        :y 52
+        :y 73
         :x -17
         :anchor "top right"
     )
@@ -326,7 +337,7 @@
     :windowtype "dock"
     :geometry (geometry
         :height 200
-        :y -54
+        :y -73
         :x 17
         :anchor "bottom left"
     )
@@ -358,7 +369,7 @@
     :windowtype "dock"
     :reserve (struts :distance "54px" :side "bottom")
     :geometry (geometry 
-        :width "10%"
+        :width "9%"
         :height 34
         :y -17
         :x 17

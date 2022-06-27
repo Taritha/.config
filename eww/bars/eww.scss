@@ -33,10 +33,11 @@
 
 .rofi-run-button-right {
     color: $color0;
-    background-color: $color14;
+    background-color: $color12;
     border-top-right-radius: 17px;
     border-bottom-right-radius: 17px;
     font-size: 18;
+    border-left: 2px dotted $color0;
     padding: 0px 15px 0px 10px;
     transition-duration: 300ms;
     transition-timing-function: linear;
@@ -50,7 +51,7 @@
 
 .rofi-run-button-right:hover {
     color: $color15;
-    background-color: shade($color14, 0.8);
+    background-color: shade($color12, 0.8);
 }
 
 
@@ -186,6 +187,37 @@
 
 
 // Workspace buttons
+.ws-button-label-bottom {
+    color: $color7;
+    font-size: 24;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 12px 0px 12px;
+    transition-duration: 300ms;
+    transition-timing-function: linear;
+    transition-delay: 10ms;
+    border-radius: 17px;
+}
+
+.ws-button-label-bottom:hover {
+    color: $color0;
+    background-color: $color15;
+}
+
+.ws-button-label-top {
+    color: $color7;
+    font-size: 18;
+    margin: 0px 10px 0px 10px;
+    padding: 0px 14px 0px 10px;
+    transition-duration: 300ms;
+    transition-timing-function: linear;
+    transition-delay: 10ms;
+    border-radius: 17px;
+}
+
+.ws-button-label-top:hover {
+    color: $color0;
+    background-color: $color15;
+}
 
 // Audio bar
 .misc-bar-spotify-logo {
@@ -384,15 +416,35 @@
     background-color: $color12;
     font-size: 28;
     padding: 0px 10px 0px 10px;
+    border-top-left-radius: 17px;
+    border-bottom-left-radius: 17px;;
     transition-duration: 300ms;
     transition-timing-function: linear;
     transition-delay: 10ms;
-    border-radius: 100%;
 }
 
 .misc-ws-button:hover {
     background-color: shade($color12, 0.7);
     color: $color7;
+}
+
+.misc-bar-button-paint {
+    color: $color0;
+    background-color: $color11;
+    font-size: 24;
+    border-top-right-radius: 17px;
+    border-bottom-right-radius: 17px;
+    border-left: 2px dotted $color0;
+    padding: 0px 10px 0px 10px;
+    margin: 0px 10px 0px 0px;
+    transition-duration: 300ms;
+    transition-timing-function: linear;
+    transition-delay: 10ms;
+}
+
+.misc-bar-button-paint:hover {
+    color: $color7;
+    background-color: shade($color11, 0.7);
 }
 
 // Misc widgets

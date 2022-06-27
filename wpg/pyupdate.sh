@@ -1,17 +1,16 @@
 #! /bin/sh
 
+pywalfox update &
+pywal-discord &
+spicetify update &
+bspc wm -r &
+
 # Reload eww configs
 killall cava && killall zscroll &
 eww --config ~/.config/eww/indicators/ reload &
 eww --config ~/.config/eww/control_center/ reload &
 eww --config ~/.config/eww/info_center/ reload &
-
-sleep 0.5
-
-pywalfox update &
-pywal-discord &
-spicetify update &
-bspc wm -r & 
+eww --config ~/.config/eww/bars/ reload &
 
 # Checks if spotify is running and restarts it if it is
 spotstatus=$(ps -A | grep -w spotify)
