@@ -269,6 +269,20 @@ calendar:indeterminate {
     margin: 0px 0px 12px 10px;
 }
 
+// Filesystem Stuff
+
+.fs-symbol-text {
+    color: $color12;
+    font-size: 28;
+    margin: 0px 20px 0px 10px;
+}
+
+.fs-label-text {
+    color: $color4;
+    font-size: 16;
+    margin: 0px 10px 0px 10px;
+}
+
 // Plotting stuff
 .plot-header-text {
     color: $color7;

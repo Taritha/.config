@@ -3,6 +3,7 @@
 ;;  Author: @taritha_
 ;;
 
+
 ;
 ; Variables
 ;
@@ -23,6 +24,13 @@
 (deflisten spot_playhook "scripts/get_spotify_pausestate.sh")
 (defpoll volume_slider_indicator :interval "0.2s" "scripts/volume_slider.sh")
 (defvar volume "0")
+
+; Networking
+(defpoll bt_status :interval "2s" "../control_center/scripts/bluetooth_status.sh --icon")
+(defpoll vpn_status :interval "2s" "../control_center/scripts/vpn_status.sh --status")
+(defpoll wifi_status :interval "2s" "../control_center/scripts/wifi.sh --status")
+(defpoll mic_status :interval "2s" "../control_center/scripts/mic.sh --status")
+(defpoll conn_name :interval "2s" "../info_center/scripts/netstatus.sh wlp4s0 -c")
 
 ; Misc
 (defvar topbar_app_reveal false)
@@ -153,7 +161,7 @@
             :onmiddleclick "${EWW_CMD} open --toggle spotify-window"
             (box :orientation "h" :space-evenly false
                 (label :class "misc-bar-spotify-logo" :text "阮")
-                (label :class "misc-bar-text-datetime" :text spot_song :limit-width 20)
+                (label :class "misc-bar-text-datetime" :text spot_song :limit-width 25)
             )
         )
     )
@@ -211,7 +219,46 @@
         ; Center elements (there are only center elements)
         (box :orientation "h" :space-evenly false :halign "center"
             (spot-controls)
+            (label :class "divider" :text " ")
             (vol-controls)
+        )
+    )
+)
+
+; networking bar widgets
+(defwidget netbar-widgets []
+    (box :class "bar-box" :orientation "h" :space-evenly true 
+        (box :orientation "h" :space-evenly false :halign "center"
+            (box :orientation "h" :space-evenly false
+                (button :class "bluetooth-status-icon" :tooltip "Toggle bluetooth" :onclick "scripts/bluetooth_status.sh --toggle" "${bt_status}")
+                (button :class "vpn-status-icon" :tooltip "VPN status" :onclick "../control_center/scripts/vpn_status.sh --display" "${vpn_status}")
+                (button :class "mic-status-icon" :tooltip "Toggle microphone" :onclick "../control_center/scripts/mic.sh --toggle" "${mic_status}")
+                (label :class "divider" :text "")
+                (eventbox 
+                    :class "event-bar-box"
+                    :orientation "h"
+                    :tooltip "Toggle wifi"
+                    :onclick "../control_center/scripts/wifi.sh --toggle"
+                    (box :orientation "h" :space-evenly false
+                        (label :class "wifi-status-icon" :text "${wifi_status}")
+                        (label :class "misc-bar-text-datetime" :text conn_name :limit-width 30)
+                    )
+                )
+                (label :class "divider" :text "")
+                (button :class "notif-clear-button" :tooltip "Clear notifications" :onclick "dunstctl close-all" "")
+            )
+        )
+    )
+)
+
+; Widgets for bottom bar
+(defwidget botbar-widgets []
+    (box :class "bar-box" :orientation "h"
+        ;  Center elements
+        (box :class "bar-box" :orientation "h" :space-evenly false :halign "start"
+            (button :class "misc-ws-button" :tooltip "Layouts" :onclick "dunstify 'lol ya gotta change this dawg'" "")
+            (button :class "bluetooth-status-icon" :tooltip "Aseprite/Krita" :onclick "" "")
+            (label :text "ws placeholder EUGH")
         )
     )
 )
@@ -248,11 +295,27 @@
     :geometry (geometry 
         :width "17%"
         :height 34
-        :y -8
+        :y -17
         :x 17
         :anchor "bottom left"
     )
     (audiobar-widgets)
+)
+
+; Networking/comms controls
+(defwindow netbar
+    :class "eww-bar"
+    :monitor 0
+    :stacking "bg"
+    :windowtype "dock"
+    :geometry (geometry
+        :width "17%"
+        :height 34
+        :y -17
+        :x -17
+        :anchor "bottom right"
+    )
+    (netbar-widgets)
 )
 
 ; Small window for spotify controls
@@ -261,9 +324,7 @@
     :monitor 0
     :stacking "bg"
     :windowtype "dock"
-    :wm-ignore true
     :geometry (geometry
-        :width 500
         :height 200
         :y -54
         :x 17
@@ -282,9 +343,26 @@
     :geometry (geometry 
         :width "99%"
         :height 34
-        :y 8
+        :y 17
         :x 17
         :anchor "top left"
     )
     (topbar-widgets)
+)
+
+; Bottom bar on monitor 2
+(defwindow botbar
+    :class "eww-bar"
+    :monitor 1
+    :stacking "bg"
+    :windowtype "dock"
+    :reserve (struts :distance "54px" :side "bottom")
+    :geometry (geometry 
+        :width "10%"
+        :height 34
+        :y -17
+        :x 17
+        :anchor "bottom left"
+    )
+    (botbar-widgets)
 )

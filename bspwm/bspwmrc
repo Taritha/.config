@@ -8,9 +8,9 @@ bspc monitor HDMI-A-0 -d 8 9 10
 
 # Window Spacing/Control
 bspc config border_width	2
-bspc config window_gap      20
-bspc config top_padding		20
-bspc config bottom_padding	20
+bspc config window_gap      19
+bspc config top_padding		18
+bspc config bottom_padding	18
 bspc config left_padding    0
 bspc config right_padding	0
 bspc config split_ratio          0.50
@@ -42,8 +42,11 @@ picom -b --experimental-backend --config ~/.config/picom/picom.conf &
 
 ## POLYBAR STARTUP/COLOR CONTROL ##
 bash /home/taritha/.config/bspwm/bspwm_colors.sh & # Loads colors for bspwm from wpgtk/pywal (borders and preselection mostly
-bash /home/taritha/.config/polybar/launch.sh & # (re-)launches polybar(s)
+# bash /home/taritha/.config/polybar/launch.sh & # (re-)launches polybar(s)
 eww --config ~/.config/eww/control_center/ daemon &
 eww --config ~/.config/eww/indicators/ daemon &
-eww --config ~/.config/eww/info_center/ daemon &
 eww --config ~/.config/eww/info_center/ open info-center &
+eww --config ~/.config/eww/bars/ open topbar &
+eww --config ~/.config/eww/bars/ open audio &
+eww --config ~/.config/eww/bars/ open netbar &
+eww --config ~/.config/eww/bars/ open botbar &

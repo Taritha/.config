@@ -513,11 +513,9 @@ color: $color15;
 
 .spotify-toggle-button {
     color: $color0;
-    padding: 0px 0px 0px 1px;
-    margin: 4px 4px 2px 2px;
     border-radius: 15px;
-    background-color: $color9;
-    font-size: 45;
+    background-color: $color1;
+    font-size: 48;
     transition-duration: 300ms;
     transition-timing-function: linear;
     transition-delay: 10ms;
@@ -530,7 +528,7 @@ color: $color15;
 
 .spotify-toggle-button:hover {
     color: $color15;
-    background-color: shade($color9, 0.8);
+    background-color: shade($color1, 0.8);
 }
 
 .visualizer {

@@ -33,20 +33,20 @@
 
 ; Weather
 (defpoll current_weather :interval "15m" "python scripts/weather.py")
-(defpoll current_temp :interval "15m" "python scripts/weather.py -f -c curr_temp")
-(defpoll current_vibes :interval "15m" "python scripts/weather.py -f -c curr_vibes")
-(defpoll current_pressure :interval "15m" "python scripts/weather.py -f -c curr_pressure")
-(defpoll current_humidity :interval "15m" "python scripts/weather.py -f -c curr_hum")
-(defpoll current_uvi :interval "15m" "python scripts/weather.py -f -c curr_uvi")
-(defpoll current_windspeed :interval "15m" "python scripts/weather.py -f -c curr_ws")
-(defpoll current_winddir :interval "15m" "python scripts/weather.py -f -c curr_wd")
-(defpoll current_icon :interval "15m" "python scripts/weather.py -f -c curr_icon")
-(defpoll hourly_temps :interval "1h" "python scripts/weather.py -f -c hourly_temps")
-(defpoll hourly_times :interval "1h" "python scripts/weather.py -f -c hourly_times")
-(defpoll daily_temps :interval "6h" "python scripts/weather.py -f -c daily_avgs")
-(defpoll daily_names :interval "6h" "python scripts/weather.py -f -c daily_names")
-(defpoll daily_descs :interval "6h" "python scripts/weather.py -f -c daily_descs")
-(defpoll daily_icons :interval "6h" "python scripts/weather.py -f -c daily_icons")
+(defpoll current_temp :interval "15m" "python scripts/weather.py -f -d -c curr_temp")
+(defpoll current_vibes :interval "15m" "python scripts/weather.py -f -d -c curr_vibes")
+(defpoll current_pressure :interval "15m" "python scripts/weather.py -f -d -c curr_pressure")
+(defpoll current_humidity :interval "15m" "python scripts/weather.py -f -d -c curr_hum")
+(defpoll current_uvi :interval "15m" "python scripts/weather.py -f -d -c curr_uvi")
+(defpoll current_windspeed :interval "15m" "python scripts/weather.py -f -d -c curr_ws")
+(defpoll current_winddir :interval "15m" "python scripts/weather.py -f -d -c curr_wd")
+(defpoll current_icon :interval "15m" "python scripts/weather.py -f -d -c curr_icon")
+(defpoll hourly_temps :interval "1h" "python scripts/weather.py -f -d -c hourly_temps")
+(defpoll hourly_times :interval "1h" "python scripts/weather.py -f -d -c hourly_times")
+(defpoll daily_temps :interval "6h" "python scripts/weather.py -f -d -c daily_avgs")
+(defpoll daily_names :interval "6h" "python scripts/weather.py -f -d -c daily_names")
+(defpoll daily_descs :interval "6h" "python scripts/weather.py -f -d -c daily_descs")
+(defpoll daily_icons :interval "6h" "python scripts/weather.py -f -d -c daily_icons")
 (defvar hourly_idxs "[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47]")
 (defvar daily_idxs "[0, 1, 2, 3, 4, 5, 6]")
 
@@ -64,6 +64,8 @@
 (defpoll username :interval "10h" "whoami")
 (defpoll hostname :interval "10h" "hostnamectl | grep Static | awk '{print $3}'")
 (defvar cal_reveal false)
+(defvar alt_mount "/run/media/taritha/Mass\ Storage")
+(defvar root_mount "/")
 
 ;
 ;   Widgets
@@ -451,6 +453,20 @@
   )
 )
 
+; Shows information on filesystem
+(defwidget filesystem []
+  (box :orientation "h" :space-evenly true
+    (box :orientation "h" :space-evenly false
+      (label :class "fs-symbol-text" :tooltip root_mount :text "")
+      (label :class "fs-label-text" :text '${round(EWW_DISK[root_mount]["used_perc"], 1)}% used')
+    )
+    (box :orientation "h" :space-evenly false
+      (label :class "fs-symbol-text" :tooltip alt_mount :text "")
+      (label :class "fs-label-text" :text '${round(EWW_DISK[alt_mount]["used_perc"], 1)}% used')
+    )
+  )
+)
+
 ; Information center at large
 (defwidget information-center []
   (scroll
@@ -476,6 +492,7 @@
         :rangelim 70
         :dynamic false
       )
+      (filesystem)
     )
   )
 )
@@ -494,8 +511,8 @@
   :geometry (geometry
     :width 400
     :height 650
-    :y 40
-    :x -1380
+    :y 37
+    :x -1382
     :anchor "top right"
   )
   (cpu-graphs)
@@ -510,8 +527,8 @@
   :geometry (geometry
     :width 400
     :height 650
-    :y 40
-    :x -960
+    :y 37
+    :x -962
     :anchor "top right"
   )
   (mem-graphs)
@@ -526,8 +543,8 @@
   :geometry (geometry
     :width 400
     :height 650
-    :y 40
-    :x -540
+    :y 37
+    :x -542
     :anchor "top right"
   )
   (gpu-graphs)
@@ -540,12 +557,12 @@
   :stacking "bg"
   :wm-ignore false
   :windowtype "desktop"
-  :reserve (struts :distance "520px" :side "right")
+  :reserve (struts :distance "517px" :side "right")
   :geometry (geometry
     :width 500
-    :height 970
-    :y 40
-    :x -12
+    :height 1023
+    :y 37
+    :x -17
     :anchor "top right"
   )
   (information-center)

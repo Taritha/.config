@@ -217,8 +217,8 @@
 .spotify-prev-play-button {
     color: $color7;
     font-size: 24;
-    margin: 0px 10px 0px 10px;
-    padding: 0px 20px 0px 20px;
+    margin: 10px 10px 10px 10px;
+    padding: 0px 16px 0px 16px;
     transition-duration: 300ms;
     transition-timing-function: linear;
     transition-delay: 10ms;
@@ -242,12 +242,13 @@
 }
 
 .spotify-toggle-button:hover {
-    background-color: shade($color7, 0.6);
+    color: $color7;
+    background-color: shade($color1, 0.8);
 }
 
 .volume-indicator {
     color: $color9;
-    font-size: 34;
+    font-size: 40;
     margin: -10px 10px -10px 10px;
 }
 
@@ -261,6 +262,87 @@
 .volume-slider-mini highlight {
     border-radius: 10px;
     background: linear-gradient(to right, $color0, $color9);
+}
+
+// Networking bar buttons
+.bluetooth-status-icon {
+    color: $color9;
+    font-size: 20;
+    padding: 0px 15px 0px 15px;
+    margin: 0px 0px 0px 10px;
+    transition-duration: 300ms;
+    transition-timing-function: linear;
+    transition-delay: 10ms;
+    border-radius: 17px;
+}
+
+.bluetooth-status-icon:hover {
+    background-color: $color8;
+    color: $color9;
+}
+
+.vpn-status-icon {
+    color: $color9;
+    font-size: 20;
+    padding: 0px 15px 0px 15px;
+    margin: 0px 0px 0px 10px;
+    transition-duration: 300ms;
+    transition-timing-function: linear;
+    transition-delay: 10ms;
+    border-radius: 17px;
+}
+
+.vpn-status-icon:hover {
+    background-color: $color8;
+    color: $color9;
+}
+
+.mic-status-icon {
+    color: $color9;
+    font-size: 20;
+    padding: 0px 15px 0px 15px;
+    margin: 0px 0px 0px 10px;
+    transition-duration: 300ms;
+    transition-timing-function: linear;
+    transition-delay: 10ms;
+    border-radius: 17px;
+}
+
+.mic-status-icon:hover {
+    background-color: $color8;
+    color: $color9;
+}
+
+.wifi-status-icon {
+    color: $color5;
+    font-size: 28;
+    padding: 0px 15px 0px 0px;
+    margin: 0px 0px 0px 10px;
+    transition-duration: 300ms;
+    transition-timing-function: linear;
+    transition-delay: 10ms;
+    border-radius: 17px;
+}
+
+.wifi-status-icon:hover {
+    background-color: $color8;
+    color: $color5;
+}
+
+.notif-clear-button {
+    color: $color12;
+    font-size: 28;
+    padding: 0px 15px 0px 15px;
+    margin: 0px 0px 0px 0px;
+    transition-duration: 300ms;
+    transition-timing-function: linear;
+    transition-delay: 10ms;
+    border-radius: 17px;
+}
+
+.notif-clear-button:hover {
+    background-color: $color8;
+    color: $color12;
 }
 
 // Miscellaneous buttons
@@ -281,7 +363,6 @@
     color: $color15;
 }
 
-
 .misc-bar-button-power {
     color: $color0;
     background-color: $color9;
@@ -295,6 +376,22 @@
 
 .misc-bar-button-power:hover {
     background-color: shade($color9, 0.7);
+    color: $color7;
+}
+
+.misc-ws-button {
+    color: $color0;
+    background-color: $color12;
+    font-size: 28;
+    padding: 0px 10px 0px 10px;
+    transition-duration: 300ms;
+    transition-timing-function: linear;
+    transition-delay: 10ms;
+    border-radius: 100%;
+}
+
+.misc-ws-button:hover {
+    background-color: shade($color12, 0.7);
     color: $color7;
 }
 

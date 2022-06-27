@@ -24,7 +24,7 @@ configuration {
 window {
     transparency:                   "real";
     border-radius:                  17px;
-    border:                         2px;
+    border:                         0px;
     border-color:                   @accent2;
     location:                       southeast;
 	width:							500px;
