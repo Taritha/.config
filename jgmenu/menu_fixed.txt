@@ -1,0 +1,10 @@
+### Root menu ##
+Tall,bsp-layout set tall,format-text-direction-ltr-symbolic
+Tall (R),bsp-layout set rtall,format-text-direction-rtl-symbolic
+Wide,bsp-layout set wide,edit-select-all-symbolic
+Wide (R),bsp-layout set rwide,edit-select-all-symbolic
+Grid (H),bsp-layout set grid,view-grid-symbolic
+Grid (V),bsp-layout set rgrid,view-grid-symbolic
+Even,bsp-layout set even,format-justify-fill-symbolic
+Tiled,bsp-layout set tiled,view-list-symbolic
+Monocle,~/.config/jgmenu/scripts/monocle-toggle.sh,view-fullscreen-symbolic

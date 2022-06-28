@@ -8,6 +8,10 @@ super + slash
 super + Return
 	kitty
 
+# Close spotify eww submenu
+Pause
+	eww --config ~/.config/eww/bars/ close spotify-window
+
 # reload keybind config (sxhkd)
 super + Escape
 	pkill -USR1 -x sxhkd

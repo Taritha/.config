@@ -1,12 +1,33 @@
-Browser,firefox,firefox
-File Manager,thunar,org.xfce.thunar
-RGB,killall -9 openrgb && openrgb,OpenRGB
+### Root menu ##
+# Apps
+Browser,firefox,firefox-symbolic
+File Manager,thunar,folder-symbolic
+RGB,killall -9 openrgb && openrgb,weather-clear-symbolic
+
+# Terminal/Layout submenu
 ^sep()
-Terminal,kitty,kitty
+Terminal,kitty,utilities-terminal-symbolic
+Layouts,^checkout(layouts),view-grid-symbolic
+
+# Exit Submenu
 ^sep()
-Lock,betterlockscreen -l dim,lock
 Exit,^checkout(exit),system-shutdown
+
+### Submenu Elements ###
+^tag(layouts)
+Tall,bsp-layout once tall,format-text-direction-ltr-symbolic
+Tall (R),bsp-layout once rtall,format-text-direction-rtl-symbolic
+Wide,bsp-layout once wide,edit-select-all-symbolic
+Wide (R),bsp-layout once rwide,edit-select-all-symbolic
+Grid (H),bsp-layout once grid,view-grid-symbolic
+Grid (V),bsp-layout once rgrid,view-grid-symbolic
+Even,bsp-layout once even,format-justify-fill-symbolic
+Tiled,bsp-layout set tiled,view-list-symbolic
+Monocle,~/.config/jgmenu/scripts/monocle-toggle.sh,view-fullscreen-symbolic
+
 ^tag(exit)
-Log Out,bspc quit,exit
-Reboot,systemctl -i reboot,system-reboot
 Shutdown,systemctl -i poweroff,system-shutdown
+Reboot,systemctl -i reboot,system-reboot
+Sleep,systemctl -i suspend,system-suspend
+Lock,betterlockscreen -l dim,lock
+Log Out,bspc quit,exit
