@@ -80,6 +80,10 @@ super + shift + {Left,Down,Up,Right}
 super + b : {Left,Down,Up,Right}
 	~/.config/sxhkd/scripts/resize_window.sh {1,2,3,4}
 
+# Rotate tree
+super + {l,j}
+	bspc node @/ -C {forward,backward}
+
 # cancel the preselection for the focused node
 ctrl + Escape
 	bspc node -p cancel
