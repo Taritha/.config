@@ -5,13 +5,6 @@ pywal-discord &
 spicetify update &
 bspc wm -r &
 
-# Reload eww configs
-killall cava && killall zscroll &
-eww --config ~/.config/eww/indicators/ reload &
-eww --config ~/.config/eww/control_center/ reload &
-eww --config ~/.config/eww/info_center/ reload &
-eww --config ~/.config/eww/bars/ reload &
-
 # Checks if spotify is running and restarts it if it is
 spotstatus=$(ps -A | grep -w spotify)
 
@@ -33,13 +26,16 @@ else
     spotify
 fi
 
+# Reload eww
+~/.config/bspwm/scripts/load_eww.sh &
+
 # Gets current wallpaper directory from ~/.fehbg
 # paperpath=$(cat ~/.fehbg | grep wpg | cut -d " " -f 4 | cut -d "'" -f 2)
 paperpath=$(readlink -f ~/.config/wpg/.current)
 
 # Update lockscreen to use same wallpaper as desktop
-dunstify -u critical "Betterlockscreen" "Updating lock screen wallpaper effects..." &
-betterlockscreen -u "${paperpath}" --fx dim,blur --display 1 && dunstify -u critical "Betterlockscreen" "Update complete" &
+dunstify -u critical "Betterlockscreen" "Updating lock screen wallpaper effects..."
+betterlockscreen -u "${paperpath}" --fx dim,blur --display 1 && dunstify -u critical "Betterlockscreen" "Update complete"
 
 # Wait 1s and then close notifications
 sleep 1

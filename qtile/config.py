@@ -31,10 +31,12 @@ from libqtile.utils import guess_terminal
 
 mod = "mod4"
 terminal = "kitty"
+home = '/home/taritha'
 
 keys = [
     # A list of available commands that can be bound to keys can be found
-    # at https://docs.qtile.org/en/latest/manual/config/lazy.html
+    # at https://docs.qtile.org/en
+    # /latest/manual/config/lazy.html
     # Switch between windows
     Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
     Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
@@ -73,13 +75,13 @@ keys = [
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
 
     # App launcher commands
-    # Key([mod], 'space', 'bash ~/.config/rofi/scripts/appsmenu.sh', desc='Open application launcher (rofi)'),
-    # Key([mod, 'alt'], 'space', 'bash ~/.config/rofi/scripts/runmenu.sh', desc='Open arbitrary run menu (rofi)'),
-    # Key([mod], 'o', 'bash ~/.config/rofi/scripts/menu.sh', desc='Open settings menu (rofi)'),
-    # Key([mod], 'c', 'rofi -modi "clipboard:greenclip print" -p "fooba" -show clipboard -theme themes/centermenu.rasi', desc='Open clipboard history (greenclip + rofi)'),
-    # Key([mod], 'z', 'bash ~/.config/rofi/scripts/goto_window.sh', desc='Open window switcher menu (rofi)'),
-    # Key([mod], 'e', 'bash ~/.config/rofi/scripts/sxhkd-keys.sh', desc='Open keybind menu'),
-    # Key([mod], 'p', 'bash ~/.config/rofi/scripts/powermenu.sh', desc='Open power menu'),
+    Key([mod], 'space', lazy.spawn('bash /home/taritha/.config/rofi/scripts/appsmenu.sh'), desc='Open application launcher (rofi)'),
+    Key([mod, 'mod1'], 'space', lazy.spawn('bash ~/.config/rofi/scripts/runmenu.sh'), desc='Open arbitrary run menu (rofi)'),
+    Key([mod], 'o', lazy.spawn('bash ~/.config/rofi/scripts/menu.sh'), desc='Open settings menu (rofi)'),
+    Key([mod], 'c', lazy.spawn('rofi -modi "clipboard:greenclip print" -p "fooba" -show clipboard -theme themes/centermenu.rasi'), desc='Open clipboard history (greenclip + rofi)'),
+    Key([mod], 'z', lazy.spawn('bash ~/.config/rofi/scripts/goto_window.sh'), desc='Open window switcher menu (rofi)'),
+    Key([mod], 'e', lazy.spawn('bash ~/.config/rofi/scripts/sxhkd-keys.sh'), desc='Open keybind menu'),
+    Key([mod], 'p', lazy.spawn('bash ~/.config/rofi/scripts/powermenu.sh'), desc='Open power menu'),
 ]
 
 groups = [Group(i) for i in "123456789"]

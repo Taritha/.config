@@ -185,23 +185,154 @@
     color: $color0;
 }
 
-
 // Workspace buttons
-.ws-button-label-bottom {
-    color: $color7;
+// Unnocupied workspaces
+.wb-0-- {
+    color: $color8;
     font-size: 24;
-    margin: 0px 0px 0px 0px;
-    padding: 0px 12px 0px 12px;
+    margin: 0px 5px 0px 5px;
+    padding: 2px 12px 0px 12px;
     transition-duration: 300ms;
     transition-timing-function: linear;
     transition-delay: 10ms;
     border-radius: 17px;
 }
 
-.ws-button-label-bottom:hover {
-    color: $color0;
-    background-color: $color15;
+.wb-0--:hover {
+    color: $color9;
 }
+
+// Occupied workspaces
+.wb-0-1-, 
+.wb-0-2-, 
+.wb-0-3-, 
+.wb-0-4-, 
+.wb-0-5-, 
+.wb-0-6-, 
+.wb-0-7- {
+    color: $color7;
+    font-size: 22;
+    margin: 0px 5px 0px 5px;
+    padding: 2px 12px 0px 12px;
+    transition-duration: 300ms;
+    transition-timing-function: linear;
+    transition-delay: 10ms;
+    border-radius: 17px;
+}
+
+.wb-0-8-, 
+.wb-0-9-, 
+.wb-0-10- {
+    color: $color7;
+    font-size: 24;
+    margin: 0px 5px 0px 5px;
+    padding: 2px 12px 0px 12px;
+    transition-duration: 300ms;
+    transition-timing-function: linear;
+    transition-delay: 10ms;
+    border-radius: 17px;
+}
+
+.wb-0-1-:hover, 
+.wb-0-2-:hover, 
+.wb-0-3-:hover, 
+.wb-0-4-:hover, 
+.wb-0-5-:hover, 
+.wb-0-6-:hover, 
+.wb-0-7-:hover, 
+.wb-0-8-:hover, 
+.wb-0-9-:hover, 
+.wb-0-10-:hover {
+    color: $color13;
+}
+
+// Focused workspaces
+.wb-0--1, 
+.wb-0--2, 
+.wb-0--3, 
+.wb-0--4, 
+.wb-0--5, 
+.wb-0--6, 
+.wb-0--7 {
+    color: $color15;
+    font-size: 22;
+    margin: 0px 5px 0px 5px;
+    padding: 2px 12px 0px 12px;
+    transition-duration: 300ms;
+    transition-timing-function: linear;
+    transition-delay: 10ms;
+    border-radius: 17px;
+}
+
+.wb-0--8, 
+.wb-0--9, 
+.wb-0--10 {
+    color: $color15;
+    font-size: 24;
+    margin: 0px 5px 0px 5px;
+    padding: 2px 12px 0px 12px;
+    transition-duration: 300ms;
+    transition-timing-function: linear;
+    transition-delay: 10ms;
+    border-radius: 17px;
+}
+
+.wb-0-1-1, 
+.wb-0-2-2, 
+.wb-0-3-3, 
+.wb-0-4-4, 
+.wb-0-5-5, 
+.wb-0-6-6, 
+.wb-0-7-7  {
+    color: $color15;
+    font-size: 22;
+    margin: 0px 5px 0px 5px;
+    padding: 2px 12px 0px 12px;
+    transition-duration: 300ms;
+    transition-timing-function: linear;
+    transition-delay: 10ms;
+    border-radius: 17px;
+}
+
+.wb-0-8-8, 
+.wb-0-9-9, 
+.wb-0-10-10 {
+    color: $color15;
+    font-size: 24;
+    margin: 0px 5px 0px 5px;
+    padding: 2px 12px 0px 12px;
+    transition-duration: 300ms;
+    transition-timing-function: linear;
+    transition-delay: 10ms;
+    border-radius: 17px;
+}
+
+.wb-0--1:hover, 
+.wb-0--2:hover, 
+.wb-0--3:hover,
+.wb-0--4:hover,
+.wb-0--5:hover,
+.wb-0--6:hover,
+.wb-0--7:hover,
+.wb-0--8:hover,
+.wb-0--9:hover,
+.wb-0--10:hover {
+    color: $color13;
+}
+
+.wb-0-1-1:hover,
+.wb-0-2-2:hover,
+.wb-0-3-3:hover,
+.wb-0-4-4:hover,
+.wb-0-5-5:hover,
+.wb-0-6-6:hover,
+.wb-0-7-7:hover,
+.wb-0-8-8:hover,
+.wb-0-9-9:hover,
+.wb-0-10-10:hover {
+    color: $color13;
+}
+
 
 .ws-button-label-top {
     color: $color7;
@@ -215,15 +346,22 @@
 }
 
 .ws-button-label-top:hover {
-    color: $color0;
-    background-color: $color15;
+    color: $color13;
+    background-color: $color0;
 }
 
 // Audio bar
 .misc-bar-spotify-logo {
-    color: $color13;
+    color: $color0;
     font-size: 36;
     margin: -8px 10px -8px 10px;
+}
+
+.misc-bar-text-dark {
+    color: $color0;
+    padding: 0px 5px 0px 0px;
+    font-size: 17;
+    font-weight: bold;
 }
 
 .misc-bar-beeg-text {
@@ -237,6 +375,21 @@
     font-size: 16px;
     margin: 15px 0px 20px 0px;
 }
+
+
+.spotify-event-bar-box {
+    background-color: $color3;
+    border-radius: 17px;
+    transition-duration: 300ms;
+    transition-timing-function: linear;
+    transition-delay: 10ms;
+    border-radius: 17px;
+}
+
+.spotify-event-bar-box:hover {
+    background-color: shade($color3, 0.8);
+}
+
 
 .spotify-controls-box {
     margin: 20px 20px 20px 0px;
@@ -301,7 +454,6 @@
     color: $color9;
     font-size: 20;
     padding: 0px 15px 0px 15px;
-    margin: 0px 0px 0px 10px;
     transition-duration: 300ms;
     transition-timing-function: linear;
     transition-delay: 10ms;
@@ -383,7 +535,6 @@
     background-color: $color0;
     font-size: 20;
     padding: 0px 15px 0px 15px;
-    margin: 0px 0px 0px 10px;
     transition-duration: 300ms;
     transition-timing-function: linear;
     transition-delay: 10ms;
@@ -436,7 +587,7 @@
     border-bottom-right-radius: 17px;
     border-left: 2px dotted $color0;
     padding: 0px 10px 0px 10px;
-    margin: 0px 10px 0px 0px;
+    margin: 0px 5px 0px 0px;
     transition-duration: 300ms;
     transition-timing-function: linear;
     transition-delay: 10ms;

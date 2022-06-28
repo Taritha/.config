@@ -29,8 +29,8 @@ window {
     location:                       northwest;
 	width:							300px;
     height:                         330px;
-    x-offset:                       12px;
-    y-offset:                       55px;
+    x-offset:                       17px;
+    y-offset:                       73px;
 }
 
 prompt {

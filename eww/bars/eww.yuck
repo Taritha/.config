@@ -36,9 +36,11 @@
 (defvar topbar_app_reveal false)
 (defvar ctrl_rev false)
 (defvar vol_rev false)
+(defvar launch_krita "krita")
+(defvar launch_ase "~/.steam/steam/steamapps/common/Aseprite")
 (deflisten xtitle "python scripts/watch_active_window.py")
-(defvar top_workspaces "[1, 2, 3, 4, 5, 6, 7]")
-(defvar bot_workspaces "[8, 9, 10]")
+(deflisten top_workspaces "scripts/workspaces_topbar.sh")
+(deflisten bot_workspaces "scripts/workspaces_botbar.sh")
 
 
 ;
@@ -134,13 +136,7 @@
             (topbar-app-menu)
         )
         ; Center elements
-        (box :class "bar-box" :orientation "h" :space-evenly true :halign "center"
-            (box :orientation "h"
-                (for ws in top_workspaces
-                    (button :class "ws-button-label-top" :onclick "dunstify 'E.V.I.L.' 'All Evil Is Lemons'" "ﰊ")
-                )
-            )
-        )
+        (literal :content top_workspaces)
         ; Right side elements
         (box :orientation "h" :space-evenly false :halign "end"
             (x-window-name)
@@ -160,14 +156,14 @@
 (defwidget spot-controls []
     (box :orientation "h" :space-evenly false
         (eventbox
-            :class "event-bar-box"
+            :class "spotify-event-bar-box"
             :orientation "h"
             :tooltip "Open spotify/spotify controls"
             :onclick "bash /home/taritha/.config/rofi/scripts/goto_window.sh Spotify &"
             :onmiddleclick "${EWW_CMD} open --toggle spotify-window"
             (box :orientation "h" :space-evenly false :width 325
                 (label :class "misc-bar-spotify-logo" :text "阮")
-                (label :class "misc-bar-text-datetime" :text spot_song :limit-width 25)
+                (label :class "misc-bar-text-dark" :text spot_song :limit-width 25)
             )
         )
     )
@@ -199,41 +195,42 @@
     (box :orientation "h" :space-evenly false
         (eventbox 
             :class "event-bar-box"
-            :onclick "${vol_rev == false ? "${EWW_CMD} update vol_rev=true" : "${EWW_CMD} update vol_rev=false"} && ${EWW_CMD} update volume=$(pamixer --get-volume)" 
+            :tooltip "Volume"
+            :onclick "${vol_rev == false ? "${EWW_CMD} update vol_rev=true" : "${EWW_CMD} update vol_rev=false && ${EWW_CMD} close audiobar && ${EWW_CMD} open audiobar"} && ${EWW_CMD} update volume=$(pamixer --get-volume)" 
             (label :class "volume-indicator" :text volume_slider_indicator)
-        )
-        (revealer :transition "slideright" :duration "350ms" :reveal vol_rev
-            (box :orientation "h" :space-evenly false
-                (scale
-                    :class "volume-slider-mini"
-                    :value volume
-                    :min: 0
-                    :max 101
-                    :width 150
-                    :onchange "~/.config/eww/indicators/scripts/change_vol.sh {} && ${EWW_CMD} update volume={}"
-                    :orientation "h"
-                )
-                (label :class "misc-bar-text-datetime" :text "${round(volume, 0)}" :width 40)
-            )   
         )
     )
 )
 
 ; audio bar widgets
 (defwidget audiobar-widgets []
-    (box :class "bar-box" :orientation "h" :space-evenly true 
+    (box :class "bar-box" :orientation "h" :space-evenly true
         ; Center elements (there are only center elements)
         (box :orientation "h" :space-evenly false :halign "start"
             (spot-controls)
-            (label :class "divider" :text " ")
-            (vol-controls)
+            (revealer :transition "slideright" :duration "350ms" :reveal vol_rev
+                (box :orientation "h" :space-evenly false
+                    (label :class "misc-bar-text-datetime" :text "${round(volume, 0)}" :width 45)
+                    (scale
+                        :class "volume-slider-mini"
+                        :value volume
+                        :min: 0
+                        :max 101
+                        :width 150
+                        :onchange "~/.config/eww/indicators/scripts/change_vol.sh {} && ${EWW_CMD} update volume={}"
+                        :orientation "h"
+                    )
+                    (label :class "divider" :text " ")
+                )   
+            )
+        (box :halign "end" (vol-controls))
         )
     )
 )
 
 ; networking bar widgets
 (defwidget netbar-widgets []
-    (box :class "bar-box" :orientation "h" :space-evenly true 
+    (box :class "bar-box" :orientation "h" :space-evenly false 
         (box :orientation "h" :space-evenly false :halign "start"
             (eventbox 
                 :class "event-bar-box"
@@ -248,11 +245,12 @@
         )
         (box :orientation "h" :space-evenly false :halign "end"
             (box :orientation "h" :space-evenly false
+                (label :class "divider" :text " ")
                 (button :class "bluetooth-status-icon" :tooltip "Toggle bluetooth" :onclick "scripts/bluetooth_status.sh --toggle" "${bt_status}")
                 (button :class "vpn-status-icon" :tooltip "VPN status" :onclick "../control_center/scripts/vpn_status.sh --display" "${vpn_status}")
                 (button :class "mic-status-icon" :tooltip "Toggle microphone" :onclick "../control_center/scripts/mic.sh --toggle" "${mic_status}")
                 (label :class "divider" :text " ")
-                (button :class "notif-clear-button" :tooltip "Clear notifications" :onclick "dunstctl close-all" "")
+                (button :class "notif-clear-button" :tooltip "Clear notifications" :onclick "dunstctl close" :onmiddleclick "dunstctl close-all" "")
             )
         )
     )
@@ -264,12 +262,8 @@
         ;  Center elements
         (box :class "bar-box" :orientation "h" :space-evenly false :halign "start"
             (button :class "misc-ws-button" :tooltip "Layouts" :onclick "dunstify 'lol ya gotta change this dawg'" "")
-            (button :class "misc-bar-button-paint" :tooltip "Aseprite/Krita" :onclick "" :onmiddleclick "" "")
-            (box :orientation "h"
-                (for ws in bot_workspaces
-                    (button :class "ws-button-label-bottom" :onclick "dunstify 'E.V.I.L.' 'All Evil Is Lemons'" "ﰊ")
-                )
-            )
+            (button :class "misc-bar-button-paint" :tooltip "Aseprite/Krita" :onclick launch_ase :onmiddleclick launch_krita "")
+            (literal :content bot_workspaces)
         )
     )
 )
@@ -297,14 +291,14 @@
 )
 
 ; Bar for audio controls and the like
-(defwindow audio
+(defwindow audiobar
     :class "eww-bar"
     :monitor 0
     :stacking "bg"
-    :windowtype "dock"
+    :windowtype "desktop"
     :reserve (struts :distance "54px" :side "bottom")
     :geometry (geometry 
-        :width "17%"
+        :width "10%"
         :height 34
         :y -17
         :x 17
@@ -318,9 +312,9 @@
     :class "eww-bar"
     :monitor 0
     :stacking "bg"
-    :windowtype "dock"
+    :windowtype "desktop"
     :geometry (geometry
-        :width "17%"
+        :width "10%"
         :height 34
         :y -17
         :x -17
@@ -349,7 +343,7 @@
     :class "eww-bar"
     :monitor 0
     :stacking "bg"
-    :windowtype "dock"
+    :windowtype "desktop"
     :reserve (struts :distance "54px" :side "top")
     :geometry (geometry 
         :width "99%"
@@ -366,7 +360,7 @@
     :class "eww-bar"
     :monitor 1
     :stacking "bg"
-    :windowtype "dock"
+    :windowtype "desktop"
     :reserve (struts :distance "54px" :side "bottom")
     :geometry (geometry 
         :width "9%"

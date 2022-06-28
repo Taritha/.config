@@ -25,7 +25,7 @@ bspc rule -r "*:*"
 bspc rule -a Wpg:wpg state=floating # wpgtk
 bspc rule -a pentablet:pentablet state=floating # Xp-Pen tablet driver
 bspc rule -a Pavucontrol:pavucontrol state=floating # Audio controls
-bspc rule -a "zoom " desktop=10 state=floating
+bspc rule -a "zoom*" desktop=10 state=floating
 bspc rule -a cinebench.exe state=floating 
 bspc rule -a Eog:eog state=floating # Image viewer
 bspc rule -a steam_app_314650:steam_app_314650 monitor=^1 state=fullscreen # Space Engine
@@ -42,11 +42,3 @@ picom -b --experimental-backend --config ~/.config/picom/picom.conf &
 
 ## POLYBAR STARTUP/COLOR CONTROL ##
 bash /home/taritha/.config/bspwm/bspwm_colors.sh & # Loads colors for bspwm from wpgtk/pywal (borders and preselection mostly
-# bash /home/taritha/.config/polybar/launch.sh & # (re-)launches polybar(s)
-eww --config ~/.config/eww/control_center/ daemon &
-eww --config ~/.config/eww/indicators/ daemon &
-eww --config ~/.config/eww/info_center/ open info-center &
-eww --config ~/.config/eww/bars/ open topbar &
-eww --config ~/.config/eww/bars/ open audio &
-eww --config ~/.config/eww/bars/ open netbar &
-eww --config ~/.config/eww/bars/ open botbar &

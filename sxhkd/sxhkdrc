@@ -1,150 +1,112 @@
 #!usr/bin/env sh
 
+# Show help/keybind menu (this menu lol)
+super + slash
+	bash ~/.config/rofi/scripts/sxhkd-keys.sh
 
 # terminal emulator
 super + Return
 	kitty
 
-# program launcher
-super + @space
-	bash ~/.config/rofi/scripts/appsmenu.sh
+# reload keybind config (sxhkd)
+super + Escape
+	pkill -USR1 -x sxhkd
 
-# run arbitrary commands
-super + alt + @space
-	bash ~/.config/rofi/scripts/runmenu.sh
+# system settings
+super + o
+	bash ~/.config/rofi/scripts/menu.sh
 
 # power menu
 super + p
 	bash ~/.config/rofi/scripts/powermenu.sh
 
-# show clipboard history
+# program launcher
+super + @space
+	bash ~/.config/rofi/scripts/appsmenu.sh
+
+# run menu
+super + alt + @space
+	bash ~/.config/rofi/scripts/runmenu.sh
+
+# clipboard history
 super + c
 	rofi -modi "clipboard:greenclip print" -p "fooba" -show clipboard -theme themes/centermenu.rasi
 
-# show settings menu
-super + o
-	bash ~/.config/rofi/scripts/menu.sh
+# switch to a new, random wallpaper
+super + w
+	wpg -m
 
-# reload keybind config (sxhkd)
-super + Escape
-	pkill -USR1 -x sxhkd
+# reload eww widgets when they act dumb
+super + r
+	~/.config/bspwm/scripts/load_eww.sh
+
+# ultra reload eww because it's REALLY acting up
+suepr + shift + r
+	~/.config/bspwm/scripts/load_eww.sh --kill
 
 # quit/restart bspwm
 super + alt + {q,r}
 	bspc {quit,wm -r}
 
-# close and kill
+# close and kill focused window
 super + {_,shift + }q
 	bspc node -{c,k}
-
-# alternate between the tiled and monocle layout
-super + m
-	bspc desktop -l next
-
-# send the newest marked node to the newest preselected node
-super + y
-	bspc node newest.marked.local -n newest.!automatic.local
-
-# swap the current node and the biggest window
-super + g
-	bspc node -s biggest.window
 
 # set the window state
 super + {t,shift + t,s,f}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
-# set the node flags
-super + ctrl + {m,x,y,z}
-	bspc node -g {marked,locked,sticky,private}
-
-# focus the node in the given direction
-super + {_,shift + }{h,j,k,l}
-	bspc node -{f,s} {west,south,north,east}
-
-# focus the node for the given path jump
-super + {p,b,comma,period}
-	bspc node -f @{parent,brother,first,second}
-
-# focus the next/previous window in the current desktop
-super + {_,shift + }v
-	bspc node -f {next,prev}.local.!hidden.window
-
-# focus the next/previous desktop in the current monitor
+# focus on next or previous desktop
 super + ctrl + {Left,Right}
 	bspc desktop -f {prev,next}.local
 
-# focus the last node/desktop
-super + {grave,Tab}
-	bspc {node,desktop} -f last
-
-# focus the older or newer node in the focus history
-super + {o,i}
-	bspc wm -h off; \
-	bspc node {older,newer} -f; \
-	bspc wm -h on
-
 # focus or send to the given desktop
-super + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} '^{1-9,10}'
+super + {1-9,0}
+	bspc node -d '^{1-9,10}'
+
+# send and focus to given desktop
+super + alt + {1-9,0}
+	bspc node -d '^{1-9,10}' --follow
+
+# focus the node in the given direction
+super + {_,alt + }{Left,Down,Up,Right}
+	bspc node -{f,s} {west,south,north,east}
 
 # preselect the direction
-super + {Left,Down,Up,Right}
+super + shift + {Left,Down,Up,Right}
 	bspc node -p {west,south,north,east}
 
-# preselect the ratio
-super + ctrl + {1-9}
-	bspc node -o 0.{1-9}
+# Expand/contract a window by moving one of its side outward/inward
+super + b : {Left,Down,Up,Right}
+	~/.config/sxhkd/scripts/resize_window.sh {1,2,3,4}
 
 # cancel the preselection for the focused node
 ctrl + Escape
 	bspc node -p cancel
 
-# cancel the preselection for the focused desktop
-super + ctrl + shift + space
-	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
-
 # move current window to preselected spot
-super + ctrl + space
+ctrl + space
 	bspc node -n last.!automatic
 
-# expand a window by moving one of its side outward
-super + alt + {h,j,k,l}
-	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
-
-# contract a window by moving one of its side inward
-super + alt + shift + {h,j,k,l}
-	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
-
-# move a floating window
-super + shift + {h,j,k,l}
-	bspc node -v {-20 0,0 20,0 -20,20 0}
-
-# screenshots
+# open screenshot app
 Print
 	gnome-screenshot -i
 
+# screenshot selection; save to clipboard
 alt + Print
 	gnome-screenshot -c -d 1 -a
-
-# choose a new, random wallpaper
-super + w
-	wpg -m
 
 # hide the focused window in a saved order
 super + a
 	~/.config/bspwm/scripts/bspc-ordered-hide.sh hide
 
-# unhide the hidden windows in order (shift lets you choose with rofi)
+# unhide the hidden windows in order (or with rofi)
 super + {_,shift +} d
 	{~/.config/bspwm/scripts/bspc-ordered-hide.sh unhide --focus, ~/.config/bspwm/scripts/bspc-unhide-menu.sh --all}
 
 # lock screen
 alt + shift + x
 	betterlockscreen -l dim
-
-# reload polybar when it acts dumb
-super + r
-	~/.config/polybar/launch.sh
 
 # close last notification
 super + x
@@ -159,7 +121,7 @@ super + n
 	dunstctl history-pop
 
 # find currently open window, go to it, and focus on it
-super + {_,shift +} z
+super + z
 	bash ~/.config/rofi/scripts/goto_window.sh
 
 # play-pause media key
@@ -181,21 +143,15 @@ XF86AudioStop
 # mute media key
 XF86AudioMute
 	pamixer -t && ~/.config/eww/indicators/scripts/volume.sh
-	#pactl set-sink-mute alsa_output.usb-Schiit_Audio_Modi_Multibit-00.analog-stereo toggle && ~/.config/dunst/scripts/get_volume.sh
 
 # vol down media key
 XF86AudioLowerVolume
 	pamixer -d 2 && ~/.config/eww/indicators/scripts/volume.sh
-	#sh -c "pactl set-sink-volume alsa_output.usb-Schiit_Audio_Modi_Multibit-00.analog-stereo -1%" && ~/.config/dunst/scripts/get_volume.sh
 
 # vol up media key
 XF86AudioRaiseVolume
 	pamixer -i 2 && ~/.config/eww/indicators/scripts/volume.sh
-	# sh -c "pactl set-sink-volume alsa_output.usb-Schiit_Audio_Modi_Multibit-00.analog-stereo +1%" && ~/.config/dunst/scripts/get_volume.sh
 
-# show right click menu on desktop
+# right click menu
 ~button3
 	! bspc query -D -n pointed.local && echo -e "$(cat ~/.config/jgmenu/menu.txt)" | jgmenu --simple
-
-super + e
-	bash ~/.config/rofi/scripts/sxhkd-keys.sh
