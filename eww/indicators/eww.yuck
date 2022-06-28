@@ -3,8 +3,8 @@
 (defvar volume-hidden false)
 
 (defwindow volume-indicator
-    :geometry (geometry :y 73 :x "17px" :width "400px" :height "75px" :anchor "bottom left")
-    :windowtype "dock"
+    :geometry (geometry :y -73 :x 17 :width 400 :height 75 :anchor "bottom left")
+    :windowtype "dialog"
     :wm-ignore true
     :stacking "fg"
     

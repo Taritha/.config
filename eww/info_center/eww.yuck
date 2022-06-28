@@ -458,11 +458,13 @@
   (box :orientation "h" :space-evenly true
     (box :orientation "h" :space-evenly false
       (label :class "fs-symbol-text" :tooltip root_mount :text "")
-      (label :class "fs-label-text" :text '${round(EWW_DISK[root_mount]["used_perc"], 1)}% used')
+      (scale :class "fs-label-progress" :orientation "h" :valign "center" :width 130 :value {round(EWW_DISK[root_mount]["used_perc"], 1)})
+      (label :class "fs-label-text" :valign "center" :text "${round(EWW_DISK[root_mount]["used_perc"], 0)}%")
     )
     (box :orientation "h" :space-evenly false
       (label :class "fs-symbol-text" :tooltip alt_mount :text "")
-      (label :class "fs-label-text" :text '${round(EWW_DISK[alt_mount]["used_perc"], 1)}% used')
+      (scale :class "fs-label-progress" :orientation "h" :valign "center" :width 130 :value {round(EWW_DISK[alt_mount]["used_perc"], 1)})
+      (label :class "fs-label-text" :valign "center" :text "${round(EWW_DISK[alt_mount]["used_perc"], 0)}%")
     )
   )
 )

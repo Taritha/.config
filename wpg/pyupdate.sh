@@ -26,8 +26,8 @@ else
     spotify
 fi
 
-# Reload eww
-~/.config/bspwm/scripts/load_eww.sh &
+# reload eww
+/home/taritha/.config/bspwm/scripts/load_eww.sh &
 
 # Gets current wallpaper directory from ~/.fehbg
 # paperpath=$(cat ~/.fehbg | grep wpg | cut -d " " -f 4 | cut -d "'" -f 2)

@@ -15,7 +15,7 @@ workspaces() {
     un="0"
 
     # check if Occupied
-    o1=$(bspc query -D -d .occupied --names | grep "$ws1" )
+    o1=$(bspc query -D -d .occupied --names | grep -m1 -w "$ws1" )
     o2=$(bspc query -D -d .occupied --names | grep "$ws2" )
     o3=$(bspc query -D -d .occupied --names | grep "$ws3" )
     o4=$(bspc query -D -d .occupied --names | grep "$ws4" )
@@ -24,7 +24,7 @@ workspaces() {
     o7=$(bspc query -D -d .occupied --names | grep "$ws7" )
 
     # check if Focused
-    f1=$(bspc query -D -d focused --names | grep "$ws1" )
+    f1=$(bspc query -D -d focused --names | grep -m1 -w "$ws1" )
     f2=$(bspc query -D -d focused --names | grep "$ws2" )
     f3=$(bspc query -D -d focused --names | grep "$ws3" )
     f4=$(bspc query -D -d focused --names | grep "$ws4" )

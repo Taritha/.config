@@ -1,7 +1,7 @@
 #!/bin/sh
 
 if [[ "$1" == "--kill" ]]; then
-    killall eww &
+    killall -9 eww &
 fi
 
 
@@ -17,10 +17,10 @@ if [ $(pidof -s eww) ]; then
         killall playerctl
     fi
 
-    eww --config ~/.config/eww/indicators/ reload
-    eww --config ~/.config/eww/control_center/ reload
-    eww --config ~/.config/eww/info_center/ reload
-    eww --config ~/.config/eww/bars/ reload
+    eww --config ~/.config/eww/indicators/ reload & 
+    eww --config ~/.config/eww/control_center/ reload &
+    eww --config ~/.config/eww/info_center/ reload &
+    eww --config ~/.config/eww/bars/ reload &
 # Start eww again
 else
     eww --config ~/.config/eww/indicators/ daemon &

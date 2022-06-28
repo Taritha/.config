@@ -41,7 +41,7 @@ super + r
 	~/.config/bspwm/scripts/load_eww.sh
 
 # ultra reload eww because it's REALLY acting up
-suepr + shift + r
+super + shift + r
 	~/.config/bspwm/scripts/load_eww.sh --kill
 
 # quit/restart bspwm
@@ -62,11 +62,11 @@ super + ctrl + {Left,Right}
 
 # focus or send to the given desktop
 super + {1-9,0}
-	bspc node -d '^{1-9,10}'
+	bspc node -d '^{1-9,10}' --follow
 
 # send and focus to given desktop
 super + alt + {1-9,0}
-	bspc node -d '^{1-9,10}' --follow
+	bspc node -d '^{1-9,10}'
 
 # focus the node in the given direction
 super + {_,alt + }{Left,Down,Up,Right}

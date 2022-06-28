@@ -12,7 +12,7 @@ case "$class" in
 	# Spotify is a big dumb stupid dumb app and doesn't like normal bspwm rules for little babies
 	"")
 		echo "state=pseudo_tiled"
-		;;
+	;;
 	"")
 		sleep 0.5
 
@@ -23,7 +23,7 @@ case "$class" in
 		[[ ${#wm_class[@]} == "2" ]] && instance=${wm_class[0]}
 
 		[[ -n "$class" ]] && main
-		;;
+	;;
 	Evolution)
 		# Opens initial evolution window in tiled mode, but sub-windows to floating
 		titles=$(xtitle $(bspc query -N -n .window)) # Gets titles of open windows
@@ -43,16 +43,21 @@ case "$class" in
 			echo "bspc rule -a $2:$3 monitor=^2 state=fullscreen"
 		fi
 	;;
-
+	zoom*|Zoom*)
+		echo "bspc rule -a $2 state=floating desktop=10"
+	;;
+	join?*)
+		echo "bspc rule -a $2 state=floating desktop=10"
+	;;
+	krita)
+		echo "bspc rule -a $2 state=fullscreen monitor=^2"
+	;;
 esac
 
 # Forces zoom windows to be on the 10th desktop in floating mode
-title=$(xtitle "$wid")
-case "$title" in 
-	"Zoom Cloud Meetings"|"Qt Client Leader Window")
-		echo "bspc rule -a $2:$3 state=floating desktop=10"
-		;;
+title=$(xtitle $wid)
+case $title in
 	"Zoom Meeting")
-		echo "bspc rule -a $2:$3 desktop=10"
+		echo "bspc rule -a $2 state=tiled desktop=10"
 	;;
 esac

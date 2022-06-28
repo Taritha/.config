@@ -42,7 +42,6 @@
 (deflisten top_workspaces "scripts/workspaces_topbar.sh")
 (deflisten bot_workspaces "scripts/workspaces_botbar.sh")
 
-
 ;
 ; Widgets
 ;
@@ -55,13 +54,13 @@
             :class "rofi-run-button-left"
             :tooltip "App launcher"
             :onclick "bash ~/.config/rofi/scripts/appsmenu.sh"
-            :onrightclick "bash ~/.config/rofi/scripts/runmenu.sh"
+            :onmiddleclick "bash ~/.config/rofi/scripts/runmenu.sh"
             ""
         )
         (button 
             :class "rofi-run-button-right"
             :tooltip "System settings"
-            :onclick "bash ~/.config/rofi/scripts/menu.sh"
+            :onclick "scripts/rofi_thingies.sh --settings"
             "漣"
         )
     )
@@ -77,14 +76,14 @@
         )
         (revealer :transition "slideright" :duration "500ms" :reveal topbar_app_reveal
             (box :orientation "h" :space-evenly true
-                (button :class "bar-button-thunar" :tooltip "Launch file manager" :onclick "bash /home/taritha/.config/rofi/scripts/goto_window.sh thunar" "ﱮ")
-                (button :class "bar-button-pamac" :tooltip "Launch app store" :onclick "bash /home/taritha/.config/rofi/scripts/goto_window.sh Add" "")
-                (button :class "bar-button-firefox" :tooltip "Launch firefox" :onclick "bash /home/taritha/.config/rofi/scripts/goto_window.sh Firefox" "")
-                (button :class "bar-button-email" :tooltip "Launch evolution" :onclick "bash /home/taritha/.config/rofi/scripts/goto_window.sh Evolution" "")
-                (button :class "bar-button-slack" :tooltip "Launch slack" :onclick "bash /home/taritha/.config/rofi/scripts/goto_window.sh Slack" "聆")
-                (button :class "bar-button-discord" :tooltip "Launch discord" :onclick "bash /home/taritha/.config/rofi/scripts/goto_window.sh Discord" "ﭮ")
-                (button :class "bar-button-steam" :tooltip "Launch steam" :onclick "bash /home/taritha/.config/rofi/scripts/goto_window.sh Steam" "")
-                (button :class "bar-button-lutris" :tooltip "Launch lutris" :onclick "bash /home/taritha/.config/rofi/scripts/goto_window.sh Lutris" "")    
+                (button :class "bar-button-thunar" :tooltip "Launch file manager" :onclick "scripts/rofi_thingies.sh --goto  thunar" "ﱮ")
+                (button :class "bar-button-pamac" :tooltip "Launch app store" :onclick "scripts/rofi_thingies.sh --goto  Add" "")
+                (button :class "bar-button-firefox" :tooltip "Launch firefox" :onclick "scripts/rofi_thingies.sh --goto  Firefox" "")
+                (button :class "bar-button-email" :tooltip "Launch evolution" :onclick "scripts/rofi_thingies.sh --goto  Evolution" "")
+                (button :class "bar-button-slack" :tooltip "Launch slack" :onclick "scripts/rofi_thingies.sh --goto  Slack" "聆")
+                (button :class "bar-button-discord" :tooltip "Launch discord" :onclick "scripts/rofi_thingies.sh --goto  Discord" "ﭮ")
+                (button :class "bar-button-steam" :tooltip "Launch steam" :onclick "scripts/rofi_thingies.sh --goto  Steam" "")
+                (button :class "bar-button-lutris" :tooltip "Launch lutris" :onclick "scripts/rofi_thingies.sh --goto  Lutris" "")    
             )
         )
     )
@@ -96,7 +95,7 @@
         (button 
             :class "misc-bar-button-power" 
             :tooltip "Power" 
-            :onclick "bash /home/taritha/.config/rofi/scripts/powermenu.sh" ""
+            :onclick "scripts/rofi_thingies.sh --power" ""
         )
     )
 )
@@ -159,7 +158,7 @@
             :class "spotify-event-bar-box"
             :orientation "h"
             :tooltip "Open spotify/spotify controls"
-            :onclick "bash /home/taritha/.config/rofi/scripts/goto_window.sh Spotify &"
+            :onclick "scripts/rofi_thingies.sh --goto  Spotify &"
             :onmiddleclick "${EWW_CMD} open --toggle spotify-window"
             (box :orientation "h" :space-evenly false :width 325
                 (label :class "misc-bar-spotify-logo" :text "阮")

@@ -280,7 +280,20 @@ calendar:indeterminate {
 .fs-label-text {
     color: $color4;
     font-size: 16;
-    margin: 0px 10px 0px 10px;
+    margin: 0px 0px 0px 10px;
+}
+
+.fs-label-progress trough {
+    color: $color9;
+    background-color: $color8;
+    border-radius: 5px;
+    min-height: 7px;
+    min-width: 10px;
+}
+
+.fs-label-progress highlight {
+    background: $color12;
+    border-radius: 5px;
 }
 
 // Plotting stuff
