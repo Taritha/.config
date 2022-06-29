@@ -8,6 +8,16 @@ consequences=$4
 
 # notify-send "\$1=$(printf '0x%08X' "$1") \$2=$2 \$3=$3" "$4"
 
+# Forces zoom windows to be on the 10th desktop in floating mode
+title=$(xtitle $wid)
+case $title in
+	"Zoom Meeting")
+		echo "bspc rule -a $2 state=tiled desktop=10"
+		exit 0
+	;;
+esac
+
+
 case "$class" in
 	# Spotify is a big dumb stupid dumb app and doesn't like normal bspwm rules for little babies
 	"")
@@ -45,19 +55,18 @@ case "$class" in
 	;;
 	zoom*|Zoom*)
 		echo "bspc rule -a $2 state=floating desktop=10"
+		exit 0
 	;;
 	join?*)
 		echo "bspc rule -a $2 state=floating desktop=10"
+		exit 0
 	;;
 	krita)
 		echo "bspc rule -a $2 state=fullscreen monitor=^2"
 	;;
-esac
-
-# Forces zoom windows to be on the 10th desktop in floating mode
-title=$(xtitle $wid)
-case $title in
-	"Zoom Meeting")
-		echo "bspc rule -a $2 state=tiled desktop=10"
+	Blueman-manager)
+		echo "bspc rule -a $2 state=floating"
 	;;
 esac
+
+

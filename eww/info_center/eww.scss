@@ -257,11 +257,19 @@ calendar:indeterminate {
     margin: 10px 10px 10px 20px;
 }
 
-.network-label-text {
+.network-label-text, .network-label-text-lowmargin {
     color: $color13;
-    font-size: 14;
+    font-size: 13;
+}
+
+.network-label-text {
     margin: 5px 10px 10px 20px;
 }
+
+.network-label-text-lowmargin {
+    margin: 5px 10px 10px 0px;
+}
+
 
 .network-conn-text {
     color: $color7;

@@ -30,7 +30,8 @@ bspc rule -a Eog:eog state=floating # Image viewer
 bspc rule -a steam_app_314650:steam_app_314650 monitor=^1 state=fullscreen # Space Engine
 bspc rule -a Qalculate-gtk:qalculate-gtk state=floating 
 bspc rule -a Tk:tk state=floating # DF Lazy Newb Pack
-bspc rule -a Nm-connection-editor:nm-connection-editor state=floating 
+bspc rule -a Nm-connection-editor:nm-connection-editor state=floating
+bspc rule -a Blueman-manager:blueman-manager # Bluetooth
 
 # External rules invocation
 bspc config external_rules_command ~/.config/bspwm/scripts/external_rules.sh

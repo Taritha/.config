@@ -13,7 +13,7 @@ vpn="嬨 VPN"
 network=" Networking"
 monitors=" Display(s)"
 theme=" GTK Appearance/Theme"
-wallpaper=" Set Wallpaper/Colorscheme/GRUB Image"
+wallpaper=" Set Wallpaper/Colorscheme"
 grub=" Grub Customizer"
 login="﫻 Login Appearance/Theme"
 rofi=" Change Rofi Theme"
@@ -41,7 +41,7 @@ case $chosen in
         bash $HOME/.config/rofi/scripts/rofi-wifi-menu.sh
         ;;
     $bt)
-        bash $HOME/.config/rofi/scripts/btmenu.sh
+        blueman-manager
         ;;
     $vpn)
         bash $HOME/.config/rofi/scripts/fwmenu.sh
@@ -53,7 +53,7 @@ case $chosen in
         lxappearance
         ;;
     $wallpaper)
-        bash $HOME/.config/rofi/scripts/walmenu.sh $backscript
+        wpg
         ;;
     $grub)
         grub-customizer

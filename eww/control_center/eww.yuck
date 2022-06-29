@@ -125,21 +125,21 @@
       (box :class "control-center-buttons" :orientation "h"
         (box :orientation "v"
           (button :tooltip "Toggle network [Wi-fi]" :class "net-status-button ${net-status == "直" ? "net-status-on" : "net-status-off"}" :onclick net-toggle net-status)
-          (button :tooltip "Configure network [Wi-Fi]" :class "net-set-button" :onclick "~/.config/eww/control_center/scripts/wifi.sh --dmenu" "")
+          (button :tooltip "Configure network [Wi-Fi]" :class "net-set-button" :onclick "~/.config/eww/control_center/scripts/wifi.sh --dmenu" :onmiddleclick "$(nm-connection-editor)" "")
         )
         (box :orientation "v"
           (button :tooltip "Check VPN status" :class "vpn-status-button" :onclick "~/.config/eww/control_center/scripts/vpn_status.sh --display" vpn_status)
-          (button :tooltip "Configure VPN" :class "vpn-set-button" :onclick "~/.config/eww/control_center/scripts/vpn_status.sh --toggle" "")
+          (button :tooltip "Configure VPN" :class "vpn-set-button" :onclick "~/.config/eww/control_center/scripts/vpn_status.sh --toggle" :onmiddleclick "$(nm-connection-editor)" "")
         )
         (box :orientation "v"
           (button :tooltip "Toggle bluetooth" :class "bluetooth-status-button ${bluetooth-status == "" || bluetooth-status == "" ? "bluetooth-status-on" : "bluetooth-status-off"}" :onclick bluetooth-toggle bluetooth-icon)
-          (button :tooltip "Configure bluetooth" :class "bluetooth-set-button" :onclick "~/.config/eww/control_center/scripts/bluetooth_status.sh --dmenu" "")
+          (button :tooltip "Configure bluetooth" :class "bluetooth-set-button" :onclick "~/.config/eww/control_center/scripts/bluetooth_status.sh --dmenu" :onmiddleclick "$(blueman-manager)" "")
         )
         (button :tooltip "Toggle compositor" :class "comp-status-button ${comp == "" ? "comp-status-on" : "comp-status-off"}" :onclick comp-toggle comp)
         (button :tooltip "Toggle do not disturb" :class "dunst-status-button ${dunst-status == "" ? "dunst-status-on" : "dunst-status-off"}" :onclick dunst-toggle dunst-status)
         (button :tooltip "Toggle night light" :class "redshift-status-button ${redshift == "ﯦ" ? "redshift-status-on" : "redshift-status-off"}" :onclick redshift-toggle redshift))
       (box :orientation "h" :class "volume-slider-stuff" :space-evenly "false"
-        (button :tooltip "Toggle sound" :onclick "pamixer -t" :class "volume-slider-icon" "${volume-slider-indicator}")
+        (button :tooltip "Toggle sound" :onclick "pamixer -t" :onmiddleclick "$(pavucontrol)" :class "volume-slider-icon" "${volume-slider-indicator}")
         (scale :class "volume-slider"
                 :value volume
                 :orientation "h"
@@ -149,7 +149,7 @@
                 :min 0
                 :onchange "~/.config/eww/indicators/scripts/change_vol.sh {}"))
       (box :orientation "h" :class "mic-slider-stuff" :space-evenly "false"
-        (button :tooltip "Toggle microphone" :onclick "~/.config/eww/control_center/scripts/mic.sh --toggle" :class "mic-slider-icon" "${mic-slider-indicator}")
+        (button :tooltip "Toggle microphone" :onclick "~/.config/eww/control_center/scripts/mic.sh --toggle" :onmiddleclick "$(pavucontrol)" :class "mic-slider-icon" "${mic-slider-indicator}")
         (scale :class "mic-slider"
                 :value mic
                 :orientation "h"

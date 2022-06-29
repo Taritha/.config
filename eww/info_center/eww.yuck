@@ -33,20 +33,20 @@
 
 ; Weather
 (defpoll current_weather :interval "15m" "python scripts/weather.py")
-(defpoll current_temp :interval "15m" "python scripts/weather.py -f -c curr_temp")
-(defpoll current_vibes :interval "15m" "python scripts/weather.py -f -c curr_vibes")
-(defpoll current_pressure :interval "15m" "python scripts/weather.py -f -c curr_pressure")
-(defpoll current_humidity :interval "15m" "python scripts/weather.py -f -c curr_hum")
-(defpoll current_uvi :interval "15m" "python scripts/weather.py -f -c curr_uvi")
-(defpoll current_windspeed :interval "15m" "python scripts/weather.py -f -c curr_ws")
-(defpoll current_winddir :interval "15m" "python scripts/weather.py -f -c curr_wd")
-(defpoll current_icon :interval "15m" "python scripts/weather.py -f -c curr_icon")
-(defpoll hourly_temps :interval "1h" "python scripts/weather.py -f -c hourly_temps")
-(defpoll hourly_times :interval "1h" "python scripts/weather.py -f -c hourly_times")
-(defpoll daily_temps :interval "6h" "python scripts/weather.py -f -c daily_avgs")
-(defpoll daily_names :interval "6h" "python scripts/weather.py -f -c daily_names")
-(defpoll daily_descs :interval "6h" "python scripts/weather.py -f -c daily_descs")
-(defpoll daily_icons :interval "6h" "python scripts/weather.py -f -c daily_icons")
+(defpoll current_temp :interval "15m" "python scripts/weather.py -f -d -c curr_temp")
+(defpoll current_vibes :interval "15m" "python scripts/weather.py -f -d -c curr_vibes")
+(defpoll current_pressure :interval "15m" "python scripts/weather.py -f -d -c curr_pressure")
+(defpoll current_humidity :interval "15m" "python scripts/weather.py -f -d -c curr_hum")
+(defpoll current_uvi :interval "15m" "python scripts/weather.py -f -d -c curr_uvi")
+(defpoll current_windspeed :interval "15m" "python scripts/weather.py -f -d -c curr_ws")
+(defpoll current_winddir :interval "15m" "python scripts/weather.py -f -d -c curr_wd")
+(defpoll current_icon :interval "15m" "python scripts/weather.py -f -d -c curr_icon")
+(defpoll hourly_temps :interval "1h" "python scripts/weather.py -f -d -c hourly_temps")
+(defpoll hourly_times :interval "1h" "python scripts/weather.py -f -d -c hourly_times")
+(defpoll daily_temps :interval "6h" "python scripts/weather.py -f -d -c daily_avgs")
+(defpoll daily_names :interval "6h" "python scripts/weather.py -f -d -c daily_names")
+(defpoll daily_descs :interval "6h" "python scripts/weather.py -f -d -c daily_descs")
+(defpoll daily_icons :interval "6h" "python scripts/weather.py -f -d -c daily_icons")
 (defvar hourly_idxs "[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47]")
 (defvar daily_idxs "[0, 1, 2, 3, 4, 5, 6]")
 
@@ -324,8 +324,8 @@
             )
         )
         (box :class "hourly-scale-box" :orientation "h"
-            (scroll :vscroll false :hscroll true :height 145 :space-evenly false
-                (box :orientation "h" :space-evenly false :spacing 0
+            (scroll :hscroll true :height 145 :space-evenly false
+                (box :orientation "h" :space-evenly false :spacing 0 :hexpand true
                     (for i in hourly_idxs
                         (box :orientation "v" :space-evenly false :spacing 3
                           (label :class "hourly-time-text" :text "${hourly_temps[i]}°C")
@@ -432,22 +432,22 @@
     :space-evenly true
     (box :orientation "v" :space-evenly false
       (box :orientation "h" :space-evenly false
-        (label :class "network-symbol-text" :text e_netstatus :halign "start")
+        (label :class "network-symbol-text" :text e_netstatus)
         (label :class "network-conn-text" :text e_conn :tooltip "${e_netstatus == "" ? 'Connected to LAN' : 'Cord disconnected/some other bullshit (T_T)'}" :halign "start" :valign "end" :limit-width 20)
       )
       (box :orientation "h" :space-evenly false
         (label :class "network-label-text" :text ' ${round(EWW_NET["enp5s0"]["NET_DOWN"] / 2097152, 1)} MB/s')
-        (label :class "network-label-text" :text ' ${round(EWW_NET["enp5s0"]["NET_UP"] / 2097152, 1)} MB/s')
+        (label :class "network-label-text-lowmargin" :text ' ${round(EWW_NET["enp5s0"]["NET_UP"] / 2097152, 1)} MB/s')
       )
     )
     (box :orientation "v" :space-evenly false
       (box :orientation "h" :space-evenly false
-        (label :class "network-symbol-text" :text w_netstatus :halign "start")
+        (label :class "network-symbol-text" :text w_netstatus)
         (label :class "network-conn-text" :tooltip "${w_netstatus == "直" ? 'Connected to ${w_conn}' : 'Not connected to any network'}" :text w_conn :halign "start" :valign "end" :limit-width 14)
       )
       (box :orientation "h" :space-evenly false
-        (label :class "network-label-text" :halign "start" :text ' ${round(EWW_NET["wlp4s0"]["NET_DOWN"] / 2097152, 1)} MB/s')
-        (label :class "network-label-text" :text ' ${round(EWW_NET["wlp4s0"]["NET_UP"] / 2097152, 1)} MB/s')
+        (label :class "network-label-text" :text ' ${round(EWW_NET["wlp4s0"]["NET_DOWN"] / 2097152, 1)} MB/s')
+        (label :class "network-label-text-lowmargin" :text ' ${round(EWW_NET["wlp4s0"]["NET_UP"] / 2097152, 1)} MB/s')
       )
     )
   )
