@@ -11,6 +11,7 @@ wifi="泌 Wifi"
 bt=" Bluetooth"
 vpn="嬨 VPN"
 network=" Networking"
+disks=" Drives"
 monitors=" Display(s)"
 theme=" GTK Appearance/Theme"
 wallpaper=" Set Wallpaper/Colorscheme"
@@ -24,7 +25,7 @@ draw=" Drawing Tablet/Display"
 rgb=" RGB"
 corsair=" Corsair Peripherals"
 # Variable passed to rofi
-options="$adsysinfo\n$gpuinfo\n$wifi\n$bt\n$vpn\n$network\n$monitors\n$theme\n$wallpaper\n$grub\n$login\n$rofi\n$audio\n$print\n$usb\n$draw\n$rgb\n$corsair"
+options="$adsysinfo\n$gpuinfo\n$wifi\n$bt\n$vpn\n$network\n$disks\n$monitors\n$theme\n$wallpaper\n$grub\n$login\n$rofi\n$audio\n$print\n$usb\n$draw\n$rgb\n$corsair"
 
 chosen="$(echo -e "$options" | $rofi_command -dmenu -p "System Settings" -selected-row 0)"
 case $chosen in
@@ -36,6 +37,9 @@ case $chosen in
         ;;
     $network)
         nm-connection-editor
+        ;;
+    $disks)
+        gnome-disks
         ;;
     $wifi)
         bash $HOME/.config/rofi/scripts/rofi-wifi-menu.sh
