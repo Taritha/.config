@@ -27,11 +27,11 @@ listview {
   lines: 5;
   layout: horizontal;
   children: [element];
-  margin: 100px 0px 100px 1225px;
+  margin: 150px 0px 10px 817px;
   spacing: 50px;
 }
 #element {
-  padding: 15px 50px 15px 33px;
+  padding: 5px 40px 5px 23px;
   background-color: #00000000;
   border-color: @background-light;
   border-radius: 30px;

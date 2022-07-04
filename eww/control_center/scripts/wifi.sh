@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-STATUS=$(nmcli | grep wlp4s0 | awk 'FNR == 1 {print $2}')
+STATUS=$(nmcli | grep wlan0: | awk 'FNR == 1 {print $2}')
 toggle() {
-    if [ $STATUS == "connected" ]; then
+    if [[ "$STATUS" == "connected" ]]; then
         nmcli radio wifi off
         notify-send --icon=window-close --urgency=normal "Wi-Fi toggle" "Wi-Fi has been turned off"
     else
@@ -11,7 +11,7 @@ toggle() {
 }
 
 status() {
-    if [ $STATUS == "connected" ]; then
+    if [[ "$STATUS" == "connected" ]]; then
         echo "直"
     else
         echo "睊"

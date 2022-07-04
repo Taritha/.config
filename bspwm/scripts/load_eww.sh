@@ -29,7 +29,7 @@ else
     eww --config ~/.config/eww/info_center/ daemon &
     eww --config ~/.config/eww/info_center/ open info-center &
     eww --config ~/.config/eww/bars/ open topbar &
-    eww --config ~/.config/eww/bars/ open botbar &
+    # eww --config ~/.config/eww/bars/ open botbar &
     eww --config ~/.config/eww/bars/ open audiobar &
     eww --config ~/.config/eww/bars/ open netbar &
 fi

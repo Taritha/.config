@@ -30,7 +30,7 @@
 (defpoll vpn_status :interval "2s" "../control_center/scripts/vpn_status.sh --status")
 (defpoll wifi_status :interval "2s" "../control_center/scripts/wifi.sh --status")
 (defpoll mic_status :interval "2s" "../control_center/scripts/mic.sh --status")
-(defpoll conn_name :interval "2s" "../info_center/scripts/netstatus.sh wlp4s0 -c")
+(defpoll conn_name :interval "2s" "../info_center/scripts/netstatus.sh wlan0 -c")
 
 ; Misc
 (defvar topbar_app_reveal false)
@@ -124,7 +124,12 @@
 
 ; Displays name of currently focused window
 (defwidget x-window-name []
-    (label :class "misc-bar-xwindow-text" :text xtitle :limit-width 50)
+    (label :class "misc-bar-xwindow-text" :text xtitle :limit-width 45)
+)
+
+; Displays battery percentage
+(defwidget battery-icon []
+    (button :tooltop '{EWW_BATTERY[]}%' :class "misc-bar-button-revealer" :onclick "$(tlpui)" )
 )
 
 ; Widgets on top monitor bar
@@ -231,28 +236,28 @@
 ; networking bar widgets
 (defwidget netbar-widgets []
     (box :class "bar-box" :orientation "h" :space-evenly false 
-        (box :orientation "h" :space-evenly false :halign "start"
-            (eventbox 
-                :class "event-bar-box"
-                :orientation "h"
-                :tooltip "Toggle wifi"
-                :onclick "../control_center/scripts/wifi.sh --toggle"
-                (box :orientation "h" :space-evenly false
-                    (label :class "wifi-status-icon" :text "${wifi_status}")
-                    (label :class "misc-bar-text-datetime" :text conn_name :limit-width 30)
-                )
-            )
-        )
         (box :orientation "h" :space-evenly false :halign "end"
             (box :orientation "h" :space-evenly false
-                (label :class "divider" :text " ")
                 (button :class "bluetooth-status-icon" :tooltip "Toggle bluetooth" :onclick "scripts/bluetooth_status.sh --toggle" "${bt_status}")
                 (button :class "vpn-status-icon" :tooltip "VPN status" :onclick "../control_center/scripts/vpn_status.sh --display" "${vpn_status}")
                 (button :class "mic-status-icon" :tooltip "Toggle microphone" :onclick "../control_center/scripts/mic.sh --toggle" "${mic_status}")
                 (label :class "divider" :text " ")
-                (button :class "notif-clear-button" :tooltip "Clear notifications" :onclick "dunstctl close" :onmiddleclick "dunstctl close-all" "")
             )
         )
+        (box :orientation "h" :space-evenly false :halign "start"
+        (eventbox 
+            :class "event-bar-box"
+            :orientation "h"
+            :tooltip "Toggle wifi"
+            :onclick "../control_center/scripts/wifi.sh --toggle"
+            (box :orientation "h" :space-evenly false
+                (label :class "wifi-status-icon" :text "${wifi_status}")
+                (label :class "misc-bar-text-datetime" :text conn_name :limit-width 30)
+            )
+        )
+        (button :class "misc-ws-button" :tooltip "Layouts (Middle click to reset)" :onclick launch_layoutmenu :onmiddleclick "dunstify -u critical 'Removed Layout' && bsp-layout remove" "")
+        (button :class "notif-clear-button" :tooltip "Clear notifications" :onclick "dunstctl close" :onmiddleclick "dunstctl close-all" "")
+    )
     )
 )
 
@@ -346,7 +351,7 @@
     :windowtype "desktop"
     :reserve (struts :distance "54px" :side "top")
     :geometry (geometry 
-        :width "99%"
+        :width 2526
         :height 34
         :y 17
         :x 17
@@ -361,7 +366,7 @@
     :monitor 1
     :stacking "bg"
     :windowtype "desktop"
-    :reserve (struts :distance "54px" :side "bottom")
+    ; :reserve (struts :distance "54px" :side "bottom")
     :geometry (geometry 
         :width "9%"
         :height 34

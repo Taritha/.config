@@ -65,7 +65,7 @@
     background-color: $color1;
     color: $color0;
     font-size: 56;
-    padding: 0px 7px 0px 0px;
+    padding: 0px 0px 0px 0px;
     transition-duration: 300ms;
     transition-timing-function: linear;
     transition-delay: 10ms;
@@ -407,4 +407,35 @@ calendar:indeterminate {
     font-weight: bold;
     font-size: 18;
     text-shadow: 5px 5px 5px #000000;
+}
+
+.overview-box-tile-right, .overview-box-tile-left {
+    background-color: $color8;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px #000000;
+}
+
+.overview-box-tile-right {
+    margin: 0px 0px 20px 10px;
+}
+
+.overview-box-tile-left {
+    margin: 0px 10px 20px 0px;
+}
+
+.big-progress-bar-bat trough, .big-progress-bar-bright trough {
+    background-color: $color0;
+    border-radius: 10px;
+    min-width: 75px;
+    min-height: 235px;
+}
+
+.big-progress-bar-bat highlight {
+    background: linear-gradient(to top, $color8, $color14);
+    border-radius: 10px;
+}
+
+.big-progress-bar-bright highlight {
+    background: linear-gradient(to top, $color0, $color7);
+    border-radius: 10px;
 }

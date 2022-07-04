@@ -29,7 +29,7 @@
 (defpoll mic :interval "1s" "~/.config/eww/control_center/scripts/micvol.sh")
 (defpoll mic-slider-indicator :interval "0.1s" "scripts/get_mic.sh")
 
-;; misc
+;; audio
 (deflisten art "~/.config/eww/control_center/scripts/get_spotify_cover.sh")
 (deflisten spot_artist "~/.config/eww/control_center/scripts/scroll_spotify_statusartist.sh")
 (deflisten spot_info "~/.config/eww/control_center/scripts/scroll_spotify_status.sh")
@@ -42,6 +42,7 @@
 (defpoll song_perc :interval "1s" "python /home/taritha/.config/eww/control_center/scripts/get_song_progress.py -c")
 (defpoll song_len :interval "1s" "python /home/taritha/.config/eww/control_center/scripts/get_song_progress.py -l")
 
+;; brightness
 
 ;
 ; Widgets
@@ -139,7 +140,7 @@
         (button :tooltip "Toggle do not disturb" :class "dunst-status-button ${dunst-status == "" ? "dunst-status-on" : "dunst-status-off"}" :onclick dunst-toggle dunst-status)
         (button :tooltip "Toggle night light" :class "redshift-status-button ${redshift == "ﯦ" ? "redshift-status-on" : "redshift-status-off"}" :onclick redshift-toggle redshift))
       (box :orientation "h" :class "volume-slider-stuff" :space-evenly "false"
-        (button :tooltip "Toggle sound" :onclick "pamixer -t" :onmiddleclick "$(pavucontrol)" :class "volume-slider-icon" "${volume-slider-indicator}")
+        (button :width 60 :tooltip "Toggle sound" :onclick "pamixer -t" :onmiddleclick "$(pavucontrol)" :class "volume-slider-icon" "${volume-slider-indicator}")
         (scale :class "volume-slider"
                 :value volume
                 :orientation "h"
@@ -147,9 +148,11 @@
                 :active true
                 :max 101
                 :min 0
-                :onchange "~/.config/eww/indicators/scripts/change_vol.sh {}"))
+                :onchange "~/.config/eww/indicators/scripts/change_vol.sh {}"
+                )
+              )
       (box :orientation "h" :class "mic-slider-stuff" :space-evenly "false"
-        (button :tooltip "Toggle microphone" :onclick "~/.config/eww/control_center/scripts/mic.sh --toggle" :onmiddleclick "$(pavucontrol)" :class "mic-slider-icon" "${mic-slider-indicator}")
+        (button :width 60 :tooltip "Toggle microphone" :onclick "~/.config/eww/control_center/scripts/mic.sh --toggle" :onmiddleclick "$(pavucontrol)" :class "mic-slider-icon" "${mic-slider-indicator}")
         (scale :class "mic-slider"
                 :value mic
                 :orientation "h"
@@ -160,11 +163,24 @@
                 :onchange "~/.config/eww/control_center/scripts/change_mic.sh {}"
                 )
             )
+      (box :orientation "h" :class "mic-slider-stuff" :space-evenly "false"
+        (button :width 60 :tooltip "Toggle brightness mode" :onclick "dunstify 'pickle jars'" :onmiddleclick "" :class "mic-slider-icon" "")
+        (scale :class "mic-slider"
+                :value mic
+                :orientation "h"
+                :width 370
+                :active true
+                :max 101
+                :min 0
+                :onchange ""
+                )
+            )
         )
     )
 )
 
-; Displays spotify status and basic controls
+
+; Displays spotify status and basic controls`
 (defwidget music_tray []
   (box :class "spotify-center-tray" :height 260
       (box
@@ -264,6 +280,6 @@
   :windowtype "normal"
   :wm-ignore true
   :monitor 0
-  :geometry (geometry :width 520 :height 1294 :y 73 :x -17 :anchor "top right")
+  :geometry (geometry :width 520 :height 1300 :y 73 :x -17 :anchor "top right")
   (control-center)
 )

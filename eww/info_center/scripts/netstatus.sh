@@ -15,7 +15,7 @@ if [[ "$CON_NAME" == "-c" ]]; then
     fi
 
     # Reload eww netbar to be proper length if the network has changed
-    if [[ "$INTERFACE" == "wlp4s0" ]]; then
+    if [[ "$INTERFACE" == "wlan0" ]]; then
         CON_CHANGE="$(cat ~/.config/eww/info_center/secrets/conn_name.txt)"
         if [[ "$CONNECTION" != "$CON_CHANGE" ]]; then
             echo "$CONNECTION" > ~/.config/eww/info_center/secrets/conn_name.txt
@@ -24,7 +24,7 @@ if [[ "$CON_NAME" == "-c" ]]; then
     fi
 else
     # Returns symbols based on the connection 
-    if [[ "$INTERFACE" == "enp5s0" ]]; then
+    if [[ "$INTERFACE" == "wwan0" ]]; then
         STATUS="$(nmcli dev status | grep -w "$INTERFACE" | grep -wv "p2p" | awk '{ print $3 }')"
 
         if [[ "$STATUS" == "connected" ]]; then
@@ -32,7 +32,7 @@ else
         else
             echo ""
         fi
-    elif [[ "$INTERFACE" == "wlp4s0" ]]; then
+    elif [[ "$INTERFACE" == "wlan0" ]]; then
         STATUS="$(nmcli dev status | grep -w "$INTERFACE" | grep -wv "p2p" | awk '{ print $3 }')"
 
         if [[ "$STATUS" == "connected" ]]; then
