@@ -2,6 +2,10 @@
 (defvar volume-muted false)
 (defvar volume-hidden false)
 
+(defvar brightness-level 50)
+(defvar brightness-hidden false)
+
+
 (defwindow volume-indicator
     :geometry (geometry :y -73 :x 17 :width 400 :height 75 :anchor "bottom left")
     :windowtype "dialog"
@@ -32,7 +36,43 @@
                 :height 8
                 :timeout "3s"
                 :value volume-level
+                :active false
             :onchange "~/.config/eww/indicators/scripts/change_vol.sh {}")
+        )
+    )
+)
+
+(defwindow brightness-indicator
+    :geometry (geometry :y 73 :x 17 :width 400 :height 75 :anchor "top left")
+    :windowtype "dialog"
+    :wm-ignore true
+    :stacking "fg"
+    
+    (box :class "volume-window"
+        :orientation "v"
+        :space-evenly "false"
+        (box :class "volume-widget"
+            :orientation "h"
+            :space-evenly "false"
+            :spacing 10
+            (label :text {brightness-level == 0 ? "" :
+                brightness-level < 33 ? "" :
+                brightness-level < 66 ? "" :
+                brightness-level < 100 ? "" :
+                ""
+                }
+            
+            :class 'volume-icon ${volume-muted ? "volume-icon-muted": ""}')
+            
+            (scale :class 'volume-slider ${volume-muted ? "volume-slider-muted" : ""}'
+                :hexpand "true"
+                :min 0
+                :max 101
+                :height 8
+                :timeout "3s"
+                :value brightness-level
+                :active false
+            :onchange "/home/taritha/.config/eww/indicators/scripts/change_brightness.sh {}")
         )
     )
 )
