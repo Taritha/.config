@@ -160,6 +160,14 @@ XF86AudioLowerVolume
 XF86AudioRaiseVolume
 	pamixer -i 2 && ~/.config/eww/indicators/scripts/volume.sh
 
+# raise brightness
+XF86MonBrightnessUp
+	python ~/.config/eww/control_center/scripts/change_brightness.py -inc 0.1
+
+# lower brightness
+XF86MonBrightnessDown
+	python ~/.config/eww/control_center/scripts/change_brightness.py -dec 0.1
+
 # right click menu
 ~button3
 	! bspc query -D -n pointed.local && echo -e "$(cat ~/.config/jgmenu/menu.txt)" | jgmenu --simple

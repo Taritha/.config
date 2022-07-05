@@ -29,6 +29,10 @@
 (defpoll mic :interval "1s" "~/.config/eww/control_center/scripts/micvol.sh")
 (defpoll mic-slider-indicator :interval "0.1s" "scripts/get_mic.sh")
 
+; Brightness controls/level
+(defpoll brightness :interval "1s" "python ~/.config/eww/control_center/scripts/get_brightnesslevel.py")
+(defpoll bright_paused :interval "1s" "python ~/.config/eww/control_center/scripts/pause_autobrightness.py --show")
+
 ;; audio
 (deflisten art "~/.config/eww/control_center/scripts/get_spotify_cover.sh")
 (deflisten spot_artist "~/.config/eww/control_center/scripts/scroll_spotify_statusartist.sh")
@@ -164,15 +168,15 @@
                 )
             )
       (box :orientation "h" :class "mic-slider-stuff" :space-evenly "false"
-        (button :width 60 :tooltip "Toggle brightness mode" :onclick "dunstify 'pickle jars'" :onmiddleclick "" :class "mic-slider-icon" "")
+        (button :width 60 :tooltip "Toggle adaptive brightness" :onclick "python ~/.config/eww/control_center/scripts/pause_autobrightness.py --toggle" :class "mic-slider-icon" bright_paused)
         (scale :class "mic-slider"
-                :value mic
+                :value brightness
                 :orientation "h"
                 :width 370
                 :active true
                 :max 101
                 :min 0
-                :onchange ""
+                :onchange "python ~/.config/eww/control_center/scripts/change_brightness.py -set {}"
                 )
             )
         )
