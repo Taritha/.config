@@ -532,8 +532,8 @@
 }
 
 // Miscellaneous buttons
-.misc-bar-button-revealer {
-    color: $color9;
+.misc-bar-button-revealer, 
+.misc-bar-button-bat {
     background-color: $color0;
     font-size: 20;
     padding: 0px 15px 0px 15px;
@@ -543,10 +543,21 @@
     border-radius: 17px;
 }
 
-.misc-bar-button-revealer:hover {
+.misc-bar-button-revealer {
+    color: $color9;
+}
+
+.misc-bar-button-bat {
+    color: $color9;
+}
+
+.misc-bar-button-revealer:hover,
+.misc-bar-button-bat:hover {
     background-color: $color8;
     color: $color15;
 }
+
+
 
 .misc-bar-button-power {
     color: $color0;

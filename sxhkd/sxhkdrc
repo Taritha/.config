@@ -44,7 +44,7 @@ super + w
 super + r
 	~/.config/bspwm/scripts/load_eww.sh
 
-# ultra reload eww because it's REALLY acting up
+# ultra reload eww when it REALLY acts up
 super + shift + r
 	~/.config/bspwm/scripts/load_eww.sh --kill
 

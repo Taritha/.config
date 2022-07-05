@@ -5,7 +5,7 @@ rofi_command="rofi -theme ~/.config/rofi/themes/network.rasi -config ~/.config/r
 #### Options ###
 # Variable passed to rofi
 status="$(nmcli c | grep vpn)"
-active_server="$(nmcli c | grep vpn | grep enp | cut -d " " -f1)"
+active_server="$(nmcli c | grep vpn | grep wlan | cut -d " " -f1)"
 chosenserver="$(echo -e "$status" | $rofi_command -dmenu -p "VPN" -selected-row 0)"
 
 # User-selected VPN server

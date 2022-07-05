@@ -284,6 +284,6 @@
   :windowtype "normal"
   :wm-ignore true
   :monitor 0
-  :geometry (geometry :width 520 :height 1300 :y 73 :x -17 :anchor "top right")
+  :geometry (geometry :width 520 :height 1293 :y 73 :x -17 :anchor "top right")
   (control-center)
 )

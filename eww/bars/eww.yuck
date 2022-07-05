@@ -124,12 +124,33 @@
 
 ; Displays name of currently focused window
 (defwidget x-window-name []
-    (label :class "misc-bar-xwindow-text" :text xtitle :limit-width 45)
+    (label :class "misc-bar-xwindow-text" :text xtitle :limit-width 37)
 )
 
 ; Displays battery percentage
 (defwidget battery-icon []
-    (button :tooltop '{EWW_BATTERY[]}%' :class "misc-bar-button-revealer" :onclick "$(tlpui)" )
+    (button :tooltip "Power management" :class "misc-bar-button-bat" :onclick "$(tlpui)" "${
+        EWW_BATTERY["BAT1"]["capacity"] < 5 && EWW_BATTERY["BAT1"]["status"] == 'Discharging' ? ' ${EWW_BATTERY["BAT1"]["capacity"]}%' :
+        EWW_BATTERY["BAT1"]["capacity"] < 10 && EWW_BATTERY["BAT1"]["status"] == 'Discharging' ? ' ${EWW_BATTERY["BAT1"]["capacity"]}%' :
+        EWW_BATTERY["BAT1"]["capacity"] < 20 && EWW_BATTERY["BAT1"]["status"] == 'Discharging' ? ' ${EWW_BATTERY["BAT1"]["capacity"]}%' :
+        EWW_BATTERY["BAT1"]["capacity"] < 30 && EWW_BATTERY["BAT1"]["status"] == 'Discharging' ? ' ${EWW_BATTERY["BAT1"]["capacity"]}%' :
+        EWW_BATTERY["BAT1"]["capacity"] < 40 && EWW_BATTERY["BAT1"]["status"] == 'Discharging' ? ' ${EWW_BATTERY["BAT1"]["capacity"]}%' :
+        EWW_BATTERY["BAT1"]["capacity"] < 50 && EWW_BATTERY["BAT1"]["status"] == 'Discharging' ? ' ${EWW_BATTERY["BAT1"]["capacity"]}%' :
+        EWW_BATTERY["BAT1"]["capacity"] < 60 && EWW_BATTERY["BAT1"]["status"] == 'Discharging' ? ' ${EWW_BATTERY["BAT1"]["capacity"]}%' :
+        EWW_BATTERY["BAT1"]["capacity"] < 70 && EWW_BATTERY["BAT1"]["status"] == 'Discharging' ? ' ${EWW_BATTERY["BAT1"]["capacity"]}%' :
+        EWW_BATTERY["BAT1"]["capacity"] < 80 && EWW_BATTERY["BAT1"]["status"] == 'Discharging' ? ' ${EWW_BATTERY["BAT1"]["capacity"]}%' :
+        EWW_BATTERY["BAT1"]["capacity"] < 90 && EWW_BATTERY["BAT1"]["status"] == 'Discharging' ? ' ${EWW_BATTERY["BAT1"]["capacity"]}%' :
+        EWW_BATTERY["BAT1"]["capacity"] >= 90 && EWW_BATTERY["BAT1"]["status"] == 'Discharging' ? ' ${EWW_BATTERY["BAT1"]["capacity"]}%' :
+        EWW_BATTERY["BAT1"]["capacity"] < 5 && EWW_BATTERY["BAT1"]["status"] == 'Charging' ? ' ${EWW_BATTERY["BAT1"]["capacity"]}%' :
+        EWW_BATTERY["BAT1"]["capacity"] < 20 && EWW_BATTERY["BAT1"]["status"] == 'Charging' ? ' ${EWW_BATTERY["BAT1"]["capacity"]}%' :
+        EWW_BATTERY["BAT1"]["capacity"] < 30 && EWW_BATTERY["BAT1"]["status"] == 'Charging' ? ' ${EWW_BATTERY["BAT1"]["capacity"]}%' :
+        EWW_BATTERY["BAT1"]["capacity"] < 40 && EWW_BATTERY["BAT1"]["status"] == 'Charging' ? ' ${EWW_BATTERY["BAT1"]["capacity"]}%' :
+        EWW_BATTERY["BAT1"]["capacity"] < 60 && EWW_BATTERY["BAT1"]["status"] == 'Charging' ? ' ${EWW_BATTERY["BAT1"]["capacity"]}%' :
+        EWW_BATTERY["BAT1"]["capacity"] < 80 && EWW_BATTERY["BAT1"]["status"] == 'Charging' ? ' ${EWW_BATTERY["BAT1"]["capacity"]}%' :
+        EWW_BATTERY["BAT1"]["capacity"] < 90 && EWW_BATTERY["BAT1"]["status"] == 'Charging' ? ' ${EWW_BATTERY["BAT1"]["capacity"]}%' :
+        EWW_BATTERY["BAT1"]["capacity"] >= 90 && EWW_BATTERY["BAT1"]["status"] == 'Charging' ? ' ${EWW_BATTERY["BAT1"]["capacity"]}%' :
+        ' ${EWW_BATTERY["BAT1"]["capacity"]}%'
+        }")
 )
 
 ; Widgets on top monitor bar
@@ -151,6 +172,7 @@
                 :tooltip "Toggle control center"
                 :onclick "${ctrl_rev == false ? "${EWW_CMD} update ctrl_rev=true" : "${EWW_CMD} update ctrl_rev=false"} && eww --config ~/.config/eww/control_center/ open --toggle control-center" "${ctrl_rev == false ? "" : ""}"
             )
+            (battery-icon)
             (date-time)
             (power-button)
         )

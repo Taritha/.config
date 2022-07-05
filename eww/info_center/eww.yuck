@@ -33,20 +33,20 @@
 
 ; Weather
 (defpoll current_weather :interval "15m" "python scripts/weather.py")
-(defpoll current_temp :interval "15m" "python scripts/weather.py -f -d -c curr_temp")
-(defpoll current_vibes :interval "15m" "python scripts/weather.py -f -d -c curr_vibes")
-(defpoll current_pressure :interval "15m" "python scripts/weather.py -f -d -c curr_pressure")
-(defpoll current_humidity :interval "15m" "python scripts/weather.py -f -d -c curr_hum")
-(defpoll current_uvi :interval "15m" "python scripts/weather.py -f -d -c curr_uvi")
-(defpoll current_windspeed :interval "15m" "python scripts/weather.py -f -d -c curr_ws")
-(defpoll current_winddir :interval "15m" "python scripts/weather.py -f -d -c curr_wd")
-(defpoll current_icon :interval "15m" "python scripts/weather.py -f -d -c curr_icon")
-(defpoll hourly_temps :interval "1h" "python scripts/weather.py -f -d -c hourly_temps")
-(defpoll hourly_times :interval "1h" "python scripts/weather.py -f -d -c hourly_times")
-(defpoll daily_temps :interval "6h" "python scripts/weather.py -f -d -c daily_avgs")
-(defpoll daily_names :interval "6h" "python scripts/weather.py -f -d -c daily_names")
-(defpoll daily_descs :interval "6h" "python scripts/weather.py -f -d -c daily_descs")
-(defpoll daily_icons :interval "6h" "python scripts/weather.py -f -d -c daily_icons")
+(defpoll current_temp :interval "15m" "python scripts/weather.py -f -c curr_temp")
+(defpoll current_vibes :interval "15m" "python scripts/weather.py -f -c curr_vibes")
+(defpoll current_pressure :interval "15m" "python scripts/weather.py -f -c curr_pressure")
+(defpoll current_humidity :interval "15m" "python scripts/weather.py -f -c curr_hum")
+(defpoll current_uvi :interval "15m" "python scripts/weather.py -f -c curr_uvi")
+(defpoll current_windspeed :interval "15m" "python scripts/weather.py -f -c curr_ws")
+(defpoll current_winddir :interval "15m" "python scripts/weather.py -f -c curr_wd")
+(defpoll current_icon :interval "15m" "python scripts/weather.py -f -c curr_icon")
+(defpoll hourly_temps :interval "1h" "python scripts/weather.py -f -c hourly_temps")
+(defpoll hourly_times :interval "1h" "python scripts/weather.py -f -c hourly_times")
+(defpoll daily_temps :interval "6h" "python scripts/weather.py -f -c daily_avgs")
+(defpoll daily_names :interval "6h" "python scripts/weather.py -f -c daily_names")
+(defpoll daily_descs :interval "6h" "python scripts/weather.py -f -c daily_descs")
+(defpoll daily_icons :interval "6h" "python scripts/weather.py -f -c daily_icons")
 (defvar hourly_idxs "[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47]")
 (defvar daily_idxs "[0, 1, 2, 3, 4, 5, 6]")
 
@@ -194,7 +194,7 @@
         (label :class "plot-header-text" :text "CPU Stats")
         (input :class "plot-tr-inputbox" :value "Time range (s)" :onaccept "${EWW_CMD} update plot_time_range={}s")
         (sys-plot :plotheight 200 :plotlabel "Overall Usage" :unit "%" :statistic cpu_use :rangelim 100 :dynamic false)
-        (sys-plot :plotheight 200 :plotlabel "Temperature" :unit "°C" :statistic cpu_temp :rangelim 100 :dynamic false)
+        (sys-plot :plotheight 200 :plotlabel "Temperature" :unit "°C" :statistic {round(EWW_TEMPS["PACKAGE_ID_0"], 0)} :rangelim 100 :dynamic false)
         (label :class "cpu-thread-overview" :text "CPU Thread Usage")
         (box :orientation "h" :space-evenly false
           (cpu-corelist :gap 0)
@@ -257,8 +257,8 @@
     (image
       :class "profile-img"
       :path "${profile_img}"
-      :image-width 150
-      :image-height 150
+      :image-width 175
+      :image-height 175
     )
     (box
       :orientation "v"
@@ -473,64 +473,42 @@
 ; Battery scale
 (defwidget battery-brightness-display []
   (box :orientation "v" :space-evenly false
-    (box :orientation "h" :space-evenly true
-      (box :orientation "h" :class "overview-box-tile-left" :space-evenly false
-        (label :text "Big battery thing" :wrap true)
+    (box :orientation "h" :space-evenly false
+      (overlay
         (scale 
-          :flipped true
+          :flipped false
           :active false
-          :class "big-progress-bar-bat" 
-          :orientation "v" 
+          :width 460
+          :class "${EWW_BATTERY["BAT1"]["status"] == 'Charging' ? 'big-progress-bar-bat-charging' : 'big-progress-bar-bat-discharging'}"
+          :orientation "h" 
           :valign "center" 
-          :hexpand true
           :value {EWW_BATTERY["BAT1"]["capacity"]}
         )
-      )
-      (box :orientation "h" :class "overview-box-tile-right" :space-evenly false
-        (label :text "big brightness thing" :wrap true)
-        (scale 
-          :flipped true
-          :active false
-          :class "big-progress-bar-bright" 
-          :orientation "v" 
-          :valign "center" 
-          :hexpand true
-          :value 50
-        )
+        (label :class "battery-symbol" :text "${EWW_BATTERY["BAT1"]["status"] == 'Charging' ? '' : ''}")
+        (label :class "battery-percentage-display" :text "${EWW_BATTERY["BAT1"]["capacity"]}%")
       )
     )
     (box
-      :class "plot-stat-box"
-      :orientation "v"
-      :height 200
+      :class "battery-graph-box"
+      :orientation "h"
       :space-evenly false
       :spacing 10
-      (label :class "plot-label-text" :text "Battery Capacity (%)" :halign "start")
-      (box :class "plot-border-separator" :height 3)
-      (box
-        :orientation "h"
-        :space-evenly false
-        :spacing 10
-        :vexpand true 
-        (centerbox
-          :class "plot-scale-box-text"
-          :orientation "v"
-          :width 45
-          (label :class "plot-scale-text" :text "100" :halign "end" :valign "start")
-          (label :class "plot-scale-text" :text "50" :halign "end" :valign "center")
-          (label :class "plot-scale-text" :text "0" :halign "end" :valign "end")
-        )
-        (graph
-          :class "stat-graph"
-          :value {EWW_BATTERY["BAT1"]["capacity"]} ; Normalizes value to 0-100
-          :thickness 2
-          :time-range "3600s"
-          :hexpand true
-          :vexpand true
-          :max 101
-          :dynamic false
-        )
-        (label :class "plot-display-text" :text "${EWW_BATTERY["BAT1"]["capacity"]} %" :angle 270)
+      :height 250
+      :vexpand true
+      (centerbox :class "plot-scale-box-bat" :orientation "v" 
+        (label :class "plot-scale-text" :halign "end" :valign "start" :text "100")
+        (label :class "plot-scale-text" :halign "end" :text "50")
+        (label :class "plot-scale-text" :halign "end" :valign "end" :text "0")
+      )
+      (graph
+        :class "stat-graph"
+        :value {EWW_BATTERY["BAT1"]["capacity"]} ; Normalizes value to 0-100
+        :thickness 3
+        :time-range "3600s"
+        :hexpand true
+        :vexpand true
+        :max 101
+        :line-style "round"
       )
     )
   )
@@ -556,6 +534,7 @@
       (netbox)
       (battery-brightness-display)
       (filesystem)
+      
     )
   )
 )
@@ -575,8 +554,8 @@
     :width 400
     :height 650
     :y 73
-    :x -1382
-    :anchor "top right"
+    :x 532
+    :anchor "top left"
   )
   (cpu-graphs)
 )
@@ -591,8 +570,8 @@
     :width 400
     :height 650
     :y 73
-    :x -962
-    :anchor "top right"
+    :x 952
+    :anchor "top left"
   )
   (mem-graphs)
 )
@@ -607,8 +586,8 @@
     :width 400
     :height 650
     :y 73
-    :x -542
-    :anchor "top right"
+    :x 1372
+    :anchor "top left"
   )
   (gpu-graphs)
 )
