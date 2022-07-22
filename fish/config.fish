@@ -2,12 +2,11 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 cat ~/.config/wpg/sequences &
-export login=false
 
 # Startup applications
-if status is-login; and not login
+if status is-login;
 	autorandr default &
-	sleep 0.5
+	sleep 1
 	thunar --daemon &
 	#discord --start-minimized &
 	lxsession &
@@ -16,8 +15,7 @@ if status is-login; and not login
 	xset -dpms &
 	wpg -m &
 	/usr/lib/pentablet/pentablet.sh &
-	/home/taritha/.config/bspwm/scripts/load_eww.sh &
-	export login=true &
+	#/home/taritha/.config/bspwm/scripts/load_eww.sh &
 end
 
 export PATH="$PATH:$HOME/.local/bin/"

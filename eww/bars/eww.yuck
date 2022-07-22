@@ -246,7 +246,7 @@
         (box :orientation "h" :space-evenly false :halign "end"
             (box :orientation "h" :space-evenly false
                 (label :class "divider" :text " ")
-                (button :class "bluetooth-status-icon" :tooltip "Toggle bluetooth" :onclick "scripts/bluetooth_status.sh --toggle" "${bt_status}")
+                (button :class "bluetooth-status-icon" :tooltip "Toggle bluetooth" :onclick "../control_center/scripts/bluetooth_status.sh --toggle" "${bt_status}")
                 (button :class "vpn-status-icon" :tooltip "VPN status" :onclick "../control_center/scripts/vpn_status.sh --display" "${vpn_status}")
                 (button :class "mic-status-icon" :tooltip "Toggle microphone" :onclick "../control_center/scripts/mic.sh --toggle" "${mic_status}")
                 (label :class "divider" :text " ")
