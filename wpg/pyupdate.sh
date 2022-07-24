@@ -3,6 +3,8 @@
 pywalfox update &
 pywal-discord &
 spicetify update &
+# reload eww
+/home/taritha/.config/bspwm/scripts/load_eww.sh &
 bspc wm -r &
 
 # Checks if spotify is running and restarts it if it is
@@ -26,8 +28,7 @@ else
     spotify
 fi
 
-# reload eww
-/home/taritha/.config/bspwm/scripts/load_eww.sh &
+sleep 0.25
 
 # Gets current wallpaper directory from ~/.fehbg
 # paperpath=$(cat ~/.fehbg | grep wpg | cut -d " " -f 4 | cut -d "'" -f 2)

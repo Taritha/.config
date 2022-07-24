@@ -17,3 +17,4 @@ floatval=$1
 int=${floatval%.*}
 
 pamixer --set-volume $int
+eww -c ~/.config/eww/bars update volume=$(pamixer --get-volume)

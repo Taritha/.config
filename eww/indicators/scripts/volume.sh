@@ -13,7 +13,10 @@ if ! $killed; then
     eww -c $HOME/.config/eww/indicators/ open volume-indicator
 fi
 
-eww -c $HOME/.config/eww/indicators/ update volume-level=$(pamixer --get-volume)
+current_vol=$(pamixer --get-volume)
+
+eww -c $HOME/.config/eww/indicators/ update volume-level=$current_vol
+eww -c $HOME/.config/eww/bars update volume=$current_vol
 eww -c $HOME/.config/eww/indicators/ update volume-muted=$(pamixer --get-mute)
 eww -c $HOME/.config/eww/indicators/ update volume-hidden=false
 sleep 2
