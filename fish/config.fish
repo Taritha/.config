@@ -9,12 +9,11 @@ if status is-login
 	autorandr default &
 	sleep 0.5
 	thunar --daemon &
-	discord --start-minimized &
+	#discord --start-minimized &
 	lxsession &
 	greenclip daemon &
 	wpg -m &
 	/usr/lib/pentablet/pentablet.sh &
-	/home/taritha/.config/bspwm/scripts/load_eww.sh &
 	rfkill block bluetooth && sleep 0.2 &
 	rfkill unblock bluetooth &
 end

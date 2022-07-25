@@ -283,19 +283,6 @@
     )
 )
 
-; Widgets for bottom bar
-(defwidget botbar-widgets []
-    (box :class "bar-box" :orientation "h"
-        ;  Center elements
-        (box :class "bar-box" :orientation "h" :space-evenly false :halign "start"
-            (button :class "misc-ws-button" :tooltip "Layouts (Middle click to reset)" :onclick launch_layoutmenu :onmiddleclick "dunstify -u critical 'Removed Layout' && bsp-layout remove" "")
-            (button :class "misc-bar-button-paint" :tooltip "Aseprite/Krita" :onclick launch_ase :onmiddleclick launch_krita "")
-            (literal :content bot_workspaces)
-        )
-    )
-)
-
-
 ;
 ;   Windows
 ;
