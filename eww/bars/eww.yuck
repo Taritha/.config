@@ -37,7 +37,7 @@
 (defvar ctrl_rev false)
 (defvar vol_rev false)
 (defvar launch_layoutmenu 'echo -e "$(cat ~/.config/jgmenu/menu_fixed.txt)" | jgmenu --config-file=~/.config/jgmenu/jgmenurc_fixed --simple')
-(defvar launch_ase "$(~/.steam/steam/steamapps/common/Aseprite/aseprite)")
+(defvar launch_ase "$(scripts/launch_ase.sh)")
 (defvar launch_krita "$(krita)")
 (deflisten xtitle "python scripts/watch_active_window.py")
 (deflisten top_workspaces "scripts/workspaces_topbar.sh")
