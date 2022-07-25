@@ -276,7 +276,7 @@
 ; Window that shows a calendar
 (defwindow calendar-window 
     :class "eww-bar-window"
-    :monitor 0
+    :monitor 1
     :stacking "fg"
     :windowtype "toolbar"
     :wm-ignore true
@@ -293,7 +293,7 @@
 ; Bar for audio controls and the like
 (defwindow audiobar
     :class "eww-bar"
-    :monitor 0
+    :monitor 1
     :stacking "bg"
     :windowtype "desktop"
     :reserve (struts :distance "54px" :side "bottom")
@@ -310,7 +310,7 @@
 ; Networking/comms controls
 (defwindow netbar
     :class "eww-bar"
-    :monitor 0
+    :monitor 1
     :stacking "bg"
     :windowtype "desktop"
     :geometry (geometry
@@ -326,7 +326,7 @@
 ; Small window for spotify controls
 (defwindow spotify-window 
     :class "eww-bar-window"
-    :monitor 0
+    :monitor 1
     :stacking "bg"
     :windowtype "dock"
     :geometry (geometry
@@ -341,7 +341,7 @@
 ; Top bar on monitor 0
 (defwindow topbar 
     :class "eww-bar"
-    :monitor 0
+    :monitor 1
     :stacking "bg"
     :windowtype "desktop"
     :reserve (struts :distance "54px" :side "top")
@@ -358,7 +358,7 @@
 ; Bottom bar on monitor 2
 (defwindow botbar
     :class "eww-bar"
-    :monitor 1
+    :monitor 0
     :stacking "bg"
     :windowtype "desktop"
     :reserve (struts :distance "54px" :side "bottom")

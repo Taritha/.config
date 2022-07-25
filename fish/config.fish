@@ -15,7 +15,6 @@ if status is-login;
 	xset -dpms &
 	wpg -m &
 	/usr/lib/pentablet/pentablet.sh &
-	#/home/taritha/.config/bspwm/scripts/load_eww.sh &
 end
 
 export PATH="$PATH:$HOME/.local/bin/"

@@ -263,7 +263,7 @@
   :stacking "fg"
   :windowtype "normal"
   :wm-ignore true
-  :monitor 0
+  :monitor 1
   :geometry (geometry :width 520 :height 1294 :y 73 :x -17 :anchor "top right")
   (control-center)
 )
