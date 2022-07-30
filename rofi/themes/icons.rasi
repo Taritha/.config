@@ -6,7 +6,7 @@
 * {
   background-color: #00000000;
   text-color: @foreground-list;
-  font: "JetBrainsMono Nerd Font Mono 80";
+  font: "JetBrainsMono Nerd Font Mono 100";
   font-weight: bold;
 }
 prompt,inputbar,entry,textbox-prompt-colon { enabled: false; }
@@ -27,14 +27,14 @@ listview {
   lines: 5;
   layout: horizontal;
   children: [element];
-  margin: 100px 0px 100px 1225px;
-  spacing: 50px;
+  spacing: 100px;
+  margin: 125px 0px 0px 1142px;
 }
 #element {
-  padding: 15px 50px 15px 33px;
+  padding: 0px 35px 0px 17px;
   background-color: #00000000;
   border-color: @background-light;
-  border-radius: 30px;
+  border-radius: 17px;
   text-color: @foreground-list;
 }
 #element.selected {

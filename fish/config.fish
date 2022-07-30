@@ -5,8 +5,7 @@ cat ~/.config/wpg/sequences &
 
 # Startup applications
 if status is-login;
-	autorandr default &
-	sleep 1
+	sleep 0.5
 	thunar --daemon &
 	#discord --start-minimized &
 	lxsession &

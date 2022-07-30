@@ -25,7 +25,6 @@ else
     bspc rule -a "*" -o desktop="^$desktop"; # Sacrificial rule to be consumed by the computer Gods for their transgressions
     sleep 1
     bspc rule -a "*" -o desktop="^$desktop";
-    
     spotify
 fi
 

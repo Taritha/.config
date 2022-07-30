@@ -507,7 +507,7 @@
 ; CPU plot submenu
 (defwindow cpu-plots
   :class "graph-window"
-  :monitor 0
+  :monitor 1
   :stacking "fg"
   :windowtype "dialog"
   :geometry (geometry
@@ -523,7 +523,7 @@
 ; RAM plot submenu
 (defwindow mem-plots
   :class "graph-window"
-  :monitor 0
+  :monitor 1
   :stacking "fg"
   :windowtype "dialog"
   :geometry (geometry
@@ -539,7 +539,7 @@
 ; GPU plot submenu
 (defwindow gpu-plots
   :class "graph-window"
-  :monitor 0
+  :monitor 1
   :stacking "fg"
   :windowtype "dialog"
   :geometry (geometry
@@ -555,7 +555,7 @@
 ; Information center window
 (defwindow info-center
   :class "info-center"
-  :monitor 0
+  :monitor 1
   :stacking "bg"
   :wm-ignore false
   :windowtype "desktop"
