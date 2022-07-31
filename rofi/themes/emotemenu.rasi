@@ -14,11 +14,12 @@ configuration {
 	sidebar-mode: 					false;
 }
 
+@theme "/dev/null"
 @import "shared/colorschemes/dark-steel-blue.rasi"
 
 * {
     background-color:               @background-opaque;
-    text-color:                     @foreground;
+    text-color:                     @accent;
 }
 
 window {
@@ -68,8 +69,8 @@ inputbar {
 }
 
 listview {
-    columns:						3;
-    lines:							1;
+    columns:						7;
+    lines:							3;
     spacing:                        8px;
     cycle:                          true;
     dynamic:                        true;
@@ -87,53 +88,38 @@ entry {
     text-color:                     @background-opaque;
     padding:                        12px 10px 0px 10px;
     background-color:               @accent2;
-    expand: true;
+    expand:                         true;
+    placeholder:                    "Search emotes...";
+    placeholder-color:              @background-light;
 }
 
 element {
     background-color:               @background-opaque;
     text-color:                     @accent;
     orientation:                    vertical;
-    border-radius:                  0px;
+    border-radius:                  8px;
+}
+
+element-icon {
+    size:                           51px;
+    horizontal-align:               0.5;
+    margin:                         20px 0px 0px 0px;
 }
 
 element-text {
-    background-color: 				inherit;
-    text-color:       				inherit;
 	font:							"JetBrainsMono Nerd Font Mono 12";
     expand:                         true;
-    horizontal-align:               0;
+    horizontal-align:               0.5;
     vertical-align:                 0.5;
     margin:                         19px 10px 19px 10px;
 }
 
-element normal.urgent,
-element alternate.urgent {
-    background-color:               @off;
-    text-color:                     @background-opaque;
-    border-radius:                  8px;
-}
-
-element normal.active,
-element alternate.active {
-    background-color:               @on;
-    text-color:                     @accent;
+element-text, element-icon {
+    background-color:               inherit;
+    text-color:                     inherit;
 }
 
 element selected {
     background-color:               @background-muted;
-    text-color:                     @accent;
-    border:                  		0px;
-    border-radius:                  8px;
-    border-color:                  	@border;
-}
-
-element selected.urgent {
-    background-color:               @on;
-    text-color:                     @background-opaque;
-}
-
-element selected.active {
-    background-color:               @off;
-    color:                          @background-opaque;
+    text-color:                     @accent2;
 }
