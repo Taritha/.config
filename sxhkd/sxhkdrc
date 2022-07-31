@@ -132,6 +132,10 @@ super + n
 super + z
 	bash ~/.config/rofi/scripts/goto_window.sh
 
+# discord emote menu because I don't have nitro lol
+super + m
+	bash ~/.config/discord-emote-menu/emote.sh -c -r ~/.config/rofi/themes/emotemenu.rasi
+
 # play-pause media key
 XF86AudioPlay
 	playerctl play-pause
