@@ -7,7 +7,7 @@ clock_time() {
 }
 
 clock_date() {
-        date "+%Y/%m/%d"
+        date "+%d/%m/%Y"
 }
 
 if [[ "$1" == "--time" ]]; then

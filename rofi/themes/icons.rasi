@@ -6,7 +6,7 @@
 * {
   background-color: #00000000;
   text-color: @foreground-list;
-  font: "JetBrainsMono Nerd Font Mono 80";
+  font: "JetBrainsMono Nerd Font Mono 100";
   font-weight: bold;
 }
 prompt,inputbar,entry,textbox-prompt-colon { enabled: false; }
@@ -15,23 +15,17 @@ prompt,inputbar,entry,textbox-prompt-colon { enabled: false; }
   height: 100%;
   background-color: @background;
   transparency: "real";
-  children: [dummy, listview, dummy];
-}
-#dummyofdummy {
-  children: [dummt, listview, dummy];
-}
-#dummy {
-  expand: true;
+  children: [listview];
 }
 listview {
   lines: 5;
   layout: horizontal;
   children: [element];
-  margin: 150px 0px 10px 817px;
-  spacing: 50px;
+  margin: calc(50% - 75px) 0px 0px calc(50% - 575px);
+  spacing: 100px;
 }
 #element {
-  padding: 5px 40px 5px 23px;
+  padding: 0px 35px 0px 17px;
   background-color: #00000000;
   border-color: @background-light;
   border-radius: 30px;

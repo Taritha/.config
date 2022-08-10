@@ -7,7 +7,7 @@
 
 
 (defwindow volume-indicator
-    :geometry (geometry :y -73 :x 17 :width 400 :height 75 :anchor "bottom left")
+    :geometry (geometry :y -17 :width 400 :height 75 :anchor "bottom center")
     :windowtype "dialog"
     :wm-ignore true
     :stacking "fg"
@@ -43,7 +43,7 @@
 )
 
 (defwindow brightness-indicator
-    :geometry (geometry :y 73 :x 17 :width 400 :height 75 :anchor "top left")
+    :geometry (geometry :y -17 :width 400 :height 75 :anchor "bottom center")
     :windowtype "dialog"
     :wm-ignore true
     :stacking "fg"
