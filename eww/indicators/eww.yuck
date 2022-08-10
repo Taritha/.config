@@ -13,7 +13,7 @@
         :space-evenly "false"
         (box :class "volume-widget"
             :orientation "h"
-            :space-evenly "false"
+            :space-evenly false
             :spacing 10
             (label :text {volume-muted ? "ﱝ" :
                 volume-level == 0 ? "ﱝ" :
@@ -26,7 +26,8 @@
             :class 'volume-icon ${volume-muted ? "volume-icon-muted": ""}')
             
             (scale :class 'volume-slider ${volume-muted ? "volume-slider-muted" : ""}'
-                :hexpand "true"
+                :hexpand true
+                :active false
                 :min 0
                 :max 101
                 :height 8

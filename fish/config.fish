@@ -7,7 +7,7 @@ cat ~/.config/wpg/sequences &
 if status is-login;
 	sleep 0.5
 	thunar --daemon &
-	#discord --start-minimized &
+	discord --start-minimized &
 	lxsession &
 	greenclip daemon &
 	xset s off &

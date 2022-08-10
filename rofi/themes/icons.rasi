@@ -1,13 +1,12 @@
 /**
- * This theme is intended for a 5 items wide menu on a 1920x1080 pixels resolution.
- * You may have to tweak values such as the window padding if you have a different resolution.
+ * This assumes the selectable elements are 150 x 150px with a 100px spacing at a font size
+ * of 100.
  */
 @import "shared/option-menu.rasi"
 * {
   background-color: #00000000;
   text-color: @foreground-list;
   font: "JetBrainsMono Nerd Font Mono 100";
-  font-weight: bold;
 }
 prompt,inputbar,entry,textbox-prompt-colon { enabled: false; }
 #window {
@@ -15,20 +14,14 @@ prompt,inputbar,entry,textbox-prompt-colon { enabled: false; }
   height: 100%;
   background-color: @background;
   transparency: "real";
-  children: [dummy, listview, dummy];
-}
-#dummyofdummy {
-  children: [dummt, listview, dummy];
-}
-#dummy {
-  expand: true;
+  children: [listview];
 }
 listview {
   lines: 5;
+  margin: calc(50% - 75px) 0% 0% calc(50% - 575px);
   layout: horizontal;
   children: [element];
   spacing: 100px;
-  margin: 125px 0px 0px 1142px;
 }
 #element {
   padding: 0px 35px 0px 17px;
