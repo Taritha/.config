@@ -210,7 +210,7 @@
         )
         (label :class "cpu-thread-overview" :text "CPU Clock Speeds")
         (box :orientation "h" :space-evenly false
-          (cpu-corelist :gap 31)
+          (cpu-corelist :gap 29)
           (box :orientation "v" :space-evenly false :spacing 5
             (for i in cpu_threadcount
               (freq-plot :unit "MHz" :statistic "${cpu_freqs[i]}" :rangelim 6000)

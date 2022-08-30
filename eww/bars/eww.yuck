@@ -124,7 +124,7 @@
 
 ; Displays name of currently focused window
 (defwidget x-window-name []
-    (label :class "misc-bar-xwindow-text" :text xtitle :limit-width 50)
+    (label :class "misc-bar-xwindow-text" :tooltip xtitle :text xtitle :limit-width 50)
 )
 
 ; Widgets on top monitor bar
@@ -240,6 +240,7 @@
                 (box :orientation "h" :space-evenly false
                     (label :class "wifi-status-icon" :text "${wifi_status}")
                     (label :class "misc-bar-text-datetime" :text conn_name :limit-width 30)
+
                 )
             )
         )
@@ -249,7 +250,6 @@
                 (button :class "bluetooth-status-icon" :tooltip "Toggle bluetooth" :onclick "../control_center/scripts/bluetooth_status.sh --toggle" "${bt_status}")
                 (button :class "vpn-status-icon" :tooltip "VPN status" :onclick "../control_center/scripts/vpn_status.sh --display" "${vpn_status}")
                 (button :class "mic-status-icon" :tooltip "Toggle microphone" :onclick "../control_center/scripts/mic.sh --toggle" "${mic_status}")
-                (label :class "divider" :text " ")
                 (button :class "notif-clear-button" :tooltip "Clear notifications" :onclick "dunstctl close" :onmiddleclick "dunstctl close-all" "")
             )
         )

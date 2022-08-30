@@ -164,6 +164,10 @@ XF86AudioLowerVolume
 XF86AudioRaiseVolume
 	pamixer -i 2 && ~/.config/eww/indicators/scripts/volume.sh
 
-# right click menu
+# desktop right click menu
 ~button3
 	! bspc query -D -n pointed.local && echo -e "$(cat ~/.config/jgmenu/menu.txt)" | jgmenu --simple
+
+# surprise
+alt + F4
+	dunstify "deez" "nuts"

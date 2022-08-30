@@ -64,8 +64,7 @@
 .circle-label-button {
     background-color: $color1;
     color: $color0;
-    font-size: 56;
-    padding: 0px 7px 0px 0px;
+    font-size: 64;
     transition-duration: 300ms;
     transition-timing-function: linear;
     transition-delay: 10ms;
@@ -128,7 +127,6 @@
     color: $color6;
     font-size: 36;
     border-radius: 10px;
-    padding: 0px 10px 0px 0px;
     transition-duration: 300ms;
     transition-timing-function: linear;
     transition-delay: 10ms;
@@ -180,8 +178,8 @@ calendar:indeterminate {
 
 .current-weather-icon-big {
     color: $color9;
-    font-size: 63;
-    margin: 0px 40px 0px 0px;
+    font-size: 56;
+    margin: 5px;
 }
 
 .current-main-weather-text {
@@ -235,8 +233,6 @@ calendar:indeterminate {
 .daily-temperature-icon {
     color: $color12;
     font-size: 20;
-    margin: 0px;
-    padding: 0px 12px 0px 0px;
 }
 
 .daily-description-text {
@@ -254,12 +250,12 @@ calendar:indeterminate {
 .network-symbol-text {
     color: $color9;
     font-size: 28;
-    margin: 10px 10px 10px 20px;
+    margin: 10px 10px 6px 20px;
 }
 
 .network-label-text, .network-label-text-lowmargin {
     color: $color13;
-    font-size: 13;
+    font-size: 12;
 }
 
 .network-label-text {
@@ -282,7 +278,7 @@ calendar:indeterminate {
 .fs-symbol-text {
     color: $color12;
     font-size: 28;
-    margin: 0px 20px 0px 10px;
+    margin: 0px 15px 0px 10px;
 }
 
 .fs-label-text {

@@ -27,7 +27,7 @@ listview {
   padding: 0px 35px 0px 17px;
   background-color: #00000000;
   border-color: @background-light;
-  border-radius: 17px;
+  border-radius: 30px;
   text-color: @foreground-list;
 }
 #element.selected {

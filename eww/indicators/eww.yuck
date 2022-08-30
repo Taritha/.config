@@ -3,7 +3,7 @@
 (defvar volume-hidden false)
 
 (defwindow volume-indicator
-    :geometry (geometry :y -17 :x 1520 :width 400 :height 75 :anchor "bottom left")
+    :geometry (geometry :y -17 :x 0 :width 400 :height 75 :anchor "bottom center")
     :windowtype "dialog"
     :wm-ignore true
     :stacking "fg"
