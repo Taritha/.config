@@ -24,7 +24,7 @@
     background-color: $color14;
     border-top-left-radius: 17px;
     border-bottom-left-radius: 17px;
-    font-size: 18;
+    font-size: 20;
     padding: 0px 15px 0px 15px;
     transition-duration: 300ms;
     transition-timing-function: linear;
@@ -36,7 +36,7 @@
     background-color: $color12;
     border-top-right-radius: 17px;
     border-bottom-right-radius: 17px;
-    font-size: 18;
+    font-size: 22;
     border-left: 2px dotted $color0;
     padding: 0px 15px 0px 10px;
     transition-duration: 300ms;
@@ -59,7 +59,7 @@
 .bar-button-thunar {
     color: $color15;
     background-color: $color0;
-    font-size: 18;
+    font-size: 20;
     margin: 2px 10px 2px 10px;
     padding: 0px 10px 0px 10px;
     transition-duration: 300ms;
@@ -70,7 +70,7 @@
 
 .bar-button-pamac {
     color: $color7;
-    font-size: 20;
+    font-size: 22;
     margin: 2px 10px 2px 10px;
     padding: 0px 10px 0px 10px;
     transition-duration: 300ms;
@@ -81,7 +81,7 @@
 
 .bar-button-firefox {
     color: $color14;
-    font-size: 18;
+    font-size: 20;
     margin: 2px 10px 2px 10px;
     padding: 0px 8px 0px 8px;
     transition-duration: 300ms;
@@ -92,7 +92,7 @@
 
 .bar-button-email {
     color: $color13;
-    font-size: 18;
+    font-size: 20;
     margin: 2px 10px 2px 10px;
     padding: 0px 10px 0px 10px;
     transition-duration: 300ms;
@@ -114,7 +114,7 @@
 
 .bar-button-discord {
     color: $color11;
-    font-size: 18;
+    font-size: 20;
     margin: 2px 10px 2px 10px;
     padding: 2px 10px 0px 10px;
     transition-duration: 300ms;
@@ -125,7 +125,7 @@
 
 .bar-button-steam {
     color: $color10;
-    font-size: 18;
+    font-size: 20;
     margin: 2px 10px 2px 10px;
     padding: 0px 10px 0px 10px;
     transition-duration: 300ms;
@@ -136,7 +136,7 @@
 
 .bar-button-lutris {
     color: $color9;
-    font-size: 18;
+    font-size: 20;
     margin: 2px 10px 2px 10px;
     padding: 0px 10px 0px 10px;
     transition-duration: 300ms;
@@ -353,7 +353,7 @@
 // Audio bar
 .misc-bar-spotify-logo {
     color: $color0;
-    font-size: 36;
+    font-size: 30;
     margin: -8px 10px -8px 10px;
 }
 
@@ -433,7 +433,7 @@
 
 .volume-indicator {
     color: $color9;
-    font-size: 40;
+    font-size: 30;
     margin: -10px 10px -10px 10px;
 }
 
@@ -483,7 +483,7 @@
 
 .mic-status-icon {
     color: $color9;
-    font-size: 20;
+    font-size: 22;
     padding: 0px 15px 0px 15px;
     margin: 0px 0px 0px 10px;
     transition-duration: 300ms;
@@ -499,9 +499,9 @@
 
 .wifi-status-icon {
     color: $color5;
-    font-size: 28;
+    font-size: 24;
     padding: 0px 15px 0px 0px;
-    margin: 0px 0px 0px 10px;
+    margin: -5px 0px -5px 10px;
     transition-duration: 300ms;
     transition-timing-function: linear;
     transition-delay: 10ms;
@@ -516,7 +516,7 @@
 .notif-clear-button {
     background-color: $color11;
     color: $color0;
-    font-size: 28;
+    font-size: 24;
     padding: 0px 10px 0px 10px;
     border-left: 2px dotted $color0;
     border-top-right-radius: 17px;
@@ -578,7 +578,7 @@
 .misc-ws-button {
     color: $color0;
     background-color: $color12;
-    font-size: 28;
+    font-size: 24;
     padding: 0px 10px 0px 10px;
     margin: 0px 0px 0px 10px;
     border-top-left-radius: 17px;
