@@ -34,18 +34,18 @@
 
 .volume-slider {
     background-color: $color8;
-    border-radius: 10px;
+    border-radius: 17px;
     margin: 16px 16px 16px 10px;
     contents {
         trough {
-            border-radius: 10px;
+            border-radius: 17px;
             slider {
                 background: transparent;
             }
             highlight {
                 background: $color9;
-                padding:11px;
-                border-radius: 10px;
+                padding: 13px;
+                border-radius: 17px;
             }
         }
     }

@@ -64,8 +64,7 @@
 .circle-label-button {
     background-color: $color1;
     color: $color0;
-    font-size: 56;
-    padding: 0px 0px 0px 0px;
+    font-size: 64;
     transition-duration: 300ms;
     transition-timing-function: linear;
     transition-delay: 10ms;
@@ -180,7 +179,7 @@ calendar:indeterminate {
 .current-weather-icon-big {
     color: $color9;
     font-size: 54;
-    margin: 0px 40px 0px 0px;
+    margin: 0px 20px 0px 0px;
 }
 
 .current-main-weather-text {
