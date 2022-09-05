@@ -13,7 +13,7 @@ if status is-login
 	lxsession &
 	greenclip daemon &
 	wpg -m &
-	/usr/lib/pentablet/pentablet.sh &
+	#/usr/lib/pentablet/pentablet.sh &
 	rfkill block bluetooth && sleep 0.2 &
 	rfkill unblock bluetooth &
 end
