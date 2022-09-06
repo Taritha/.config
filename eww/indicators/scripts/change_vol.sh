@@ -10,7 +10,7 @@ done >/dev/null
 
 
 if ! killed; then
-    sleep 0.005
+    sleep 0.1
 fi
 # Converts eww slider value to a float to change volume
 floatval=$1
