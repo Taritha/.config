@@ -65,6 +65,7 @@
     background-color: $color1;
     color: $color0;
     font-size: 64;
+    margin: 0px 10px 0px 0px;
     transition-duration: 300ms;
     transition-timing-function: linear;
     transition-delay: 10ms;
@@ -126,6 +127,7 @@
 .time-weather-button {
     color: $color6;
     font-size: 36;
+    margin: 0px 10px 0px 0px;
     border-radius: 10px;
     transition-duration: 300ms;
     transition-timing-function: linear;
@@ -179,7 +181,7 @@ calendar:indeterminate {
 .current-weather-icon-big {
     color: $color9;
     font-size: 56;
-    margin: 5px;
+    margin: 5px 35px 5px 5px;
 }
 
 .current-main-weather-text {
@@ -233,6 +235,7 @@ calendar:indeterminate {
 .daily-temperature-icon {
     color: $color12;
     font-size: 20;
+    margin: 0px 10px 0px 0px;
 }
 
 .daily-description-text {

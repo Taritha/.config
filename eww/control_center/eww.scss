@@ -27,7 +27,7 @@
 
 .control-center-headers-clear {
     font-weight: bold;
-    padding: 0em 0.3em 0em 0.3em;
+    padding: 0em 0.4em 0em 0.3em;
     margin-bottom: 0.2em;
     margin-right: -0.5em;
     color: $color0;
@@ -88,7 +88,7 @@
 .control-center-LOW {
     background-color: $color8;
     color: $color5;
-    padding: 0 0.7em 0 0.7em;
+    padding: 0 0.9em 0 0.7em;
     font-size: 35;
     border-radius: 12px;
 }
@@ -96,7 +96,7 @@
 .control-center-NORMAL {
     background-color: $color8;
     color: $color9;
-    padding: 0 0.7em 0 0.7em;
+    padding: 0 0.9em 0 0.7em;
     font-size: 35;
     border-radius: 12px;
 }
@@ -104,7 +104,7 @@
 .control-center-CRITICAL {
     background-color: $color15;
     color: $color0;
-    padding: 0 0.7em 0 0.7em;
+    padding: 0 0.9em 0 0.7em;
     font-size: 35;
     border-radius: 12px;
 }
@@ -112,7 +112,7 @@
 .control-center-OTHER {
     background-color: $color8;
     color: $color11;
-    padding: 0 0.7em 0 0.7em;
+    padding: 0 0.9em 0 0.7em;
     font-size: 35;
     border-radius: 13px;
 }
@@ -120,21 +120,21 @@
 .control-center-spotify {
     background-color: $color8;
     color: $color11;
-    padding: 0 0.7em 0 0.7em;
+    padding: 0 0.9em 0 0.7em;
     font-size: 35;
 }
 
 .control-center-sxhkd {
     background-color: $color8;
     color: $color9;
-    padding: 0 0.7em 0 0.7em;
+    padding: 0 0.9em 0 0.7em;
     font-size: 35;
 }
 
 .control-center-brightness {
     background-color: $color8;
     color: $color5;
-    padding: 0 0.7em 0 0.7em;
+    padding: 0 0.9em 0 0.7em;
     font-size: 35;
 }
 
@@ -189,6 +189,7 @@ color: $color15;
     color: $color0;
     background-color: $color9;
     margin: 0px 19px 0px 19px;
+    padding: 0px 6px 0px 0px;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     font-size: 20px;
@@ -201,6 +202,7 @@ color: $color15;
     color: $color15;
     background-color: $color8;
     margin: 0px 19px 0px 19px;
+    padding: 0px 6px 0px 0px;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     font-size: 20px;
@@ -238,7 +240,7 @@ color: $color15;
     color: $color0;
     background-color: $color11;
     margin: 0px 19px 0px 19px;
-    padding: 0.5em 0em 0.5em 0em;
+    padding: 0px 5px 0px 0px;
     border-radius: 15px;
     font-size: 24px;
     transition-duration: 300ms;
@@ -250,7 +252,7 @@ color: $color15;
     color: $color15;
     background-color: $color8;
     margin: 0px 19px 0px 19px;
-    padding: 0.5em 0em 0.5em 0em;
+    padding: 0px 5px 0px 0px;
     border-radius: 15px;
     font-size: 24px;
     transition-duration: 300ms;
@@ -349,7 +351,7 @@ color: $color15;
     color: $color0;
     background-color: $color2;
     margin: 0px 19px 0px 19px;
-    padding: 0.5em 0em 0.5em 0em;
+    padding: 0px 6px 0px 0px;
     border-radius: 15px;
     font-size: 24px;
     transition-duration: 300ms;
@@ -361,7 +363,7 @@ color: $color15;
     color: $color15;
     background-color: $color8;
     margin: 0px 19px 0px 19px;
-    padding: 0.5em 0em 0.5em 0em;
+    padding: 0px 2px 0px 0px;
     border-radius: 15px;
     font-size: 24px;
     transition-duration: 300ms;
@@ -378,7 +380,7 @@ color: $color15;
     color: $color9;
     background-color: $color8;
     margin: 0px 19px 0px 19px;
-    padding: 0.4em 0em 0.5em 0em;
+    padding: 0.4em 0.3em 0.5em 0em;
     border-radius: 15px;
     font-size: 24px;
     transition-duration: 300ms;

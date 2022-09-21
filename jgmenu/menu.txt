@@ -7,7 +7,7 @@ RGB,killall -9 openrgb && openrgb,weather-clear-symbolic
 # Terminal/Layout submenu
 ^sep()
 Terminal,kitty,utilities-terminal-symbolic
-Layouts,^checkout(layouts),view-grid-symbolic
+Temp Layouts,^checkout(layouts),view-grid-symbolic
 
 # Exit Submenu
 ^sep()
