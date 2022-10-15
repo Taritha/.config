@@ -1,9 +1,7 @@
 (defvar volume-level 50)
 (defvar volume-muted false)
-(defvar volume-hidden false)
 
 (defvar brightness-level 50)
-(defvar brightness-hidden false)
 
 
 (defwindow volume-indicator
@@ -72,7 +70,8 @@
                 :timeout "3s"
                 :value brightness-level
                 :active false
-            :onchange "/home/taritha/.config/eww/indicators/scripts/change_brightness.sh {}")
+            ; :onchange ""
+            )
         )
     )
 )

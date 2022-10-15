@@ -176,7 +176,7 @@
                 :active true
                 :max 101
                 :min 0
-                :onchange "python ~/.config/eww/control_center/scripts/change_brightness.py -set {}"
+                :onchange "/home/taritha/.config/eww/indicators/scripts/change_brightness.sh {}"
                 )
             )
         )

@@ -9,9 +9,10 @@ for pid in $(pidof -x change_brightness.sh); do
 done >/dev/null
 
 
-if ! killed; then
-    sleep 0.1
-fi
+while [ killed = false ]; do
+    sleep 1
+done
+
 # Converts eww slider value to a float to change volume
 floatval=$1
 int=${floatval%.*}

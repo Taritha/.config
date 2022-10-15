@@ -7,6 +7,7 @@ cat ~/.config/wpg/sequences &
 # Startup applications
 if status is-login
 	autorandr default &
+	bash /home/taritha/.screenlayout/usbc_dp.sh &
 	sleep 0.5
 	thunar --daemon &
 	#discord --start-minimized &

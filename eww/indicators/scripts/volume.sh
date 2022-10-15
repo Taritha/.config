@@ -9,7 +9,6 @@ for pid in $(pidof -x volume.sh); do
 done >/dev/null
 
 if ! $killed; then
-    eww -c $HOME/.config/eww/indicators/ update volume-hidden=true
     eww -c $HOME/.config/eww/indicators/ open volume-indicator
 fi
 
@@ -17,9 +16,6 @@ current_vol=$(pamixer --get-volume)
 eww -c $HOME/.config/eww/indicators/ update volume-level=$current_vol
 eww -c $HOME/.config/eww/indicators/ update volume-muted=$(pamixer --get-mute)
 eww -c $HOME/.config/eww/bars update volume=$current_vol
-eww -c $HOME/.config/eww/indicators/ update volume-hidden=false
-sleep 2
-eww -c $HOME/.config/eww/indicators/ update volume-hidden=true
-sleep 1
+sleep 3
 eww -c $HOME/.config/eww/indicators/ close volume-indicator
 unset killed
