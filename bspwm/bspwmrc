@@ -4,7 +4,6 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 
 ## MULTI-MONITOR CONFIGURATION ##
 bspc monitor eDP-1 -d 1 2 3 4 5 6 7
-bspc monitor HDMI-1 -d 8 9 10
 
 # Window Spacing/Control
 bspc config border_width	2
@@ -31,7 +30,8 @@ bspc rule -a steam_app_314650:steam_app_314650 monitor=^1 state=fullscreen # Spa
 bspc rule -a Qalculate-gtk:qalculate-gtk state=floating 
 bspc rule -a Tk:tk state=floating # DF Lazy Newb Pack
 bspc rule -a Nm-connection-editor:nm-connection-editor state=floating
-bspc rule -a Blueman-manager:blueman-manager # Bluetooth
+bspc rule -a Blueman-manager:blueman-manager state=floating # Bluetooth
+bspc rule -a battle.net.exe:battle.net.exe state=floating
 
 # External rules invocation
 bspc config external_rules_command ~/.config/bspwm/scripts/external_rules.sh

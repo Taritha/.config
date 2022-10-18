@@ -1,0 +1,125 @@
+/*
+ *
+ * Author  : Aditya Shakya
+ * Mail    : adi1090x@gmail.com
+ * Github  : @adi1090x
+ * Twitter : @adi1090x
+ *
+ */
+
+configuration {
+    show-icons:                     false;
+	font:                      		"JetBrainsMono Nerd Font Mono 16";
+    disable-history:                false;
+	sidebar-mode: 					false;
+}
+
+@theme "/dev/null"
+@import "shared/colorschemes/dark-steel-blue.rasi"
+
+* {
+    background-color:               @background-opaque;
+    text-color:                     @accent;
+}
+
+window {
+    transparency:                   "real";
+    border-radius:                  17px;
+    border:                         0px;
+    border-color:                   @accent2;
+    location:                       center;
+	width:							1500px;
+    height:                         950px;
+    x-offset:                       0px;
+    y-offset:                       0px;
+    background-color:               @background-opaque;
+}
+
+prompt {
+    enabled: 						true;
+    padding:                        10px;
+	background-color: 				@accent2;
+	text-color: 					@background-opaque;
+
+    border:                  		2px 2px 3px 2px;
+    border-radius:                  8px;
+    border-color:                  	@accent2;
+}
+
+textbox-prompt-colon {
+	expand: 						false;
+	str: 							"";
+	background-color: 				@accent2;
+	text-color: 					@background-opaque;
+    padding:                        12px 10px 0px 10px;
+}
+
+inputbar {
+	children: 						[ prompt, textbox-prompt-colon, entry ];
+    spacing:                        0px;
+    background-color:               @accent2;
+    text-color:                     @background-opaque;
+    expand:                         false;
+    border:                  		0px;
+    border-radius:                  8px;
+    border-color:                  	@accent;
+    margin:                         0px 0px 0px 0px;
+    padding:                        0px;
+    position:                       center;
+}
+
+listview {
+    columns:						7;
+    lines:							3;
+    spacing:                        8px;
+    cycle:                          true;
+    dynamic:                        true;
+    layout:                         vertical;
+}
+
+mainbox {
+    background-color:               @background-opaque;
+    children:                       [ inputbar, listview ];
+    spacing:                        12px;
+    margin:                         12px;
+}
+
+entry {
+    text-color:                     @background-opaque;
+    padding:                        12px 10px 0px 10px;
+    background-color:               @accent2;
+    expand:                         true;
+    placeholder:                    "Search emotes...";
+    placeholder-color:              @background-light;
+}
+
+element {
+    background-color:               @background-opaque;
+    text-color:                     @accent;
+    orientation:                    vertical;
+    border-radius:                  8px;
+}
+
+element-icon {
+    size:                           51px;
+    horizontal-align:               0.5;
+    margin:                         20px 0px 0px 0px;
+}
+
+element-text {
+	font:							"JetBrainsMono Nerd Font Mono 12";
+    expand:                         true;
+    horizontal-align:               0.5;
+    vertical-align:                 0.5;
+    margin:                         19px 10px 19px 10px;
+}
+
+element-text, element-icon {
+    background-color:               inherit;
+    text-color:                     inherit;
+}
+
+element selected {
+    background-color:               @background-muted;
+    text-color:                     @accent2;
+}

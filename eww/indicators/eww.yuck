@@ -1,6 +1,5 @@
 (defvar volume-level 50)
 (defvar volume-muted false)
-
 (defvar brightness-level 50)
 
 
@@ -70,7 +69,6 @@
                 :timeout "3s"
                 :value brightness-level
                 :active false
-            ; :onchange ""
             )
         )
     )
