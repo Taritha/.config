@@ -134,7 +134,7 @@ super + z
 
 # Discord emote menu
 super + m
-	 bash ~/AUR_installs/discord-emote-menu/emote.sh -c -r ~/.config/rofi/themes/emotemenu.rasiemote.sh -c -r ~/.config/rofi/themes/emotemenu.rasi
+	 bash ~/AUR_installs/discord-emote-menu/emote.sh -c -r ~/.config/rofi/themes/emotemenu.rasi
 
 # play-pause media key
 XF86AudioPlay
