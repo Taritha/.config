@@ -18,10 +18,10 @@ prompt,inputbar,entry,textbox-prompt-colon { enabled: false; }
   children: [listview];
 }
 listview {
-  lines: 5;
+  lines: 6;
   layout: horizontal;
   children: [element];
-  margin: calc(50% - 75px) 0px 0px calc(50% - 575px);
+  margin: calc(50% - 75px) 0px 0px calc(50% - 690px);
   spacing: 100px;
 }
 #element {

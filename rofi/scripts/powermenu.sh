@@ -4,12 +4,13 @@ rofi_command="rofi -theme themes/icons.rasi -p "power""
 
 #### Options ###
 power_off=""
-reboot="勒"
+reboot=""
 lock=""
-suspend="鈴"
+suspend="⏾"
+hibernate="⏼"
 log_out="﫼"
 # Variable passed to rofi
-options="$power_off\n$reboot\n$suspend\n$lock\n$log_out"
+options="$power_off\n$reboot\n$suspend\n$hibernate\n$lock\n$log_out"
 
 chosen="$(echo -e "$options" | $rofi_command -dmenu -p "Power Options" -selected-row 0)"
 case $chosen in
@@ -19,11 +20,14 @@ case $chosen in
     $reboot)
         systemctl reboot
         ;;
-    $lock)
-        betterlockscreen -l dim
-        ;;    
     $suspend)
 	    systemctl suspend
+        ;;
+    $hibernate)
+        systemctl hibernate
+        ;;
+    $lock)
+        betterlockscreen -l dim
         ;;
     $log_out)
         bspc quit

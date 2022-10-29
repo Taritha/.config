@@ -24,7 +24,7 @@ if [[ "$CON_NAME" == "-c" ]]; then
     fi
 else
     # Returns symbols based on the connection 
-    if [[ "$INTERFACE" == "wwan0" ]]; then
+    if [[ "$INTERFACE" == "eth0" ]]; then
         STATUS="$(nmcli dev status | grep -w "$INTERFACE" | grep -wv "p2p" | awk '{ print $3 }')"
 
         if [[ "$STATUS" == "connected" ]]; then

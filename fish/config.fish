@@ -12,7 +12,7 @@ if status is-login
 #	discord --start-minimized &
 #	lxsession &
 #	greenclip daemon &
-	wpg -m &
+#	wpg -m &
 #	#/usr/lib/pentablet/pentablet.sh &
 #	rfkill block bluetooth && sleep 0.2 &
 #	rfkill unblock bluetooth &

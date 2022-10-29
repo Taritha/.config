@@ -26,6 +26,8 @@ else
     spotify
 fi
 
+sleep 0.5
+
 # reload eww
 /home/taritha/.config/bspwm/scripts/load_eww.sh &
 
