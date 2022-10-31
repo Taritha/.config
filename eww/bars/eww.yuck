@@ -170,7 +170,7 @@
             (button 
                 :class "ctrl-rev-button" 
                 :tooltip "Toggle control center"
-                :onclick "${ctrl_rev == false ? "${EWW_CMD} update ctrl_rev=true" : "${EWW_CMD} update ctrl_rev=false"} && eww --config ~/.config/eww/control_center/ open --toggle control-center" "${ctrl_rev == false ? "" : ""}"
+                :onclick "${ctrl_rev == false ? "${EWW_CMD} update ctrl_rev=true" : "${EWW_CMD} update ctrl_rev=false"} && eww -c ~/.config/eww/control_center/ update brightness=$(python /home/taritha/.config/eww/control_center/scripts/get_brightnesslevel.py) && eww --config ~/.config/eww/control_center/ open --toggle control-center" "${ctrl_rev == false ? "" : ""}"
             )
             (battery-icon)
             (date-time)

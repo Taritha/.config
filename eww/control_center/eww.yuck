@@ -30,7 +30,7 @@
 (defpoll mic-slider-indicator :interval "0.1s" "scripts/get_mic.sh")
 
 ; Brightness controls/level
-(defpoll brightness :interval "1s" "python ~/.config/eww/control_center/scripts/get_brightnesslevel.py")
+(defvar brightness "0")
 (defpoll bright_paused :interval "1s" "python ~/.config/eww/control_center/scripts/pause_autobrightness.py --show")
 
 ;; audio
@@ -176,7 +176,7 @@
                 :active true
                 :max 101
                 :min 0
-                :onchange "/home/taritha/.config/eww/indicators/scripts/change_brightness.sh {}"
+                :onchange "${EWW_CMD} update brightness={} && python ~/.config/eww/control_center/scripts/bright_slidehandler.py && xdotool key Pause"
                 )
             )
         )
