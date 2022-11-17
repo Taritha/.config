@@ -1,5 +1,6 @@
 #! /bin/sh
 
+sleep 0.25
 pywalfox update &
 pywal-discord &
 spicetify update &

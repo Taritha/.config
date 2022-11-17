@@ -42,8 +42,9 @@ def handle_keys(brightlevel):
 if __name__ == '__main__':
     # Ensures only one instance of this script runs at a time
     with pidfile.PIDFile():
-        query_brightness = 'python eww/control_center/scripts/get_brightnesslevel.py'
-        cmd_output = run(query_brightness.split(), capture_output=True)
+        # TODO: update this for user-agnostic setting
+        query_brightness = 'python .config/eww/control_center/scripts/get_brightnesslevel.py'
+        cmd_output = run(query_brightness.split(), cwd='/home/taritha', capture_output=True)
         curr_brightness = int(float(str(cmd_output.stdout.strip())[2:-1]))
 
         # Open brightness indicator and update shown brightness level

@@ -1,7 +1,7 @@
 #! /bin/sh
 
 status="$(nmcli c | grep vpn)"
-active_server="$(nmcli c | grep vpn | grep wlan | cut -d " " -f1)"
+active_server="$(nmcli c | grep vpn | grep eth0 | cut -d " " -f1)"
 
 
 if [ "$1" == "--status" ]; then
