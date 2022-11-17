@@ -109,7 +109,6 @@ json
 .gitignore
 xarchiver/xarchiverrc
 betterlockscreenrc
-clight.conf
 math
 os
 plasma-localerc

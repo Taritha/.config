@@ -15,7 +15,7 @@ def update_slideval():
             # If nothing is pressed for 1s, stop
             if event is None:
                 # Query desired brightness level from slider position
-                slider_cmd = "eww --config ~/.config/eww/control_center/ state | grep --max-count=1 brightness | sed 's/[[:alpha:]]//g' | sed 's/: //g'"
+                slider_cmd = "eww --config ~/.config/eww/control_center/ state | grep 'brightness: ' | sed 's/[[:alpha:]]//g' | sed 's/: //g'"
                 cmd_output = run(slider_cmd, cwd='/', capture_output=True, shell=True)
                 sliderval = int(float(str(cmd_output.stdout.strip())[2:-1]))
 
