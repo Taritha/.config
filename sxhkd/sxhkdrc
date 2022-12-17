@@ -102,7 +102,7 @@ Print
 
 # screenshot selection; save to clipboard
 alt + Print
-	gnome-screenshot -c -d 1 -a
+	~/code/screenselect.sh
 
 # hide the focused window in a saved order
 super + a

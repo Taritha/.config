@@ -1,6 +1,5 @@
 #! /bin/sh
 
-sleep 0.25
 pywalfox update &
 pywal-discord &
 spicetify update &
@@ -27,10 +26,12 @@ else
     spotify
 fi
 
-sleep 0.5
+sleep 0.25
 
 # reload eww
 /home/taritha/.config/bspwm/scripts/load_eww.sh &
+
+sleep 0.25
 
 # Gets current wallpaper directory from ~/.fehbg
 # paperpath=$(cat ~/.fehbg | grep wpg | cut -d " " -f 4 | cut -d "'" -f 2)

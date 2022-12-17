@@ -476,6 +476,7 @@
           :flipped false
           :active false
           :width 460
+          :round-digits true
           :class "${EWW_BATTERY["BAT1"]["status"] == 'Charging' ? 'big-progress-bar-bat-charging' : 'big-progress-bar-bat-discharging'}"
           :orientation "h" 
           :valign "center" 

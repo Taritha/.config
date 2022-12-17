@@ -244,6 +244,7 @@
                         :min: 0
                         :max 101
                         :width 150
+                        :round-digits true
                         :onchange "~/.config/eww/indicators/scripts/change_vol.sh {} && ${EWW_CMD} update volume={}"
                         :orientation "h"
                     )

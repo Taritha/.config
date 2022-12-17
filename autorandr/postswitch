@@ -1,0 +1,9 @@
+#! /bin/sh
+
+sleep 0.25
+bspc wm -r &
+
+sleep 0.5
+
+# reload eww
+/home/taritha/.config/bspwm/scripts/load_eww.sh &
