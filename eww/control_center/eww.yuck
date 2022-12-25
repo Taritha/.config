@@ -259,11 +259,11 @@
 ;
 
 ; Control center window
-(defwindow control-center 
+(defwindow control-center
   :stacking "fg"
   :windowtype "normal"
   :wm-ignore true
-  :monitor 0
+  :monitor "DisplayPort-2"
   :geometry (geometry :width 520 :height 1294 :y 73 :x -17 :anchor "top right")
   (control-center)
 )

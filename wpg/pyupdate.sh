@@ -1,11 +1,12 @@
 #! /bin/sh
 
+autorandr --change &
 pywalfox update &
 pywal-discord &
 spicetify update &
 # reload eww
-/home/taritha/.config/bspwm/scripts/load_eww.sh &
 bspc wm -r &
+/home/taritha/.config/bspwm/scripts/load_eww.sh &
 
 # Checks if spotify is running and restarts it if it is
 spotstatus=$(ps -A | grep -w spotify)
@@ -20,7 +21,7 @@ else
     desktop="$(xwininfo -wm -id "${ids[$((id_index - 1))]}" | grep desktop | cut -d" " -f10)"
     desktop=$((desktop+1))
 
-    # restarts Spotify and opens it on desktop it was originally on
+    # Restarts Spotify and opens it on desktop it was originally on
     killall -9 spotify
     bspc rule -a "*" -o desktop="^$desktop"; # Sacrificial rule to be consumed by the computer Gods for their transgressions
     sleep 1
@@ -40,4 +41,4 @@ betterlockscreen -u "${paperpath}" --fx dim,blur --display 1 && dunstify -u crit
 
 # Wait 1s and then close notifications
 sleep 1
-dunstctl close-all &
+dunstctl close-all 
