@@ -10,6 +10,9 @@
 (deflisten cpu_thread_use :initial "[0, 0]" "scripts/cpu.sh --cores")
 (defpoll cpu_temp :interval "2s" "scripts/avg_temp.sh")
 
+;; Temp t sensor until annoying Nan eww bug gets fixed
+(defpoll TS_temp :interval "2s" "scripts/poopfuck.sh")
+
 ; GPU stats
 (defpoll gpu_use :interval "2s" "scripts/gpustats.sh 0 --use")
 (defpoll gpu_memuse :interval "2s" "scripts/gpustats.sh 0 --mem_percent")
@@ -490,7 +493,8 @@
         :plotheight 200
         :plotlabel "Thermal Sensor"
         :unit "°C"
-        :statistic {EWW_TEMPS["NCT6798_VIRTUAL_TEMP"]}
+        ; :statistic {EWW_TEMPS["ASUSEC_T_SENSOR"]}
+        :statistic TS_temp
         :rangelim 70
         :dynamic false
       )
