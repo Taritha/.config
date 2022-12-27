@@ -111,3 +111,10 @@ autorandr/*
 configstore/update-notifier-npm.json
 Nextcloud/nextcloud.cfg
 Nextcloud/nextcloud.cfg.backup_20221224_055455_3.6.0git
+SideQuest/*
+wireplumber/main.lua.d/51-disable-suspension.lua
+Valve/vrmonitor.conf
+VA_11_Hall_A/saves/steam_autocloud.vdf
+openvr/openvrpaths.vrpath
+openxr/1/active_runtime.json
+alvr/*

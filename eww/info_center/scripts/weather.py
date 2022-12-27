@@ -96,7 +96,7 @@ if __name__ == "__main__":
 
     # or you can use city name
     # CITY = ""
-    with open('secrets/api_key2', 'r') as api_read:
+    with open('secrets/api_key', 'r') as api_read:
         API_KEY = api_read.read().rstrip()
 
     # Shows detailed weather data depening on argument provided
