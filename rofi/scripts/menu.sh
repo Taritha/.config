@@ -3,6 +3,13 @@
 rofi_command="rofi -theme themes/centermenu.rasi"
 backscript="$(dirname $0)/$(basename $0) $1"
 echo $backscript
+status=$?
+
+
+
+_supress() {
+  eval "$1() { \$(which $1) \"\$@\" 2>&1 | awk NF | grep -v \"$2\"; }"
+}
 
 #### Options ###
 adsysinfo=" Advanced System Information"
@@ -24,58 +31,75 @@ rgb=" RGB"
 corsair=" Corsair Peripherals"
 # Variable passed to rofi
 options="$adsysinfo\n$gpuinfo\n$monitors\n$disks\n$network\n$bt\n$theme\n$wallpaper\n$grub\n$login\n$rofi\n$audio\n$print\n$usb\n$draw\n$rgb\n$corsair"
+cmd=""
 
 chosen="$(echo -e "$options" | $rofi_command -dmenu -p "System Settings" -selected-row 0)"
 case $chosen in
     $adsysinfo)
-        hardinfo
+        cmd="hardinfo"
         ;;
     $gpuinfo)
-        gpu-viewer
+        cmd="gpu-viewer"
         ;;
     $network)
-        nm-connection-editor
+        _supress nm-connection-editor   "Gtk-WARNING\|connect to accessibility bus"
+        cmd="nm-connection-editor"  
         ;;
     $disks)
-        gnome-disks
+        _supress gnome-disks            "Gtk-WARNING\|connect to accessibility bus"
+        cmd="gnome-disks"
         ;;
     $bt)
-        blueman-manager
+        _supress blueman-manager        "Gtk-WARNING\|connect to accessibility bus"
+        cmd="blueman-manager"
         ;;
     $monitors)
-        arandr
+        _supress arandr                 "Gtk-WARNING\|connect to accessibility bus\|atom_name"
+        cmd="arandr"
         ;;
     $theme)
-        lxappearance
+        _supress lxappearance           "Gtk-WARNING\|connect to accessibility bus"
+        cmd="lxappearance"
         ;;
     $wallpaper)
-        wpg
+        _supress wpg                    "[i]"
+        cmd="wpg"
         ;;
     $grub)
-        grub-customizer
+        cmd="grub-customizer"
         ;;
     $login)
-        kcmshell5 kcm_sddm
+        cmd="kcmshell5 kcm_sddm"
         ;;
     $rofi)
-        bash $HOME/.config/rofi/scripts/rofimenu.sh
+        cmd="bash $HOME/.config/rofi/scripts/rofimenu.sh"
         ;;
     $audio)
-        pavucontrol
+        _supress pavucontrol            "Gtk-WARNING\|connect to accessibility bus"
+        cmd="pavucontrol"
         ;;
     $print)
-        system-config-printer
+        _supress system-config-printer  "Gtk-WARNING\|connect to accessibility bus\|DeprecationWarning\|action\|self.\|Gdk."
+        cmd="system-config-printer"
         ;;
     $usb)
-        usbview
+        _supress usbview                "Gtk-WARNING\|connect to accessibility bus"
+        cmd="usbview"
         ;;
     $draw)
-        bash /usr/lib/pentablet/pentablet.sh
+        cmd="bash /usr/lib/pentablet/pentablet.sh"
         ;;
     $rgb)
-        openrgb
+        cmd="killall -9 openrgb && openrgb"
         ;;
     $corsair)
-        ckb-next
+        cmd="ckb-next"
         ;;
 esac
+
+ERROR=$($cmd 2> /dev/null)
+# If error is not empty, display what it says, otherwise just exit
+if [ ! -z "$ERROR" ]; then
+    echo $ERROR
+    dunstify -u critical -t 10000 "Error" "$ERROR"
+fi
