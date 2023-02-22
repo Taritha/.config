@@ -84,7 +84,7 @@ super + shift + {Left,Down,Up,Right}
 super + b : {Left,Down,Up,Right}
 	~/.config/sxhkd/scripts/resize_window.sh {1,2,3,4}
 
-# Rotate tree
+# rotate tree
 super + {l,j}
 	bspc node @/ -C {forward,backward}
 
