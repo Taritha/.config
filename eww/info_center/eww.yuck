@@ -191,7 +191,7 @@
         (label :class "plot-header-text" :text "CPU Stats")
         (input :class "plot-tr-inputbox" :value "Time range (s)" :onaccept "${EWW_CMD} update plot_time_range={}s")
         (sys-plot :plotheight 200 :plotlabel "Overall Usage" :unit "%" :statistic cpu_use :rangelim 100 :dynamic false)
-        (sys-plot :plotheight 200 :plotlabel "Temperature" :unit "°C" :statistic {round(EWW_TEMPS["PACKAGE_ID_0"], 0)} :rangelim 100 :dynamic false)
+        (sys-plot :plotheight 200 :plotlabel "Temperature" :unit "°C" :statistic {EWW_TEMPS["CORETEMP_PACKAGE_ID_0"]} :rangelim 100 :dynamic false)
         (label :class "cpu-thread-overview" :text "CPU Thread Usage")
         (box :orientation "h" :space-evenly false
           (cpu-corelist :gap 0)
