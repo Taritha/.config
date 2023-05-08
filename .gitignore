@@ -118,3 +118,6 @@ VA_11_Hall_A/saves/steam_autocloud.vdf
 openvr/openvrpaths.vrpath
 openxr/1/active_runtime.json
 alvr/*
+kicad/*
+eww/info_center/scripts/__pycache__/moon.cpython-311.pyc
+superslicer/*
