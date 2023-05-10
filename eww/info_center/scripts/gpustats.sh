@@ -4,7 +4,7 @@ CARD_TO_USE=$1
 D_STAT=$2
 
 GPU_BASIC="/sys/class/drm/card$1/device"
-GPU_ADV="/sys/class/drm/card$1/device/hwmon/hwmon7"
+GPU_ADV="/sys/class/drm/card$1/device/hwmon/hwmon6"
 
 # Display overall GPU usage%
 get_usage() {
