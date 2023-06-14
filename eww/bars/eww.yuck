@@ -78,7 +78,7 @@
         (revealer :transition "slideright" :duration "500ms" :reveal topbar_app_reveal
             (box :orientation "h" :space-evenly true
                 (button :class "bar-button-thunar" :tooltip "Launch file manager" :onclick "scripts/rofi_thingies.sh --goto  thunar" "ﱮ")
-                (button :class "bar-button-pamac" :tooltip "Launch app store" :onclick "scripts/rofi_thingies.sh --goto  Add" "")
+                (button :class "bar-button-pamac" :tooltip "Launch package manager" :onclick "scripts/rofi_thingies.sh --goto  Add" "")
                 (button :class "bar-button-firefox" :tooltip "Launch firefox" :onclick "scripts/rofi_thingies.sh --goto  Firefox" "")
                 (button :class "bar-button-email" :tooltip "Launch evolution" :onclick "scripts/rofi_thingies.sh --goto  Evolution" "")
                 (button :class "bar-button-slack" :tooltip "Launch slack" :onclick "scripts/rofi_thingies.sh --goto  Slack" "聆")
