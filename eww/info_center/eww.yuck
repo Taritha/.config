@@ -54,9 +54,9 @@
 (defvar daily_idxs "[0, 1, 2, 3, 4, 5, 6]")
 
 ; Network
-(defpoll e_netstatus :interval "2s" "scripts/netstatus.sh enp5s0")
+(defpoll e_netstatus :interval "2s" "scripts/netstatus.sh enp4s0")
 (defpoll w_netstatus :interval "2s" "scripts/netstatus.sh wlp4s0")
-(defpoll e_conn :interval "2s" "scripts/netstatus.sh enp5s0 -c")
+(defpoll e_conn :interval "2s" "scripts/netstatus.sh enp4s0 -c")
 (defpoll w_conn :interval "2s" "scripts/netstatus.sh wlp4s0 -c")
 
 ; Miscellaneous
@@ -439,8 +439,8 @@
         (label :class "network-conn-text" :text e_conn :tooltip "${e_netstatus == "" ? 'Connected to LAN' : 'Cord disconnected/some other bullshit (T_T)'}" :halign "start" :valign "end" :limit-width 20)
       )
       (box :orientation "h" :space-evenly false
-        (label :class "network-label-text" :text ' ${round(EWW_NET["enp5s0"]["NET_DOWN"] / 2097152, 1)} MB/s')
-        (label :class "network-label-text-lowmargin" :text ' ${round(EWW_NET["enp5s0"]["NET_UP"] / 2097152, 1)} MB/s')
+        (label :class "network-label-text" :text ' ${round(EWW_NET["enp4s0"]["NET_DOWN"] / 2097152, 1)} MB/s')
+        (label :class "network-label-text-lowmargin" :text ' ${round(EWW_NET["enp4s0"]["NET_UP"] / 2097152, 1)} MB/s')
       )
     )
     (box :orientation "v" :space-evenly false
