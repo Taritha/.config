@@ -18,12 +18,12 @@ icon() {
         echo ""
     else
         # on
-        if [ $(echo info | bluetoothctl | grep 'Device' | wc -c) -eq 0 ]
+        if [ $(bluetoothctl info | grep "DeviceSet (null) not available" | wc -c) -eq 0 ]
         then
-            echo ""
+            echo ""
             # connected
         else
-            echo ""
+            echo ""
         fi
     fi
 }
@@ -35,12 +35,12 @@ status() {
         echo ""
     else
         # on
-        if [ $(echo info | bluetoothctl | grep 'Device' | wc -c) -eq 0 ]
+        if [ $(bluetoothctl info | grep "DeviceSet (null) not available" | wc -c) -eq 0 ]
         then
-            echo ""
+            echo ""
             # connected
         else
-            echo ""
+            echo ""
         fi
     fi
 }
