@@ -4,7 +4,7 @@ _supress() {
   eval "$1() { \$(which $1) \"\$@\" 2>&1 | awk NF | grep -v \"$2\"; }"
 }
 
-rofi_command="rofi -theme ~/.config/rofi/themes/network.rasi -config ~/.config/rofi/config.rasi"
+rofi_command="rofi -terminal kitty -theme ~/.config/rofi/themes/network.rasi -config ~/.config/rofi/config.rasi"
 
 #### Options ###
 # Variable passed to rofi

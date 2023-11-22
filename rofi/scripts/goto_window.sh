@@ -1,13 +1,13 @@
 #!/bin/env bash
 
-rofi_command="rofi -theme /home/taritha/.config/rofi/themes/centermenu.rasi -config /home/taritha/.config/rofi/config.rasi"
+rofi_command="rofi -terminal kitty -theme /home/taritha/.config/rofi/themes/centermenu.rasi -config /home/taritha/.config/rofi/config.rasi"
 
 # Lists all window IDs and their titles
 ids=($(bspc query -N -n .window))
 options="$(xtitle "${ids[@]}" | awk '{ print ++i" - "$0 }')"
 
 # Exits if there are no open windows
-[[ -n "$options" ]] || exit
+[[ -n "$options" ]] || exit 0
 
 if [ "$1" != "" ]; then
     # Changes array delimiter to newline for this op (before turning it back into space)
@@ -18,11 +18,11 @@ if [ "$1" != "" ]; then
     id_index=($(echo -e "$options" | grep "$1"))
     IFS=$SAVEIFS
 
-    # If there are several instances of a program window open, let the user choose which to go to
+    # Show the user only the windows of the command line program
     if [[ ${#id_index[@]} == 1 ]]; then
         id_index="$(echo "$id_index" | cut -d- -f1)"
 
-    # Show the user only the windows of the command line program
+    # If there are several instances of a program window open, let the user choose which to go to
     elif [[ ${#id_index[@]} -gt 1 ]]; then
         id_index="$(echo -e "$options" | grep "$1" | $rofi_command -dmenu -p "Go to" -selected-row 0 | cut -d- -f1)"
 
@@ -33,7 +33,7 @@ if [ "$1" != "" ]; then
                 thunar &
             ;;
             Add) 
-                pamac-manager &
+                kitty pacseek &
             ;;
             Firefox)
                 firefox &
@@ -48,7 +48,7 @@ if [ "$1" != "" ]; then
                 discord &
             ;;
             Steam)
-                steam-native &
+                steam-runtime &
             ;;
             Lutris)
                 lutris &

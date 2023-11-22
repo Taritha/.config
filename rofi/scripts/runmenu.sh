@@ -1,3 +1,3 @@
 #!/bin/sh
 
-rofi -no-lazy-grab -show run -theme themes/appsmenu.rasi
+rofi -terminal kitty -no-lazy-grab -show run -theme themes/appsmenu.rasi
