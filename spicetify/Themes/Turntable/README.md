@@ -36,26 +36,25 @@ Develop and test on macOS. If there's any problem, please open issue or PR.
 
 ### Installation
 
-1. add extension - [Full App Display](https://github.com/khanhas/spicetify-cli/wiki/Extensions#full-app-display)
+1. add extension - [Full App Display](https://spicetify.app/docs/getting-started/extensions#full-app-display)
 
 ```shell
 spicetify config extensions fullAppDisplay.js
 spicetify apply
 ```
 
-2. put **Turntable** and **turntable.js** into the **.config/spicetify**
+2. put **Turntable** into the **.config/spicetify**
 
 ```shell
 cd spicetify-themes
 cp -r Turntable ~/.config/spicetify/Themes
-cp Turntable/turntable.js ~/.config/spicetify/Extensions
 ```
 
-3. select the theme and extension, then apply
+3. select the theme, then apply
 
 ```shell
 spicetify config current_theme Turntable
-spicetify config extensions turntable.js
+spicetify config inject_theme_js 1
 spicetify apply
 ```
 
@@ -65,7 +64,6 @@ spicetify apply
 
 ```shell
 rm -r ~/.config/spicetify/Themes/Turntable
-rm ~/.config/spicetify/Extensions/turntable.js
 ```
 
 2. config to spicetify default theme
@@ -74,11 +72,10 @@ rm ~/.config/spicetify/Extensions/turntable.js
 spicetify config current_theme SpicetifyDefault
 ```
 
-3. remove extension - Full App Display and Turntable(optional)
+3. remove extension - Full App Display
 
 ```shell
 spicetify config extensions fullAppDisplay.js-
-spicetify config extensions turntable.js-
 ```
 
 4. apply

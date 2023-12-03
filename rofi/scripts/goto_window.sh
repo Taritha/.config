@@ -1,6 +1,6 @@
 #!/bin/env bash
 
-rofi_command="rofi -theme /home/taritha/.config/rofi/themes/centermenu.rasi -config /home/taritha/.config/rofi/config.rasi"
+rofi_command="rofi -terminal kitty -theme /home/taritha/.config/rofi/themes/centermenu.rasi -config /home/taritha/.config/rofi/config.rasi"
 
 # Lists all window IDs and their titles
 ids=($(bspc query -N -n .window))
@@ -33,7 +33,7 @@ if [ "$1" != "" ]; then
                 thunar &
             ;;
             Add) 
-                pamac-manager &
+                kitty pacseek &
             ;;
             Firefox)
                 firefox &

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-rofi_command="rofi -theme themes/togglemenu_NW.rasi"
+rofi_command="rofi -terminal kitty -theme themes/togglemenu_NW.rasi"
 dir1=$HOME/.config/rofi
 dir2=$dir1/themes
 dir3=$dir2/shared

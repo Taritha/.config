@@ -31,7 +31,7 @@
 
 ; Weather
 (defpoll current_weather :interval "15m" "python scripts/weather.py")
-(defpoll current_temp :interval "15m" "python scripts/weather.py -f -c curr_temp")
+(defpoll current_temp :interval "5m" "python scripts/weather.py -r -f -c curr_temp") ; Save weather data externally with this variable to reduce calls to openweathermap
 (defpoll current_vibes :interval "15m" "python scripts/weather.py -f -c curr_vibes")
 (defpoll current_pressure :interval "15m" "python scripts/weather.py -f -c curr_pressure")
 (defpoll current_humidity :interval "15m" "python scripts/weather.py -f -c curr_hum")
@@ -325,7 +325,7 @@
             (scroll :hscroll true :height 145 :space-evenly false
                 (box :orientation "h" :space-evenly false :spacing 0 :hexpand true
                     (for i in hourly_idxs
-                        (box :orientation "v" :space-evenly false :spacing 3
+                        (box :orientation "v" :space-evenly false :spacing 12
                           (label :class "hourly-time-text" :text "${hourly_temps[i]}°C")
                           (scale
                               :flipped true

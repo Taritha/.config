@@ -31,9 +31,7 @@ sleep 0.25
 # reload eww
 /home/taritha/.config/bspwm/scripts/load_eww.sh &
 
-
 # Gets current wallpaper directory from ~/.fehbg
-# paperpath=$(cat ~/.fehbg | grep wpg | cut -d " " -f 4 | cut -d "'" -f 2)
 paperpath=$(readlink -f ~/.config/wpg/.current)
 
 # Update lockscreen to use same wallpaper as desktop

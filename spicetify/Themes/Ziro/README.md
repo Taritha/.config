@@ -24,6 +24,14 @@
 ![Profile](https://raw.githubusercontent.com/schnensch0/ziro/main/preview/profile-red-dark.png)
 ### Red Light
 ![Queue](https://raw.githubusercontent.com/schnensch0/ziro/main/preview/queue-red-light.png)
+### Rose Pine
+![Playlists](screenshots/rose-pine.jpg)
+### Rose Pine Moon
+![Playlists](screenshots/rose-pine-moon.jpg)
+### Rose Pine Dawn
+![Playlists](screenshots/rose-pine-dawn.jpg)
 
 ## More
 Inspired by the [Zorin GTK theme](https://github.com/ZorinOS/zorin-desktop-themes) and [spot](https://github.com/xou816/spot)
+
+<a href=https://discord.gg/tMEcBhsNqA><img src="https://img.shields.io/discord/733994169508560938?style=flat-square&logo=discord&color=5865F2&labelColor=white&label=support"></img></a>

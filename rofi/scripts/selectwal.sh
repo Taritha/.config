@@ -1,6 +1,6 @@
 #!/bin/bash
 
-rofi_command="rofi -theme /home/taritha/.config/rofi/themes/centermenu.rasi -config /home/taritha/.config/rofi/config.rasi"
+rofi_command="rofi -terminal kitty -theme /home/taritha/.config/rofi/themes/centermenu.rasi -config /home/taritha/.config/rofi/config.rasi"
 
 #### Options ###
 # Variable passed to rofi

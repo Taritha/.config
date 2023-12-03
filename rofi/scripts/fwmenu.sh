@@ -1,6 +1,6 @@
 #!/bin/bash
 
-rofi_command="rofi -theme ~/.config/rofi/themes/network.rasi -config ~/.config/rofi/config.rasi"
+rofi_command="rofi -terminal kitty -theme ~/.config/rofi/themes/network.rasi -config ~/.config/rofi/config.rasi"
 
 #### Options ###
 # Variable passed to rofi

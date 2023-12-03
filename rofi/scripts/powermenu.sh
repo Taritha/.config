@@ -1,6 +1,6 @@
 #!/bin/bash
 
-rofi_command="rofi -theme themes/icons.rasi -p "power""
+rofi_command="rofi -terminal kitty -theme themes/icons.rasi -p "power""
 
 #### Options ###
 power_off=""
