@@ -1,15 +1,15 @@
 * {
-  accent:           #47516b;
-  background:       #0b0a0ccc;
-  background-light: #68566f;
-  background-light-alpha: #c498c822;
-  background-focus: #68566f;
-  foreground:       #fff8fb;
-  foreground-list:  #d5cbcd;
-  foreground-alpha: #fff8fb11;
-  on:               #fff8fb;
-  off:              #d5cbcd;
-  background-opaque: #0b0a0c;
-  background-muted: #242027;
-  accent2:          #e46363;
+  accent:           #6fc0e2;
+  background:       #090C12cc;
+  background-light: #587c90;
+  background-light-alpha: #5395c322;
+  background-focus: #587c90;
+  foreground:       #d8ffff;
+  foreground-list:  #a5cbd9;
+  foreground-alpha: #d8ffff11;
+  on:               #d8ffff;
+  off:              #a5cbd9;
+  background-opaque: #090C12;
+  background-muted: #192134;
+  accent2:          #c9a178;
 }
