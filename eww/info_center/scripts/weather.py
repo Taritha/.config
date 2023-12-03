@@ -64,10 +64,14 @@ def web_request(zip, api_key, unit):
     return onecall_data
 
 # Loads from json, useful for development to prevent API call overload
-def load_from_json(filepath='secrets/onecall.json'):
+def load_from_json(filepath='secrets/onecall_dev.json'):
     with open(filepath, 'r') as jf:
         return json.load(jf)
 
+# Saves onecall data to json file
+def save_onecall_data(call_data, filepath='secrets/onecall.json'):
+    with open(filepath, 'w') as jf:
+        jf.write(json.dumps(call_data))
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Display the local weather, including moon phase and temperature')
@@ -75,7 +79,8 @@ if __name__ == "__main__":
     parser.add_argument('-u', '--units', type=str, required=False, default='Metric', help='units to display the weather in ()')
     parser.add_argument('-f', '--forecast', required=False, action='store_true', help='use to display the 5-day forecast')
     parser.add_argument('-c', '--choice', type=str, required=False, help="type of information to output. Choices are: 'hourly_temps', 'hourly_times', 'daily_avgs', 'daily_names', 'daily_descs', 'daily_icons', 'curr_temp', 'curr_vibes', 'curr_presssure', 'curr_hum', 'curr_uvi', 'curr_ws', 'curr_wd', 'curr_icon'")
-    parser.add_argument('-d', '--dev', required=False, action='store_true', help="enable for development to prevent overuse of API calls")
+    parser.add_argument('-r', '--refresh', required=False, action='store_true', help='refresh stored weather data JSON file with current information')
+    parser.add_argument('-d', '--dev', required=False, action='store_true', help='enable for development to prevent overuse of API calls')
     args = parser.parse_args()
 
     # Reads zip from file if it's not provided
@@ -99,7 +104,7 @@ if __name__ == "__main__":
     with open('secrets/api_key', 'r') as api_read:
         API_KEY = api_read.read().rstrip()
 
-    # Shows detailed weather data depening on argument provided
+    # Show detailed weather data depening on argument provided
     if args.forecast:
         output_jarrs = {
             'hourly_temps': '[',
@@ -116,21 +121,24 @@ if __name__ == "__main__":
 
         if args.dev:
             onecall_data = load_from_json()
-        else:
+        elif args.refresh:
             onecall_data = web_request(ZIP, API_KEY, UNITS)
+            save_onecall_data(onecall_data) # Save weather data to json file
+        else:
+            onecall_data = load_from_json(filepath='secrets/onecall.json')
 
-        # Gets hourly forecast for nect 48hrs into eww-compatible array
+        # Get hourly forecast for next 48hrs into eww-compatible array
         for n, hour_cast in enumerate(onecall_data['hourly']):
             temp = int(round(hour_cast['temp'], 0))
             output_jarrs['hourly_temps'] += f'{temp}, '
 
-            # Creates hour stimestamp to match the temperature
+            # Create hour timestamp to match the temperature
             matched_hour = int(current_hour) + n + 1
             if matched_hour >= 24:
                 matched_hour -= 24 * math.floor(matched_hour / 24)
             output_jarrs['hourly_times'] += f'{matched_hour}, '
 
-        # Gets daily weaither info for next 5 days
+        # Get daily weather info for next 5 days
         for n, daily_cast in enumerate(onecall_data['daily']):
             d_temp = int(round(daily_cast['temp']['day'], 0))
             d_icon = map_icon(daily_cast['weather'][0]['icon'])
@@ -153,17 +161,18 @@ if __name__ == "__main__":
         output_jarrs['curr_wd'] = wind_to_direction(onecall_data['current']['wind_deg'])
         output_jarrs['curr_icon']= map_icon(onecall_data['current']['weather'][0]['icon'])
 
-        # Fixes arr formatting
+        # Fix arr formatting
         for key, astr in output_jarrs.items():
             if isinstance(astr, str) and '[' in astr:
                 output_jarrs[key] = f'{astr[:-2]}]'
         
         if args.choice not in list(output_jarrs.keys()):
-            raise ValueError(f'{args.choice} must be in {list(output_jarrs.keys())}')
+            raise ValueError(f'Weather data choice must be in {list(output_jarrs.keys())}, got choice "{args.choice}"')
 
+        # Display choice for array
         print(output_jarrs[args.choice])
 
-    # Shows short, one-line description of weather
+    # Show short, one-line description of weather
     else:
         res = requests.get("http://api.openweathermap.org/data/2.5/weather?zip={}&appid={}&units={}".format(ZIP, API_KEY, UNITS))
         weather_data = res.json()

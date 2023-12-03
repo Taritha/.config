@@ -11,7 +11,7 @@
 (defpoll cpu_temp :interval "2s" "scripts/avg_temp.sh")
 
 ;; Temp t sensor until annoying Nan eww bug gets fixed
-(defpoll TS_temp :interval "2s" "scripts/poopfuck.sh")
+(defpoll TS_temp :interval "2s" "scripts/temp_sensor.sh")
 
 ; GPU stats
 (defpoll gpu_use :interval "2s" "scripts/gpustats.sh 1 --use")
@@ -36,7 +36,7 @@
 
 ; Weather
 (defpoll current_weather :interval "15m" "python scripts/weather.py")
-(defpoll current_temp :interval "15m" "python scripts/weather.py -f -c curr_temp")
+(defpoll current_temp :interval "5m" "python scripts/weather.py -r -f -c curr_temp") ; Set only one data type to refresh the output weather data to reduce unecessary calls to openweathermap
 (defpoll current_vibes :interval "15m" "python scripts/weather.py -f -c curr_vibes")
 (defpoll current_pressure :interval "15m" "python scripts/weather.py -f -c curr_pressure")
 (defpoll current_humidity :interval "15m" "python scripts/weather.py -f -c curr_hum")

@@ -5,7 +5,7 @@
 	"AurUseDifferentCommands": false,
 	"AurInstallCommand": "",
 	"AurUpgradeCommand": "",
-	"DisableAur": true,
+	"DisableAur": false,
 	"MaxResults": 500,
 	"PacmanDbPath": "/var/lib/pacman/",
 	"PacmanConfigPath": "/etc/pacman.conf",
@@ -29,5 +29,5 @@
 	"LeftProportion": 4,
 	"Transparent": false,
 	"PackageColumnWidth": 0,
-	"EnableAutoSuggest": true
+	"EnableAutoSuggest": false
 }

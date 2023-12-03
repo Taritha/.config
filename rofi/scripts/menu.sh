@@ -1,6 +1,6 @@
 #!/bin/bash
 
-rofi_command="rofi -theme -terminal kitty themes/centermenu.rasi"
+rofi_command="rofi -terminal kitty -theme themes/centermenu.rasi"
 backscript="$(dirname $0)/$(basename $0) $1"
 echo $backscript
 status=$?
