@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 STATUS="$(bluetoothctl show | grep Powered | awk '{print $2}')"
+
 toggle() {
     if [ $STATUS == "yes" ]; then
         bluetoothctl power off
@@ -18,12 +19,11 @@ icon() {
         echo ""
     else
         # on
-        if [ $(echo info | bluetoothctl | grep 'Device' | wc -c) -eq 0 ]
+        if [ $(echo info | bluetoothctl | grep 'DeviceSet' | wc -c) -eq 0 ]
         then
-            echo ""
-            # connected
+            echo "" # disconnected
         else
-            echo ""
+            echo ""
         fi
     fi
 }
@@ -35,12 +35,11 @@ status() {
         echo ""
     else
         # on
-        if [ $(echo info | bluetoothctl | grep 'Device' | wc -c) -eq 0 ]
+        if [ $(echo info | bluetoothctl | grep 'DeviceSet' | wc -c) -eq 0 ]
         then
-            echo ""
-            # connected
+            echo "" # disconnected
         else
-            echo ""
+            echo ""
         fi
     fi
 }

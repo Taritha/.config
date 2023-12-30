@@ -48,7 +48,7 @@ if [ "$1" != "" ]; then
                 discord &
             ;;
             Steam)
-                steam-native &
+                steam-runtime &
             ;;
             Lutris)
                 lutris &

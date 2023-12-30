@@ -1,9 +1,11 @@
 #! /bin/sh
 
+autorandr --change &
 pywalfox update &
 pywal-discord &
-spicetify update &
+spicetify -q refresh &
 bspc wm -r &
+~/.config/bspwm/scripts/load_eww.sh & # Reload ewww
 
 # Checks if spotify is running and restarts it if it is
 spotstatus=$(ps -A | grep -w spotify)
@@ -11,25 +13,26 @@ spotstatus=$(ps -A | grep -w spotify)
 if [ -z "$spotstatus" ]; then
     echo "Congratulations! Nothing."
 else
+    playerctl --player="spotify" pause
+
     # Gets Xwindow ID of Spotify window
     ids=($(bspc query -N -n .window))
-    options="$(xtitle "${ids[@]}" | awk '{ print ++i" - "$0 }')"
-    id_index="$(echo -e "$options" | grep Spotify)"
+    options="$(xtitle ${ids[@]} | awk '{ print ++i" - "$0 }')"
+    id_index="$(echo -e "$options" | grep 'Spotify Premium' | sed 's/[^0-9]*//g')"
     desktop="$(xwininfo -wm -id "${ids[$((id_index - 1))]}" | grep desktop | cut -d" " -f10)"
     desktop=$((desktop+1))
 
-    # restarts Spotify and opens it on desktop it was originally on
+    # Restarts Spotify and opens it on desktop it was originally on
     killall -9 spotify
     sleep 1
-    bspc rule -a "*" -o desktop="^$desktop"; # Sacrificial rule to be consumed by the computer Gods for their transgressions
     bspc rule -a "*" -o desktop="^$desktop";
     spotify
 fi
 
 sleep 0.25
 
-# reload eww
-/home/taritha/.config/bspwm/scripts/load_eww.sh &
+# Clear logger for dunst functionality
+~/.config/eww/control_center/scripts/logger.zsh clear &
 
 # Gets current wallpaper directory from ~/.fehbg
 paperpath=$(readlink -f ~/.config/wpg/.current)

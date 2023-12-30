@@ -186,7 +186,7 @@
             :class "spotify-event-bar-box"
             :orientation "h"
             :tooltip "Open spotify/spotify controls"
-            :onclick "scripts/rofi_thingies.sh --goto  Spotify &"
+            :onclick "scripts/spotify_bar_controls.sh"
             :onmiddleclick "${EWW_CMD} open --toggle spotify-window"
             (box :orientation "h" :space-evenly false :width 325
                 (label :class "misc-bar-spotify-logo" :text "阮")

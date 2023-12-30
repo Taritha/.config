@@ -299,7 +299,7 @@ show_menu() {
 }
 
 # Rofi command to pipe into, can add any options here
-rofi_command="rofi -terminal kitty s-theme /home/taritha/.config/rofi/themes/networkshort.rasi -config /home/taritha/.config/rofi/config.rasi -dmenu -no-fixed-num-lines -yoffset -100 -i -p"
+rofi_command="rofi -terminal kitty -theme /home/taritha/.config/rofi/themes/networkshort.rasi -config /home/taritha/.config/rofi/config.rasi -dmenu -no-fixed-num-lines -yoffset -100 -i -p"
 
 case "$1" in
     --status)
