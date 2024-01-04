@@ -5,6 +5,7 @@ import os
 import math
 from datetime import datetime
 import json
+import subprocess
 
 
 def get_moon_phase():
@@ -122,6 +123,16 @@ if __name__ == "__main__":
         if args.dev:
             onecall_data = load_from_json()
         elif args.refresh:
+            if args.zip == None:
+                auto_zip = subprocess.run('curl --fail https://ipapi.co/postal', stdout=subprocess.PIPE, shell=True) # Retrieve zip code automaticaally based on network IP
+                auto_zipcode = auto_zip.stdout.decode()
+
+                # Write zipcode to secrets file
+                with open('secrets/zip', 'w') as z:
+                    z.write(auto_zipcode)
+                z.close()
+            else: auto_zipcode = ZIP
+        
             onecall_data = web_request(ZIP, API_KEY, UNITS)
             save_onecall_data(onecall_data) # Save weather data to json file
         else:

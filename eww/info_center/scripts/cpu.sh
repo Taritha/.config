@@ -61,7 +61,7 @@ get_corevals() {
 
     # Uses 1s temporal difference to calculate core usage
     while sleep 2; do
-        cpu_view="$(/home/taritha/.config/eww/info_center/scripts/cpu.sh)"
+        cpu_view="$(grep '^cpu.' /proc/stat; ps -eo '%p|%c|%C|' -o "%mem" -o '|%a' --sort=-%cpu | head -11 | tail -n +2)"
         i=0
         OUTPUT=()
 
