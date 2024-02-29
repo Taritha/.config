@@ -493,7 +493,8 @@
         :plotheight 200
         :plotlabel "Thermal Sensor"
         :unit "°C"
-        :statistic {EWW_TEMPS["ASUSEC_T_SENSOR"]}
+        ; :statistic {EWW_TEMPS["ASUSEC_T_SENSOR"]}
+        :statistic TS_temp
         :rangelim 70
         :dynamic false
       )
@@ -561,8 +562,7 @@
   :monitor "HDMI-A-0"
   :stacking "bg"
   :wm-ignore false
-  :windowtype "desktop"
-  :reserve (struts :distance "517px" :side "right")
+  :reserve (struts :distance "517px" :side "right") ; Reserves on both monitors right now for some ungodly reason (as of ewww v0.50)
   :geometry (geometry
     :width 500
     :height 1023
