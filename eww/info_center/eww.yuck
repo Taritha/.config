@@ -493,8 +493,7 @@
         :plotheight 200
         :plotlabel "Thermal Sensor"
         :unit "°C"
-        ; :statistic {EWW_TEMPS["ASUSEC_T_SENSOR"]}
-        :statistic TS_temp
+        :statistic {EWW_TEMPS["ASUSEC_T_SENSOR"]}
         :rangelim 70
         :dynamic false
       )
