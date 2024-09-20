@@ -55,13 +55,13 @@ def web_request(zip, api_key, unit):
     res = requests.get("http://api.openweathermap.org/data/2.5/forecast?zip={}&appid={}&units={}".format(zip, api_key, unit))
     forecast_data = res.json()
 
-    # Extracts latitude and longitude based on 
+    # Extracts latitude and longitude based on what's returned by the forecast request (kinda janky but it works)
     lat = forecast_data['city']['coord']['lat']
     lon = forecast_data['city']['coord']['lon']
 
     # Onecall gets hourly forecast and other useful things
-    res = requests.get("http://api.openweathermap.org/data/2.5/onecall?&lat={}&lon={}&appid={}&exclude=minutely&units={}".format(lat, lon, api_key, unit))
-    onecall_data = res.json()
+    res = requests.get("http://api.openweathermap.org/data/3.0/onecall?lat={}&lon={}&appid={}&exclude=minutely&units={}".format(lat, lon, api_key, unit))
+    onecall_data = res.json(
     return onecall_data
 
 # Loads from json, useful for development to prevent API call overload

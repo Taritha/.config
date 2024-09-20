@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-bspc config focused_border_color "#ffc5c8"
-bspc config normal_border_color  "#311868"
-bspc config active_border_color "#311868"
-bspc config presel_feedback_color   "#ffc5c8"
+bspc config focused_border_color "#d4ffff"
+bspc config normal_border_color  "#151b22"
+bspc config active_border_color "#151b22"
+bspc config presel_feedback_color   "#d4ffff"

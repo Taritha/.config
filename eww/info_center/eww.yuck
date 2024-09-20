@@ -562,6 +562,7 @@
   :monitor "HDMI-A-0"
   :stacking "bg"
   :wm-ignore false
+  :windowtype "desktop"
   :reserve (struts :distance "517px" :side "right") ; Reserves on both monitors right now for some ungodly reason (as of ewww v0.50)
   :geometry (geometry
     :width 500

@@ -69,7 +69,7 @@ case $chosen in
         cmd="grub-customizer"
         ;;
     $login)
-        cmd="kcmshell5 kcm_sddm"
+        cmd="kcmshell6 kcm_sddm"
         ;;
     $rofi)
         cmd="bash $HOME/.config/rofi/scripts/rofimenu.sh"
